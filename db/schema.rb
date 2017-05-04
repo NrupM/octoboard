@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504062454) do
+ActiveRecord::Schema.define(version: 20170504064208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,27 @@ ActiveRecord::Schema.define(version: 20170504062454) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.string "primary_contact_name"
+    t.string "primary_contact_title"
+    t.string "primary_contact_email"
+    t.string "primary_contact_phone"
+    t.integer "interview_type"
+    t.text "notes"
+    t.datetime "coding_challenge_due_date"
+    t.text "coding_challenge_prompt"
+    t.string "coding_challenge_url"
+    t.text "thankyou_letter"
+    t.text "questions_to_ask"
+    t.datetime "interview_date"
+    t.boolean "is_followup_needed"
+    t.boolean "is_challenge_completed"
+    t.bigint "job_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_application_id"], name: "index_interviews_on_job_application_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -76,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170504062454) do
   end
 
   add_foreign_key "goals", "users"
+  add_foreign_key "interviews", "job_applications"
   add_foreign_key "job_applications", "users"
   add_foreign_key "questions", "users"
 end

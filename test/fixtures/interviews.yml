@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  primary_contact_name: MyString
+  primary_contact_title: MyString
+  primary_contact_email: MyString
+  primary_contact_phone: MyString
+  interview_type: 1
+  notes: MyText
+  coding_challenge_due_date: 2017-05-03 23:42:08
+  coding_challenge_prompt: MyText
+  coding_challenge_url: MyString
+  thankyou_letter: MyText
+  questions_to_ask: MyText
+  interview_date: 2017-05-03 23:42:08
+  is_followup_needed: false
+  is_challenge_completed: false
+  job_application: one
+
+two:
+  primary_contact_name: MyString
+  primary_contact_title: MyString
+  primary_contact_email: MyString
+  primary_contact_phone: MyString
+  interview_type: 1
+  notes: MyText
+  coding_challenge_due_date: 2017-05-03 23:42:08
+  coding_challenge_prompt: MyText
+  coding_challenge_url: MyString
+  thankyou_letter: MyText
+  questions_to_ask: MyText
+  interview_date: 2017-05-03 23:42:08
+  is_followup_needed: false
+  is_challenge_completed: false
+  job_application: two
