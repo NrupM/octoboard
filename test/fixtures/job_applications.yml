@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_applied: 2017-05-03
+  stage: 1
+  company_name: MyString
+  location: MyString
+  job_post_url: MyString
+  job_description: MyText
+  job_requirements: MyText
+  job_title: MyString
+  application_method: 1
+  why_interested: MyText
+  requested_salary: MyString
+  submitted_cover_letter: MyText
+  relevant_work_history: MyText
+  tech_stack: MyString
+  notes: MyText
+  user: one
+
+two:
+  date_applied: 2017-05-03
+  stage: 1
+  company_name: MyString
+  location: MyString
+  job_post_url: MyString
+  job_description: MyText
+  job_requirements: MyText
+  job_title: MyString
+  application_method: 1
+  why_interested: MyText
+  requested_salary: MyString
+  submitted_cover_letter: MyText
+  relevant_work_history: MyText
+  tech_stack: MyString
+  notes: MyText
+  user: two

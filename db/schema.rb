@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504054205) do
+ActiveRecord::Schema.define(version: 20170504062454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 20170504054205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.date "date_applied"
+    t.integer "stage"
+    t.string "company_name"
+    t.string "location"
+    t.string "job_post_url"
+    t.text "job_description"
+    t.text "job_requirements"
+    t.string "job_title"
+    t.integer "application_method"
+    t.text "why_interested"
+    t.string "requested_salary"
+    t.text "submitted_cover_letter"
+    t.text "relevant_work_history"
+    t.string "tech_stack"
+    t.text "notes"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -54,5 +76,6 @@ ActiveRecord::Schema.define(version: 20170504054205) do
   end
 
   add_foreign_key "goals", "users"
+  add_foreign_key "job_applications", "users"
   add_foreign_key "questions", "users"
 end
