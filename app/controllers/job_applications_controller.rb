@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
   def index
+    @user = current_user
   end
 
   def new

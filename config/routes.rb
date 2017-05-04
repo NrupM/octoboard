@@ -17,6 +17,10 @@ end
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  resources :users, :only => [:show]
+
+  resources :job_applications, :interviews
+
 
   get '/dashboard' => "goals#index"
 

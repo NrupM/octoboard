@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 
   #no show controller, all edit actions happen on main questions page.
   def index
+    @user = current_user
   end
   def new
   end
