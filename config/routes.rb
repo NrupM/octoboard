@@ -20,7 +20,7 @@ end
 
   get '/dashboard' => "goals#index"
 
-  get '/applications' => "applications#index"
+  get '/applications' => "job_applications#index"
 
   get '/interviews' => "interviews#index"
 
