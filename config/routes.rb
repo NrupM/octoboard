@@ -24,6 +24,8 @@ end
 
   get '/interviews' => "interviews#index"
 
+  get '/questions' => "questions#index"
+
   get '/account_settings' => "users#show"
 
 end
