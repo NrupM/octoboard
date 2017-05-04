@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504053006) do
+ActiveRecord::Schema.define(version: 20170504054205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "goals", force: :cascade do |t|
+    t.string "daily_goal"
+    t.string "longterm_goal"
+    t.string "weekly_goal"
+    t.date "longterm_goal_date"
+    t.integer "applications_per_day"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string "prompt"
@@ -41,5 +53,6 @@ ActiveRecord::Schema.define(version: 20170504053006) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "goals", "users"
   add_foreign_key "questions", "users"
 end
