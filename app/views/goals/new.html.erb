@@ -1,0 +1,14 @@
+<%= current_user.email %>
+<h1> hi do you want to create a new goal?</h1>
+
+<%= form_for Goal.new do |f| %>
+  <%= f.label :daily_goal, 'Today I would like to...' %>
+  <%= f.text_field :daily_goal %>
+  <%= f.label :weekly_goal, 'By this time next week I would have liked to...' %>
+  <%= f.text_field :weekly_goal %>
+  <%= f.label :longterm_goal_date, 'By' %>
+  <%= f.date_field :longterm_goal_date %>
+  <%= f.label :longterm_goal, 'I would have liked to...' %>
+  <%= f.text_field :longterm_goal %>
+  <%= f.submit 'Create' %>
+<% end %>

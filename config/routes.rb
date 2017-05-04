@@ -18,6 +18,7 @@ end
     registrations: 'users/registrations'
   }
   resources :users, :only => [:show]
+  resources :goals, :except => [:show]
 
   resources :job_applications, :interviews
 

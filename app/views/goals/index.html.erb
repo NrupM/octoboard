@@ -1,7 +1,11 @@
-<h1>THIS IS YOUR DASH!</h1>
+<h1>WELCOME <%= @user.email %>! THIS IS YOUR DASH!</h1>
 <h2> Here are your goals </h2>
-<%= link_to "Account Settings", account_settings_path %>
-<%= link_to 'Sign Out', logout_path %>
-<%= link_to 'My Applications', applications_path %>
-<%= link_to 'My Interviews', interviews_path %>
-<%= link_to 'My Questions', questions_path %>
+
+<ul>
+<li> link_to 'Account Settings', account_settings_path %></li>
+<li><%= link_to 'Sign Out', logout_path %></li>
+<li><%= link_to 'My Applications', applications_path %></li>
+<li><%= link_to 'My Interviews', interviews_path %></li>
+<li><%= link_to 'My Questions', questions_path %></li>
+<li><%= link_to 'Create a new goal', new_goal_path %></li>
+</ul>
