@@ -37,7 +37,11 @@ class JobApplicationsController < ApplicationController
 
     if @application.update_attributes(job_application_params)
       flash[:success] = "Application updated successfully."
-      redirect_to job_application_path
+      if @application.stage == 'interviewing'
+        redirect_to new_interview_path(job_application_id: @application.id)
+      else
+        redirect_to job_application_path
+      end
     else
       flash[:error] = @application.errors.full_messages.join(". ")
       redirect_to :back
