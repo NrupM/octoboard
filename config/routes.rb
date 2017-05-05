@@ -17,13 +17,20 @@ end
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :users, :only => [:show]
-  resources :goals, :except => [:show]
 
+  resources :users, :only => [:show]
   resources :job_applications, :interviews
 
+  get '/dashboard' => "goals#index", as: "dashboard"
+  get "/newgoal", to: "goals#new", as: "new_goal"
+  post "/newgoal", to: "goals#create"
+  # get "/creatures/:id", to: "creatures#show", as: "creature"
+  # get "/creatures/:id/edit", to: "creatures#edit", as: "edit_creature"
+  # patch "/creatures/:id", to: "creatures#update"
+  # delete "creatures/:id", to: "creatures#destroy"
 
-  get '/dashboard' => "goals#index"
+
+  # get '/dashboard' => "goals#index"
 
   get '/applications' => "job_applications#index"
 

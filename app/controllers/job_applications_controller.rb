@@ -1,6 +1,7 @@
 class JobApplicationsController < ApplicationController
   def index
     @user = current_user
+    @applications = JobApplication.where(user_id:current_user.id)
   end
 
   def new

@@ -21,6 +21,10 @@ class GoalsController < ApplicationController
   end
 
   def create
+    goal = Goal.new(goal_params)
+    if goal.save
+      redirect_to dashboard_path
+    end
   end
 
   def edit
@@ -31,7 +35,7 @@ class GoalsController < ApplicationController
 
   private
 
-  def edit_goal_params
+  def goal_params
     params.require(:goal).permit(:daily_goal, :weekly_goal,:longterm_goal,:longterm_goal_date, :applications_per_day)
   end
 
