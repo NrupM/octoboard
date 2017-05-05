@@ -18,8 +18,10 @@ class InterviewsController < ApplicationController
     end
   end
   def show
+    @interview = Interview.find_by_id(params[:id])
   end
   def edit
+    @interview = Interview.find_by_id(params[:id])
   end
   def update
   end

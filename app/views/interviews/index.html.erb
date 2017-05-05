@@ -6,7 +6,7 @@
 
 <% if @interviews.length > 0 %>
   <% @interviews.each do |i| %>
-    <%= link_to 'Edit this Interview', edit_interview_path(i) %>
+    <%= link_to 'See More Details', interview_path(i) %>
     <ul>
       <li>Company: <%= i.job_application.company_name %></li>
       <% if i.interview_date %>

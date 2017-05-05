@@ -1,0 +1,58 @@
+<h1>Interview info for: <%= @interview.job_application.company_name %></h1>
+
+<%= link_to 'Back', interviews_path %>
+
+
+
+<%= link_to 'Add an interview', new_interview_path %>
+
+<%= link_to 'Edit this Interview', edit_interview_path(@interview) %>
+<ul>
+  <% if @interview.interview_date %>
+    <li>Interview date: <%= @interview.interview_date %></li>
+  <% end %>
+  <% if @interview.interview_type %>
+    <li>Type: <%= @interview.interview_type %></li>
+  <% end %>
+  <% if @interview.is_followup_needed %>
+    <li>Is followup needed?: <%= @interview.is_followup_needed %></li>
+  <% end %>
+  <!-- PRIMARY CONTACT INFO  -->
+  <h2>Primary Contact Info</h2>
+  <% if @interview.primary_contact_name %>
+    <li>Primary Contact Name: <%= @interview.primary_contact_name %></li>
+  <% end %>
+  <% if @interview.primary_contact_title %>
+    <li>Primary Contact Title: <%= @interview.primary_contact_title %></li>
+  <% end %>
+  <% if @interview.primary_contact_email %>
+    <li>Primary Contact Email: <%= @interview.primary_contact_email %></li>
+  <% end %>
+  <% if @interview.primary_contact_phone %>
+    <li>Primary Contact Phone: <%= @interview.primary_contact_phone %></li>
+  <% end %>
+  <!--CODING CHALLENGE INFO  -->
+  <h2>Coding Challenge Details</h2>
+  <% if @interview.coding_challenge_url %>
+    <li>Link to coding challenge: <%= @interview.coding_challenge_url %></li>
+  <% end %>
+  <% if @interview.coding_challenge_prompt %>
+    <li>Coding challenge prompt: <%= @interview.coding_challenge_prompt %></li>
+  <% end %>
+  <% if @interview.coding_challenge_due_date %>
+    <li>Coding challenge due date: <%= @interview.coding_challenge_due_date %></li>
+  <% end %>
+  <% if @interview.is_challenge_completed %>
+    <li>Challenge done?: <%= @interview.is_challenge_completed %></li>
+  <% end %>
+  <h2>Preparedness &amp; Professionalism </h2>
+  <% if @interview.thankyou_letter %>
+    <li>Thank You letter: <%= @interview.thankyou_letter %></li>
+  <% end %>
+  <% if @interview.questions_to_ask %>
+    <li>Questions to ask: <%= @interview.questions_to_ask %></li>
+  <% end %>
+  <% if @interview.notes %>
+    <li>Notes: <%= @interview.notes %></li>
+  <% end %>
+</ul>

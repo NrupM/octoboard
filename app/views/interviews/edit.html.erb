@@ -1,1 +1,75 @@
 <h1>Edit this interview!</h1>
+
+<%= link_to 'Back', interview_path %>
+THE COMPANY: <%= @application.company_name %>
+THE POSITION: <%= @application.job_title %>
+
+<%= form_for @interview do |f| %>
+  <ul>
+    <!-- BASIC INFO FOR INTERVIEW -->
+    <h2>Basic Details</h2>
+    <li><%= f.label :interview_date, 'Interview Date' %>
+        <%= f.date_field :interview_date, autofocus: true, required: true %></li>
+    <li><%= f.label :interview_type, 'Interview Type' %>
+        <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
+    <li><%= f.label :interview_type, 'Is followup needed?' %>
+      <table>
+        <tr>
+          <td><%= f.label 'is_followup_needed_true', 'Yes' %></td>
+          <td><%= f.radio_button :is_followup_needed, true %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label 'is_followup_needed_false', 'No' %></td>
+          <td><%= f.radio_button :is_followup_needed, false %></td>
+        </tr>
+      </table>
+    </li>
+
+    <!-- PRIMARY CONTACT INFORMATION -->
+    <h2>Primary Contact Details</h2>
+    <li><%= f.label :primary_contact_name, 'Primary contact name' %>
+        <%= f.text_field :primary_contact_name %></li>
+    <li><%= f.label :primary_contact_title, 'Primary contact title' %>
+        <%= f.text_field :primary_contact_title %></li>
+    <li><%= f.label :primary_contact_email, 'Primary contact email' %>
+        <%= f.text_field :primary_contact_email %></li>
+    <li><%= f.label :primary_contact_phone, 'Primary contact phone' %>
+        <%= f.telephone_field :primary_contact_phone %></li>
+
+    <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
+    <h2>Preparedness &amp; Professionalism</h2>
+    <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
+      <%= f.text_area :questions_to_ask %></li>
+    <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
+        <%= f.text_area :thankyou_letter %></li>
+
+    <!-- CODING CHALLENGE DETAILS  -->
+    <h2>Coding Challenge Info</h2>
+    <li><%= f.label :coding_challenge_url %>
+        <%= f.text_field :coding_challenge_url %></li>
+    <li><%= f.label :coding_challenge_due_date %>
+        <%= f.datetime_local_field :coding_challenge_due_date %></li>
+    <li><%= f.label :coding_challenge_prompt %>
+        <%= f.text_area :coding_challenge_prompt %></li>
+    <li><%= f.label :is_challenge_completed, 'Is this challenege completed?' %>
+      <table>
+        <tr>
+          <td><%= f.label 'is_challenge_completed_true', 'Yes' %></td>
+          <td><%= f.radio_button :is_challenge_completed, true %></td>
+        </tr>
+
+        <tr>
+          <td><%= f.label 'is_challenge_completed_false', 'No' %></td>
+          <td><%= f.radio_button :is_challenge_completed, false %></td>
+        </tr>
+      </table>
+    </li>
+
+    <!-- MORE DETAILS  -->
+    <h2>Additional details</h2>
+    <li><%= f.label :notes, 'Additional details/notes' %>
+        <%= f.text_area :notes %></li>
+    <%= f.submit 'Submit' %>
+  </ul>
+<% end %>
