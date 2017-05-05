@@ -19,7 +19,7 @@
       <li><%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %></li>
     <% end %>
       <li><%= f.label :interview_date, 'Interview Date' %>
-          <%= f.date_field :interview_date, autofocus: true, required: true %></li>
+          <%= f.datetime_local_field :interview_date, autofocus: true, required: true %></li>
       <li><%= f.label :interview_type, 'Interview Type' %>
           <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
 

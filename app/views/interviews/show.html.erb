@@ -14,7 +14,7 @@
     <li>Interview date: <%= @interview.interview_date %></li>
   <% end %>
   <% if @interview.interview_type %>
-    <li>Type: <%= @interview.interview_type %></li>
+    <li>Type: <%= @interview.interview_type.humanize %></li>
   <% end %>
   <% if @interview.is_followup_needed %>
     <li>Is followup needed?: <%= @interview.is_followup_needed %></li>

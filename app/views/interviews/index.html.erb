@@ -13,7 +13,7 @@
         <li>Interview date: <%= i.interview_date %></li>
       <% end %>
       <% if i.interview_type %>
-        <li>Type: <%= i.interview_type %></li>
+        <li>Type: <%= i.interview_type.humanize %></li>
       <% end %>
       <% if i.is_followup_needed %>
         <li>Is followup needed?: <%= i.is_followup_needed %></li>
