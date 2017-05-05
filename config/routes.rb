@@ -19,6 +19,7 @@ end
   }
 
   resources :users, :only => [:show]
-  resources :job_applications, :interviews, :goals, :questions
+  resources :goals, :except => [:destroy]
+  resources :job_applications, :interviews, :questions
 
 end

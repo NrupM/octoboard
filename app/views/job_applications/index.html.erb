@@ -1,6 +1,7 @@
 <h1>These are all job apps belonging to <%= @user.email %>!</h1>
 
 <%= link_to 'Back', :back %>
+<%= link_to 'Add an application', new_job_application_path %>
 
 <% if @applications.length > 0 %>
   <% @applications.each do |app| %>

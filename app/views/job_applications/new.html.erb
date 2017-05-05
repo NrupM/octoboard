@@ -1,0 +1,40 @@
+<h1>Create a new job application</h1>
+
+<%= link_to 'Back', :back %>
+
+
+<%= form_for (@application = JobApplication.new), method: :post do |f| %>
+  <ul>
+    <li><%= f.label :job_title, 'Job Title' %>
+        <%= f.text_field :job_title, autofocus: true, required: true %></li>
+    <li><%= f.label :company_name, 'Company Name' %>
+        <%= f.text_field :company_name, required: true %></li>
+    <li><%= f.label :location, 'Location' %>
+        <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
+    <li><%= f.label :application_method, 'Application Method' %>
+        <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :prompt => "---" %></li>
+    <li><%= f.label :stage, 'Application Stage' %>
+        <%= f.select :stage, JobApplication.application_stages.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
+    <li><%= f.label :date_applied, 'Date Applied' %>
+        <%= f.date_field :date_applied, :required => true %></li>
+    <li><%= f.label :job_post_url, 'Job Post URL' %>
+        <%= f.text_field :job_post_url %></li>
+    <li><%= f.label :job_description, 'Description' %>
+        <%= f.text_area :job_description %></li>
+    <li><%= f.label :tech_stack, 'Tech stack' %>
+        <%= f.text_field :tech_stack %></li>
+    <li><%= f.label :job_requirements, 'Requirements' %>
+        <%= f.text_area :job_requirements %></li>
+    <li><%= f.label :why_interested, 'If a recruiter asked you why you are interested in this job, how would you respond?' %>
+        <%= f.text_area :why_interested %></li>
+    <li><%= f.label :relevant_work_history, 'Relevant work history talking points' %>
+        <%= f.text_area :relevant_work_history %></li>
+    <li><%= f.label :submitted_cover_letter, 'Cover Letter submitted' %>
+        <%= f.text_area :submitted_cover_letter %></li>
+    <li><%= f.label :requested_salary, 'Requested Salary' %>
+        <%= f.text_field :requested_salary %></li>
+    <li><%= f.label :notes, 'Other notes' %>
+        <%= f.text_area :notes %></li>
+    <%= f.submit 'Submit' %>
+  </ul>
+<% end %>

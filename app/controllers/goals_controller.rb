@@ -24,8 +24,12 @@ class GoalsController < ApplicationController
   def create
     if current_user.goals.count == 0
       @goal = current_user.goals.create(goal_params)
-      @goal.save
-      redirect_to goals_path
+      if @goal.save
+        redirect_to goals_path
+      else
+        flash[:error] = 'An error occurred creating your goal. Please try again.'
+        redirect_to :back
+      end
     else
       flash[:error] = 'Update your current goal instead!'
       redirect_to '/goals'
