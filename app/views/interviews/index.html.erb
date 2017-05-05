@@ -2,3 +2,55 @@
 <h2> you go glen coco! </h2>
 
 <%= link_to 'Back', :back %>
+
+
+<% if @interviews.length > 0 %>
+  <% @interviews.each do |i| %>
+    <% if i.interview_date %>
+      Interview applied: <%= i.interview_date %>
+    <% end %>
+    <% if i.interview_type %>
+      Type: <%= i.interview_type %>
+    <% end %>
+    <% if i.is_followup_needed? %>
+      Is followup needed?: <%= i.is_followup_needed? %>
+    <% end %>
+    <% if i.primary_contact_name %>
+      Primary Contact Name: <%= i.primary_contact_name %>
+    <% end %>
+    <% if i.primary_contact_title %>
+      Primary Contact Title: <%= i.primary_contact_title %>
+    <% end %>
+    <% if i.primary_contact_email %>
+      Primary Contact Email: <%= i.primary_contact_email %>
+    <% end %>
+    <% if i.primary_contact_phone %>
+      Primary Contact Phone: <%= i.primary_contact_phone %>
+    <% end %>
+    <% if i.coding_challenge_url %>
+      Link to coding challenge: <%= app.coding_challenge_url %>
+    <% end %>
+    <% if i.coding_challenge_prompt %>
+      Coding challenge prompt: <%= app.coding_challenge_prompt %>
+    <% end %>
+    <% if i.coding_challenge_due_date %>
+      Coding challenge due date: <%= app.coding_challenge_due_date %>
+    <% end %>
+    <% if i.thankyou_letter %>
+      Thank You letter: <%= i.thankyou_letter %>
+    <% end %>
+    <% if i.questions_to_ask %>
+      Questions to ask: <%= i.questions_to_ask %>
+    <% end %>
+    <% if i.is_challenge_completed? %>
+      Challenge done?: <%= i.is_challenge_completed? %>
+    <% end %>
+    <% if i.notes %>
+      Notes: <%= i.notes %>
+    <% end %>
+    User ID: <%= i.job_application.user.email %>
+    Company: <%= i.job_application.company_name %>
+  <% end %>
+<% else %>
+  <h2>Don't worry - you'll be interviewing soon enough.</h2>
+<% end %>
