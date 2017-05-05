@@ -29,9 +29,19 @@ class JobApplicationsController < ApplicationController
   end
 
   def edit
+    @application = JobApplication.find_by_id(params[:id])
   end
 
   def update
+    @application = JobApplication.find_by_id(params[:id])
+
+    if @application.update_attributes(job_application_params)
+      flash[:success] = "Application updated successfully."
+      redirect_to job_application_path
+    else
+      flash[:error] = @application.errors.full_messages.join(". ")
+      redirect_to :back
+    end
   end
 
   def destroy
