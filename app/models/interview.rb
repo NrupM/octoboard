@@ -7,6 +7,6 @@ class Interview < ApplicationRecord
   # validates :is_challenge_completed,
   #           :presence => { :if => 'is_challenge_completed.nil?' }
 
-  enum interview_types: [:phone, :online, :in_person]
+  enum interview_type: [:phone, :online, :in_person]
 
 end

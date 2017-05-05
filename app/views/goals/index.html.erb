@@ -13,8 +13,8 @@
 
 </ul>
 
-<h2> Here are your goals </h2>
 <% if @goals.length > 0 %>
+  <h2> Here are your goals </h2>
   <% @goals.each do |goal| %>
     <%= link_to 'Edit this goal', edit_goal_path(goal) %>
     <ul>
