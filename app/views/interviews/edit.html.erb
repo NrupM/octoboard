@@ -1,8 +1,9 @@
-<h1>Edit this interview!</h1>
-
 <%= link_to 'Back', interview_path %>
-THE COMPANY: <%= @application.company_name %>
-THE POSITION: <%= @application.job_title %>
+<h1>Edit this interview!</h1>
+<ul>
+  <li>THE COMPANY: <%= @interview.job_application.company_name %></li>
+  <li>THE POSITION: <%= @interview.job_application.job_title %></li>
+</ul>
 
 <%= form_for @interview do |f| %>
   <ul>

@@ -17,15 +17,32 @@ class InterviewsController < ApplicationController
       redirect_to :back
     end
   end
+
   def show
     @interview = Interview.find_by_id(params[:id])
   end
+
   def edit
     @interview = Interview.find_by_id(params[:id])
   end
+
   def update
+    @interview = Interview.find_by_id(params[:id])
+
+    if @interview.update_attributes(interview_params)
+      flash[:success] = "Interview updated successfully."
+      redirect_to interview_path
+    else
+      flash[:error] = @interview.errors.full_messages.join(". ")
+      redirect_to :back
+    end
   end
+
   def destroy
+    @interview = Interview.find_by_id(params[:id])
+    @interview.destroy
+    flash[:success] = "Your interview was successfully deleted."
+    redirect_to interviews_path
   end
 
   private
