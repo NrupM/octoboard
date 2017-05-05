@@ -1,0 +1,52 @@
+<h1>This job is : <%= @application.job_title %></h1>
+<%= link_to 'Back', job_applications_path %>
+
+
+<ul>
+  <%= link_to 'Edit', edit_job_application_path %>
+  <% if @application.date_applied %>
+    <li>Date applied: <%= @application.date_applied %></li>
+  <% end %>
+  <% if @application.stage %>
+    <li>Stage: <%= @application.stage %></li>
+  <% end %>
+  <% if @application.company_name %>
+    <li>Company name: <%= @application.company_name %></li>
+  <% end %>
+  <% if @application.job_title %>
+    <li>Position: <%= @application.job_title %></li>
+  <% end %>
+  <% if @application.location %>
+    <li>Located in: <%= @application.location %></li>
+  <% end %>
+  <% if @application.job_post_url %>
+    <li>URL: <%= @application.job_post_url %></li>
+  <% end %>
+  <% if @application.job_description %>
+    <li>Description: <%= @application.job_description %></li>
+  <% end %>
+  <% if @application.job_requirements %>
+    <li>Requirements: <%= @application.job_requirements %></li>
+  <% end %>
+  <% if @application.application_method %>
+    <li>Application method: <%= @application.application_method %></li>
+  <% end %>
+  <% if @application.why_interested %>
+    <li>Why are you interested?: <%= @application.why_interested %></li>
+  <% end %>
+  <% if @application.requested_salary %>
+    <li>Requested salary: <%= @application.requested_salary %></li>
+  <% end %>
+  <% if @application.submitted_cover_letter %>
+    <li>Cover letter: <%= @application.submitted_cover_letter %></li>
+  <% end %>
+  <% if @application.relevant_work_history %>
+    <li>Relevant work history: <%= @application.relevant_work_history %></li>
+  <% end %>
+  <% if @application.tech_stack %>
+    <li>Tech stack: <%= @application.tech_stack %></li>
+  <% end %>
+  <% if @application.notes %>
+    Notes: <%= @application.notes %>
+  <% end %>
+</ul>

@@ -25,6 +25,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @application = JobApplication.find_by_id(params[:id])
   end
 
   def edit

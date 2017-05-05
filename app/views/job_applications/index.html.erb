@@ -1,56 +1,58 @@
 <h1>These are all job apps belonging to <%= @user.email %>!</h1>
 
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', goals_path %>
 <%= link_to 'Add an application', new_job_application_path %>
 
 <% if @applications.length > 0 %>
   <% @applications.each do |app| %>
-    <% if app.date_applied %>
-      Date applied: <%= app.date_applied %>
-    <% end %>
-    <% if app.stage %>
-      Stage: <%= app.stage %>
-    <% end %>
-    <% if app.company_name %>
-      Company name: <%= app.company_name %>
-    <% end %>
-    <% if app.job_title %>
-      Position: <%= app.job_title %>
-    <% end %>
-    <% if app.location %>
-      Located in: <%= app.location %>
-    <% end %>
-    <% if app.job_post_url %>
-      URL: <%= app.job_post_url %>
-    <% end %>
-    <% if app.job_description %>
-      Description: <%= app.job_description %>
-    <% end %>
-    <% if app.job_requirements %>
-      Requirements: <%= app.job_requirements %>
-    <% end %>
-    <% if app.application_method %>
-      Application method: <%= app.application_method %>
-    <% end %>
-    <% if app.why_interested %>
-      Why are you interested?: <%= app.why_interested %>
-    <% end %>
-    <% if app.requested_salary %>
-      Requested salary: <%= app.requested_salary %>
-    <% end %>
-    <% if app.submitted_cover_letter %>
-      Cover letter: <%= app.submitted_cover_letter %>
-    <% end %>
-    <% if app.relevant_work_history %>
-      Relevant work history: <%= app.relevant_work_history %>
-    <% end %>
-    <% if app.tech_stack %>
-      Tech stack: <%= app.tech_stack %>
-    <% end %>
-    <% if app.notes %>
-      Notes: <%= app.notes %>
-    <% end %>
-    User ID: <%= app.user_id %>
+    <ul>
+      <%= link_to 'View more details', job_application_path(app) %>
+      <% if app.date_applied %>
+        <li>Date applied: <%= app.date_applied %></li>
+      <% end %>
+      <% if app.stage %>
+        <li>Stage: <%= app.stage %></li>
+      <% end %>
+      <% if app.company_name %>
+        <li>Company name: <%= app.company_name %></li>
+      <% end %>
+      <% if app.job_title %>
+        <li>Position: <%= app.job_title %></li>
+      <% end %>
+      <% if app.location %>
+        <li>Located in: <%= app.location %></li>
+      <% end %>
+      <% if app.job_post_url %>
+        <li>URL: <%= app.job_post_url %></li>
+      <% end %>
+      <% if app.job_description %>
+        <li>Description: <%= app.job_description %></li>
+      <% end %>
+      <% if app.job_requirements %>
+        <li>Requirements: <%= app.job_requirements %></li>
+      <% end %>
+      <% if app.application_method %>
+        <li>Application method: <%= app.application_method %></li>
+      <% end %>
+      <% if app.why_interested %>
+        <li>Why are you interested?: <%= app.why_interested %></li>
+      <% end %>
+      <% if app.requested_salary %>
+        <li>Requested salary: <%= app.requested_salary %></li>
+      <% end %>
+      <% if app.submitted_cover_letter %>
+        <li>Cover letter: <%= app.submitted_cover_letter %></li>
+      <% end %>
+      <% if app.relevant_work_history %>
+        <li>Relevant work history: <%= app.relevant_work_history %></li>
+      <% end %>
+      <% if app.tech_stack %>
+        <li>Tech stack: <%= app.tech_stack %></li>
+      <% end %>
+      <% if app.notes %>
+        Notes: <%= app.notes %>
+      <% end %>
+    </ul>
   <% end %>
 <% else %>
   <h2>You better start applying!</h2>
