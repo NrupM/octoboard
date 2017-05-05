@@ -13,3 +13,22 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+function showSweetAlertConfirmModal(e) {
+  swal({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: 'green',
+    cancelButtonColor: 'red',
+    confirmButtonText: 'Yes, delete it!'
+  }).then(function () {
+    swal(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  })
+}

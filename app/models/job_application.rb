@@ -3,7 +3,7 @@ class JobApplication < ApplicationRecord
   has_many :interviews, dependent: :destroy
 
 
-  enum application_methods: [:company_site, :indeed, :linkedIn, :monster, :craigslist, :in_person, :other]
-  enum application_stages: [:pending_response, :interviewing, :declined]
+  enum application_method: [:company_site, :indeed, :linkedin, :monster, :craigslist, :in_person, :other]
+  enum stage: [:pending_response, :interviewing, :declined]
 
 end

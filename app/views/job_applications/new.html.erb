@@ -12,9 +12,9 @@
     <li><%= f.label :location, 'Location' %>
         <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
     <li><%= f.label :application_method, 'Application Method' %>
-        <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :prompt => "---" %></li>
+        <%= f.select :application_method, JobApplication.application_method.map { |key, value| [key.humanize, key] }, :prompt => "---" %></li>
     <li><%= f.label :stage, 'Application Stage' %>
-        <%= f.select :stage, JobApplication.application_stages.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
+        <%= f.select :stage, JobApplication.stage.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
     <li><%= f.label :date_applied, 'Date Applied' %>
         <%= f.date_field :date_applied, :required => true %></li>
     <li><%= f.label :job_post_url, 'Job Post URL' %>

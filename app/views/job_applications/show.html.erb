@@ -10,7 +10,7 @@
     <li>Date applied: <%= @application.date_applied %></li>
   <% end %>
   <% if @application.stage %>
-    <li>Stage: <%= @application.stage %></li>
+    <li>Stage: <%= @application.stage.humanize %></li>
   <% end %>
   <% if @application.company_name %>
     <li>Company name: <%= @application.company_name %></li>
@@ -31,7 +31,7 @@
     <li>Requirements: <%= @application.job_requirements %></li>
   <% end %>
   <% if @application.application_method %>
-    <li>Application method: <%= @application.application_method %></li>
+    <li>Application method: <%= @application.application_method.humanize %></li>
   <% end %>
   <% if @application.why_interested %>
     <li>Why are you interested?: <%= @application.why_interested %></li>

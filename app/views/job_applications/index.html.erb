@@ -7,18 +7,21 @@
   <% @applications.each do |app| %>
     <ul>
       <%= link_to 'View more details', job_application_path(app) %>
+      <% if app.company_name %>
+      <li>Company name: <%= app.company_name %></li>
+      <% end %>
+      <% if app.job_title %>
+      <li>Position: <%= app.job_title %></li>
+      <% end %>
       <% if app.date_applied %>
         <li>Date applied: <%= app.date_applied %></li>
       <% end %>
       <% if app.stage %>
-        <li>Stage: <%= app.stage %></li>
-      <% end %>
-      <% if app.company_name %>
-        <li>Company name: <%= app.company_name %></li>
-      <% end %>
-      <% if app.job_title %>
-        <li>Position: <%= app.job_title %></li>
-      <% end %>
+        <li>Stage: <%= app.stage.humanize %></li>
+          <% if app.stage == 'interviewing' || app.interviews.count > 0 %>
+            <li> Number of total interviews: <%= app.interviews.count %></li>
+          <% end %>
+        <% end %>
       <% if app.location %>
         <li>Located in: <%= app.location %></li>
       <% end %>
@@ -32,7 +35,7 @@
         <li>Requirements: <%= app.job_requirements %></li>
       <% end %>
       <% if app.application_method %>
-        <li>Application method: <%= app.application_method %></li>
+        <li>Application method: <%= app.application_method.humanize %></li>
       <% end %>
       <% if app.why_interested %>
         <li>Why are you interested?: <%= app.why_interested %></li>

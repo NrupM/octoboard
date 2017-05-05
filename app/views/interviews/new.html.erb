@@ -1,12 +1,15 @@
 <h1>Create a new interview </h1>
 <%= link_to 'Back', interviews_path %>
-the id: <%= @application.id %>
 
 <%= form_for @interview, method: :post do |f| %>
   <ul>
     <!-- BASIC INFO FOR INTERVIEW -->
     <h2>Basic Details</h2>
-    <li><%= f.number_field :job_application_id, :value => @application.id, :readonly => true %></li>
+    <% if @application %>
+      <%= f.hidden_field :job_application_id, :value => @application.id %>
+    <% else %>
+      <%= f.collection_select(:job_application_id, JobApplication.all.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %>
+    <% end %>
     <li><%= f.label :interview_date, 'Interview Date' %>
         <%= f.date_field :interview_date, autofocus: true, required: true %></li>
     <li><%= f.label :interview_type, 'Interview Type' %>
