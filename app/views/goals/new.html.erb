@@ -1,12 +1,14 @@
 <%= current_user.email %>
 <h1> Hi do you want to create a new goal?</h1>
+<%= link_to 'Back', :back %>
 
-<%= form_for :goal, method: 'post' do |f| %>
+<%= form_for (@goal = Goal.new), method: :post do |f| %>
+<ul>
   <li><%= f.label :daily_goal, 'Today I would like to...' %>
   <%= f.text_field :daily_goal %></li>
   <li><%= f.label :applications_per_day, 'I want to send out' %>
-  <%= f.number_field :daily_goal %>
-  <%= f.label :applications_per_day, 'applications per day.' %></li>
+    <%= f.number_field :applications_per_day %> per day.
+  </li>
   <li><%= f.label :weekly_goal, 'By this time next week I would have liked to...' %>
   <%= f.text_field :weekly_goal %></li>
   <li><%= f.label :longterm_goal_date, 'By' %>
@@ -14,4 +16,5 @@
   <%= f.label :longterm_goal, 'I would have liked to...' %>
   <%= f.text_field :longterm_goal %></li>
   <li><%= f.submit 'Create' %></li>
+</ul>
 <% end %>

@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
   def index
     if user_signed_in?
       @user = current_user
+      @goals = current_user.goals.all
       render :index
     else
       flash[:error] = "You must login to continue."
@@ -21,9 +22,9 @@ class GoalsController < ApplicationController
   end
 
   def create
-    goal = Goal.new(goal_params)
-    if goal.save
-      redirect_to dashboard_path
+    @goal = current_user.goals.create(goal_params)
+    if @goal.save
+      redirect_to goals_path
     end
   end
 

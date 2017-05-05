@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
   def index
     @user = current_user
-    @interviews = @user.job_applications
+    @interviews = @user.interviews.all
   end
   def new
   end

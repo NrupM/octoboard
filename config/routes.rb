@@ -19,25 +19,6 @@ end
   }
 
   resources :users, :only => [:show]
-  resources :job_applications, :interviews
-
-  get '/dashboard' => "goals#index", as: "dashboard"
-  get "/newgoal", to: "goals#new", as: "new_goal"
-  post "/newgoal", to: "goals#create"
-  # get "/creatures/:id", to: "creatures#show", as: "creature"
-  # get "/creatures/:id/edit", to: "creatures#edit", as: "edit_creature"
-  # patch "/creatures/:id", to: "creatures#update"
-  # delete "creatures/:id", to: "creatures#destroy"
-
-
-  # get '/dashboard' => "goals#index"
-
-  get '/applications' => "job_applications#index"
-
-  get '/interviews' => "interviews#index"
-
-  get '/questions' => "questions#index"
-
-  get '/account_settings' => "users#show"
+  resources :job_applications, :interviews, :goals, :questions
 
 end
