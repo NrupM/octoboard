@@ -2,3 +2,12 @@
 
 <%= link_to 'Back', goals_path %>
 <%= link_to 'Add a new question & answer', new_question_path %>
+
+
+<% if @questions.length > 0 %>
+  <% @questions.each do |question| %>
+    <%= link_to 'Edit this question', edit_question_path(question) %>
+    <h2><%= question.prompt %></h2>
+    <p><%= question.answer %></p>
+  <% end %>
+<% end %>

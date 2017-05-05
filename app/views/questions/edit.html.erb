@@ -1,8 +1,8 @@
-<h1>Prepare yourself by asking good questions!</h1>
+<h1>Edit this question</h1>
 <%= link_to 'Back', questions_path %>
 
 
-<%= form_for @question, method: :post do |f| %>
+<%= form_for @question do |f| %>
   <ul>
     <li><%= f.label :prompt, 'Prompt' %>
         <%= f.text_field :prompt, :required => true %></li>
@@ -11,3 +11,6 @@
     <%= f.submit 'Save' %>
   </ul>
 <% end %>
+
+
+<%= link_to question_path(@question), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
