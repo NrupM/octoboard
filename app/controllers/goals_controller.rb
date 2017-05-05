@@ -29,9 +29,20 @@ class GoalsController < ApplicationController
   end
 
   def edit
+    @goal = Goal.find(params[:id])
   end
 
   def update
+    @goal = Goal.find(params[:id])
+
+    if @goal.update_attributes(goal_params)
+      flash[:success] = "Goal updated successfully."
+      redirect_to '/goals'
+    else
+      flash[:error] = @goal.errors.full_messages.join(". ")
+      redirect_to :back
+    end
+    
   end
 
   private

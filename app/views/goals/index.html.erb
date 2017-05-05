@@ -12,6 +12,7 @@
 <h2> Here are your goals </h2>
 <% if @goals.length > 0 %>
   <% @goals.each do |goal| %>
+    <%= link_to 'Edit this goal', edit_goal_path(goal) %>
     <ul>
       <li><% if goal.daily_goal %>
         Today I would like to: <%= goal.daily_goal %>.
