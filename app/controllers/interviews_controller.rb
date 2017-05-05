@@ -6,6 +6,7 @@ class InterviewsController < ApplicationController
   def new
     @interview = Interview.new
     @application = JobApplication.find_by_id(params[:job_application_id])
+    @applicationscount = current_user.job_applications.count
     @applications = JobApplication.where(user_id: current_user.id)
   end
 

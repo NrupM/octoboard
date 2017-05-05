@@ -1,31 +1,27 @@
-<h1>Create a new interview </h1>
-<%= link_to 'Back', interviews_path %>
+<% if @application %>
+  <h1>Create a new interview for <%= @application.company_name %></h1>
+  <%= link_to 'Back', job_application_path(@application) %>
+<% else %>
+  <h1>Create a new interview</h1>
+  <%= link_to 'Back', interviews_path %>
+<% end %>
 
 <%= form_for @interview, method: :post do |f| %>
   <!-- BASIC INFO FOR INTERVIEW -->
-  <% if @application %>
-    <%= f.hidden_field :job_application_id, :value => @application.id %>
-  <% elsif @applications.count > 0 %>
+  <% if @applicationscount > 0 %>
+    <% if @application %>
+      <h2>Basic Details</h2>
+      <ul>
+      <%= f.hidden_field :job_application_id, :value => @application.id %>
+    <% else %>
     <h2>Basic Details</h2>
     <ul>
       <li><%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %></li>
+    <% end %>
       <li><%= f.label :interview_date, 'Interview Date' %>
           <%= f.date_field :interview_date, autofocus: true, required: true %></li>
       <li><%= f.label :interview_type, 'Interview Type' %>
-          <%= f.select :interview_type, Interview.interview_type.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
-      <li><%= f.label :interview_type, 'Is followup needed?' %>
-        <table>
-          <tr>
-            <td><%= f.label 'is_followup_needed_true', 'Yes' %></td>
-            <td><%= f.radio_button :is_followup_needed, true %></td>
-          </tr>
-
-          <tr>
-            <td><%= f.label 'is_followup_needed_false', 'No' %></td>
-            <td><%= f.radio_button :is_followup_needed, false %></td>
-          </tr>
-        </table>
-      </li>
+          <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
 
       <!-- PRIMARY CONTACT INFORMATION -->
       <h2>Primary Contact Details</h2>
@@ -44,6 +40,19 @@
         <%= f.text_area :questions_to_ask %></li>
       <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
           <%= f.text_area :thankyou_letter %></li>
+          <li><%= f.label :interview_type, 'Is followup needed?' %>
+            <table>
+              <tr>
+                <td><%= f.label 'is_followup_needed_true', 'Yes' %></td>
+                <td><%= f.radio_button :is_followup_needed, true %></td>
+              </tr>
+
+              <tr>
+                <td><%= f.label 'is_followup_needed_false', 'No' %></td>
+                <td><%= f.radio_button :is_followup_needed, false %></td>
+              </tr>
+            </table>
+          </li>
 
       <!-- CODING CHALLENGE DETAILS  -->
       <h2>Coding Challenge Info</h2>
