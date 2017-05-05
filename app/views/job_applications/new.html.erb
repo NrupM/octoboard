@@ -3,7 +3,7 @@
 <%= link_to 'Back', :back %>
 
 
-<%= form_for (@application = JobApplication.new), method: :post do |f| %>
+<%= form_for @application, method: :post do |f| %>
   <ul>
     <li><%= f.label :job_title, 'Job Title' %>
         <%= f.text_field :job_title, autofocus: true, required: true %></li>
