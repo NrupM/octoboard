@@ -22,9 +22,13 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = current_user.goals.create(goal_params)
-    if @goal.save
+    if current_user.goals.count == 0
+      @goal = current_user.goals.create(goal_params)
+      @goal.save
       redirect_to goals_path
+    else
+      flash[:error] = 'Update your current goal instead!'
+      redirect_to '/goals'
     end
   end
 
@@ -42,7 +46,7 @@ class GoalsController < ApplicationController
       flash[:error] = @goal.errors.full_messages.join(". ")
       redirect_to :back
     end
-    
+
   end
 
   private
