@@ -6,20 +6,23 @@
   <%= link_to 'Edit', edit_job_application_path %>
   <%= link_to 'Add an Interview for this job', new_interview_path(job_application_id: @application.id) %>
   <%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
-  <% if @application.date_applied %>
-    <li>Date applied: <%= @application.date_applied %></li>
-  <% end %>
-  <% if @application.stage %>
-    <li>Stage: <%= @application.stage.humanize %></li>
-  <% end %>
   <% if @application.company_name %>
-    <li>Company name: <%= @application.company_name %></li>
+  <li>Company name: <%= @application.company_name %></li>
   <% end %>
   <% if @application.job_title %>
-    <li>Position: <%= @application.job_title %></li>
+  <li>Position: <%= @application.job_title %></li>
   <% end %>
   <% if @application.location %>
-    <li>Located in: <%= @application.location %></li>
+  <li>Located in: <%= @application.location %></li>
+  <% end %>
+  <% if @application.application_method %>
+  <li>Application method: <%= @application.application_method.humanize %></li>
+  <% end %>
+  <% if @application.stage %>
+  <li>Stage: <%= @application.stage.humanize %></li>
+  <% end %>
+  <% if @application.date_applied %>
+    <li>Date applied: <%= @application.date_applied %></li>
   <% end %>
   <% if @application.job_post_url %>
     <li>URL: <%= @application.job_post_url %></li>
@@ -29,9 +32,6 @@
   <% end %>
   <% if @application.job_requirements %>
     <li>Requirements: <%= @application.job_requirements %></li>
-  <% end %>
-  <% if @application.application_method %>
-    <li>Application method: <%= @application.application_method.humanize %></li>
   <% end %>
   <% if @application.why_interested %>
     <li>Why are you interested?: <%= @application.why_interested %></li>

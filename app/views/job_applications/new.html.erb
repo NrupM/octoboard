@@ -5,10 +5,10 @@
 
 <%= form_for @application, method: :post do |f| %>
   <ul>
-    <li><%= f.label :job_title, 'Job Title' %>
-        <%= f.text_field :job_title, autofocus: true, required: true %></li>
     <li><%= f.label :company_name, 'Company Name' %>
-        <%= f.text_field :company_name, required: true %></li>
+      <%= f.text_field :company_name, required: true %></li>
+    <li><%= f.label :job_title, 'Position Title' %>
+        <%= f.text_field :job_title, autofocus: true, required: true %></li>
     <li><%= f.label :location, 'Location' %>
         <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
     <li><%= f.label :application_method, 'Application Method' %>

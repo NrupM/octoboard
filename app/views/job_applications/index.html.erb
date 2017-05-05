@@ -22,37 +22,37 @@
             <li> Number of total interviews: <%= app.interviews.count %></li>
           <% end %>
         <% end %>
-      <% if app.location %>
+      <% if is_value_nil?(app.location) %>
         <li>Located in: <%= app.location %></li>
       <% end %>
-      <% if app.job_post_url %>
+      <% if is_value_nil?(app.job_post_url) %>
         <li>URL: <%= app.job_post_url %></li>
       <% end %>
-      <% if app.job_description %>
+      <% if is_value_nil?(app.job_description) %>
         <li>Description: <%= app.job_description %></li>
       <% end %>
-      <% if app.job_requirements %>
+      <% if is_value_nil?(app.job_requirements) %>
         <li>Requirements: <%= app.job_requirements %></li>
       <% end %>
-      <% if app.application_method %>
+      <% if is_value_nil?(app.application_method) %>
         <li>Application method: <%= app.application_method.humanize %></li>
       <% end %>
-      <% if app.why_interested %>
+      <% if is_value_nil?(app.why_interested) %>
         <li>Why are you interested?: <%= app.why_interested %></li>
       <% end %>
-      <% if app.requested_salary %>
+      <% if is_value_nil?(app.requested_salary) %>
         <li>Requested salary: <%= app.requested_salary %></li>
       <% end %>
-      <% if app.submitted_cover_letter %>
+      <% if is_value_nil?(app.submitted_cover_letter) %>
         <li>Cover letter: <%= app.submitted_cover_letter %></li>
       <% end %>
-      <% if app.relevant_work_history %>
+      <% if is_value_nil?(app.relevant_work_history) %>
         <li>Relevant work history: <%= app.relevant_work_history %></li>
       <% end %>
-      <% if app.tech_stack %>
+      <% if is_value_nil?(app.tech_stack) %>
         <li>Tech stack: <%= app.tech_stack %></li>
       <% end %>
-      <% if app.notes %>
+      <% if is_value_nil?(app.notes) %>
         Notes: <%= app.notes %>
       <% end %>
     </ul>

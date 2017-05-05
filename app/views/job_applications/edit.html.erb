@@ -5,7 +5,7 @@
 <%= link_to 'Edit', edit_job_application_path %>
 <%= form_for @application do |f| %>
   <ul>
-    <li><%= f.label :job_title, 'Job Title' %>
+    <li><%= f.label :job_title, 'Position Title' %>
         <%= f.text_field :job_title, autofocus: true, required: true %></li>
     <li><%= f.label :company_name, 'Company Name' %>
         <%= f.text_field :company_name, required: true %></li>
