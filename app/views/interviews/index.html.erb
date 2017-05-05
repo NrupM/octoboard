@@ -19,41 +19,41 @@
         <li>Is followup needed?: <%= i.is_followup_needed %></li>
       <% end %>
       <!-- PRIMARY CONTACT INFO  -->
-      <h2>Primary Contact Info</h2>
-      <% if i.primary_contact_name %>
+      <% if is_value_nil?(i.primary_contact_name) %>
+        <h3>Primary Contact Info</h3>
         <li>Primary Contact Name: <%= i.primary_contact_name %></li>
       <% end %>
-      <% if i.primary_contact_title %>
+      <% if is_value_nil?(i.primary_contact_title) %>
         <li>Primary Contact Title: <%= i.primary_contact_title %></li>
       <% end %>
-      <% if i.primary_contact_email %>
+      <% if is_value_nil?(i.primary_contact_email) %>
         <li>Primary Contact Email: <%= i.primary_contact_email %></li>
       <% end %>
-      <% if i.primary_contact_phone %>
+      <% if is_value_nil?(i.primary_contact_phone) %>
         <li>Primary Contact Phone: <%= i.primary_contact_phone %></li>
       <% end %>
       <!--CODING CHALLENGE INFO  -->
-      <h2>Coding Challenge Details</h2>
-      <% if i.coding_challenge_url %>
-        <li>Link to coding challenge: <%= i.coding_challenge_url %></li>
-      <% end %>
-      <% if i.coding_challenge_prompt %>
-        <li>Coding challenge prompt: <%= i.coding_challenge_prompt %></li>
-      <% end %>
-      <% if i.coding_challenge_due_date %>
+      <% if is_value_nil?(i.coding_challenge_due_date) %>
+        <h3>Coding Challenge Details</h3>
         <li>Coding challenge due date: <%= i.coding_challenge_due_date %></li>
       <% end %>
-      <% if i.is_challenge_completed %>
+      <% if is_value_nil?(i.coding_challenge_url) %>
+        <li>Link to coding challenge: <%= i.coding_challenge_url %></li>
+      <% end %>
+      <% if is_value_nil?(i.coding_challenge_prompt) %>
+        <li>Coding challenge prompt: <%= i.coding_challenge_prompt %></li>
+      <% end %>
+      <% if is_value_nil?(i.is_challenge_completed) %>
         <li>Challenge done?: <%= i.is_challenge_completed %></li>
       <% end %>
-      <h2>Preparedness &amp; Professionalism </h2>
-      <% if i.thankyou_letter %>
+      <!-- OTHER  -->
+      <% if is_value_nil?(i.thankyou_letter) %>
         <li>Thank You letter: <%= i.thankyou_letter %></li>
       <% end %>
-      <% if i.questions_to_ask %>
+      <% if is_value_nil?(i.questions_to_ask) %>
         <li>Questions to ask: <%= i.questions_to_ask %></li>
       <% end %>
-      <% if i.notes %>
+      <% if is_value_nil?(i.notes) %>
         <li>Notes: <%= i.notes %></li>
       <% end %>
     </ul>
