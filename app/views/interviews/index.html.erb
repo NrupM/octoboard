@@ -1,19 +1,19 @@
 <h1>THESE ARE ALL INTERVIEWS belonging to <%= @user.email %>!</h1>
-<h2> you go glen coco! </h2>
 
 <%= link_to 'Back', goals_path %>
 
+<%= link_to 'Add an interview', new_interview_path %>
 
 <% if @interviews.length > 0 %>
   <% @interviews.each do |i| %>
     <% if i.interview_date %>
-      Interview applied: <%= i.interview_date %>
+      Interview date: <%= i.interview_date %>
     <% end %>
     <% if i.interview_type %>
       Type: <%= i.interview_type %>
     <% end %>
-    <% if i.is_followup_needed? %>
-      Is followup needed?: <%= i.is_followup_needed? %>
+    <% if i.is_followup_needed %>
+      Is followup needed?: <%= i.is_followup_needed %>
     <% end %>
     <% if i.primary_contact_name %>
       Primary Contact Name: <%= i.primary_contact_name %>
@@ -42,8 +42,8 @@
     <% if i.questions_to_ask %>
       Questions to ask: <%= i.questions_to_ask %>
     <% end %>
-    <% if i.is_challenge_completed? %>
-      Challenge done?: <%= i.is_challenge_completed? %>
+    <% if i.is_challenge_completed %>
+      Challenge done?: <%= i.is_challenge_completed %>
     <% end %>
     <% if i.notes %>
       Notes: <%= i.notes %>
