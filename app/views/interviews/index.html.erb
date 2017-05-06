@@ -10,7 +10,7 @@
     <ul>
       <li>Company: <%= i.job_application.company_name %></li>
       <% if i.interview_date %>
-        <li>Interview date: <%= i.interview_date %></li>
+        <li>Interview date: <%= i.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
       <% end %>
       <% if i.interview_type %>
         <li>Type: <%= i.interview_type.humanize %></li>
@@ -35,7 +35,7 @@
       <!--CODING CHALLENGE INFO  -->
       <% if is_value_nil?(i.coding_challenge_due_date) %>
         <h3>Coding Challenge Details</h3>
-        <li>Coding challenge due date: <%= i.coding_challenge_due_date %></li>
+        <li>Coding challenge due date: <%= i.coding_challenge_due_date.strftime("%m/%d/%y %I:%M at %I:%M %p") %></li>
       <% end %>
       <% if is_value_nil?(i.coding_challenge_url) %>
         <li>Link to coding challenge: <%= i.coding_challenge_url %></li>

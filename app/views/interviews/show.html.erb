@@ -11,7 +11,7 @@
 
 <ul>
   <% if @interview.interview_date %>
-    <li>Interview date: <%= @interview.interview_date %></li>
+    <li>Interview date: <%= @interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
   <% end %>
   <% if @interview.interview_type %>
     <li>Type: <%= @interview.interview_type.humanize %></li>
@@ -42,7 +42,7 @@
     <li>Coding challenge prompt: <%= @interview.coding_challenge_prompt %></li>
   <% end %>
   <% if @interview.coding_challenge_due_date %>
-    <li>Coding challenge due date: <%= @interview.coding_challenge_due_date %></li>
+    <li>Coding challenge due date: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></li>
   <% end %>
   <% if @interview.is_challenge_completed %>
     <li>Challenge done?: <%= @interview.is_challenge_completed %></li>

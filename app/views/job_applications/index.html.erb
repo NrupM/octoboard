@@ -14,7 +14,7 @@
       <li>Position: <%= app.job_title %></li>
       <% end %>
       <% if app.date_applied %>
-        <li>Date applied: <%= app.date_applied %></li>
+        <li>Date applied: <%= app.date_applied.strftime("%m/%d/%y") %></li>
       <% end %>
       <% if app.stage %>
         <li>Stage: <%= app.stage.humanize %></li>

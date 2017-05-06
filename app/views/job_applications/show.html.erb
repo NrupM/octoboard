@@ -22,7 +22,7 @@
   <li>Stage: <%= @application.stage.humanize %></li>
   <% end %>
   <% if @application.date_applied %>
-    <li>Date applied: <%= @application.date_applied %></li>
+    <li>Date applied: <%= @application.date_applied.strftime("%m/%d/%y") %></li>
   <% end %>
   <% if @application.job_post_url %>
     <li>URL: <%= @application.job_post_url %></li>
