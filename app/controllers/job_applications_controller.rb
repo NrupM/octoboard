@@ -13,7 +13,13 @@ class JobApplicationsController < ApplicationController
   def create
     @application = current_user.job_applications.create(job_application_params)
     if @application.save
-      redirect_to job_applications_path
+      if @application.stage == 'interviewing'
+        flash[:success] = 'Your application has been saved. Please fill in interview details.'
+        redirect_to new_interview_path(job_application_id: @application.id)
+      else
+        flash[:success] = 'Your application has been saved.'
+        redirect_to job_applications_path
+      end
     else
       flash[:error] = 'An error occurred saving your application details. Please try again.'
       redirect_to :back
@@ -24,13 +30,22 @@ class JobApplicationsController < ApplicationController
     @application = JobApplication.find_by_id(params[:id])
   end
 
+  def search_job_apps
+    @applications = JobApplication.where(user_id: current_user.id)
+    if params[:search]
+      @search_results = @applications.search_job_apps(params[:search]).order("created_at DESC")
+      if @search_results.blank?
+        flash[:error] = 'There were no results found for your search.'
+      end
+    end
+  end
+
   def edit
     @application = JobApplication.find_by_id(params[:id])
   end
 
   def update
     @application = JobApplication.find_by_id(params[:id])
-
     if @application.update_attributes(job_application_params)
       flash[:success] = "Application updated successfully."
       if @application.stage == 'interviewing'

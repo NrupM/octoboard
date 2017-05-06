@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= form_tag(search_job_apps_path(:search), :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Job Applications" %>
+      <%= submit_tag "Search", :name => nil %>
+  <% end %>
+<% end %>

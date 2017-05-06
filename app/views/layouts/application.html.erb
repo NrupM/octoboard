@@ -13,9 +13,8 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
+    <%= render '/partials/flash_messages' %>
+    <%= render 'partials/search_bar' %>
     <%= yield %>
   </body>
 </html>
