@@ -1,24 +1,15 @@
 class GoalsController < ApplicationController
+  before_action :is_user_logged_in?
 
+  # no destroy function, user only works off of one goal and keeps updating it through the dash similar to a "status"
   def index
-    if user_signed_in?
-      @user = current_user
-      @goals = current_user.goals.all
-      render :index
-    else
-      flash[:error] = "You must login to continue."
-      redirect_to login_path
-    end
+    @user = current_user
+    @goals = current_user.goals.all
+    render :index
   end
 
   def new
-    if user_signed_in?
-      @goal = Goal.new
-      render :new
-    else
-      flash[:error] = "You must login to continue."
-      redirect_to login_path
-    end
+    @goal = Goal.new
   end
 
   def create

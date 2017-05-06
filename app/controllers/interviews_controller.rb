@@ -1,8 +1,11 @@
 class InterviewsController < ApplicationController
+  before_action :is_user_logged_in?
+
   def index
     @user = current_user
     @interviews = @user.interviews.all
   end
+
   def new
     @interview = Interview.new
     @application = JobApplication.find_by_id(params[:job_application_id])

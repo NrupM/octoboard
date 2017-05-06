@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_scope :user do
     get "signup", to: "devise/registrations#new"
     get "login", to: "devise/sessions#new"
@@ -6,12 +7,13 @@ Rails.application.routes.draw do
 
     authenticated :user do
       root 'goals#index', as: :authenticated_root
-  end
+    end
 
     unauthenticated do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
-end
+    
+  end
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -20,6 +22,7 @@ end
 
   resources :users, :only => [:show]
   resources :goals, :except => [:destroy]
-  resources :job_applications, :interviews, :questions
+  resources :questions, :except => [:show]
+  resources :job_applications, :interviews
 
 end

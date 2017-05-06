@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :is_user_logged_in?
 
   #no show controller, work from the index page.
   def index

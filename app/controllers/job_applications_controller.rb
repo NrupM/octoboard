@@ -1,17 +1,14 @@
 class JobApplicationsController < ApplicationController
+  before_action :is_user_logged_in?
+
   def index
     @user = current_user
     @applications = JobApplication.where(user_id: current_user.id)
   end
 
   def new
-    if user_signed_in?
-      @application = JobApplication.new
-      render :new
-    else
-      flash[:error] = "You must login to continue."
-      redirect_to login_path
-    end
+    @application = JobApplication.new
+    render :new
   end
 
   def create
