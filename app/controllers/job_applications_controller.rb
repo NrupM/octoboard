@@ -8,7 +8,6 @@ class JobApplicationsController < ApplicationController
 
   def new
     @application = JobApplication.new
-    render :new
   end
 
   def create
