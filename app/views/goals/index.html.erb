@@ -1,5 +1,5 @@
 <%= link_to 'Sign Out', logout_path %>
-<h1>WELCOME <%= @user.email %>! THIS IS YOUR DASH!</h1>
+<h1>Welcome to your dashboard, <%= @user.first_name.capitalize %>!</h1>
 
 <ul>
   <li><%= link_to 'Account Settings', user_path(current_user) %></li>

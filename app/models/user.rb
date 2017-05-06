@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :interviews, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+  enum job_status: [:seeking, :employed]
 end
