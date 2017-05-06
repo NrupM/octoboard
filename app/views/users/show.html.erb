@@ -7,7 +7,7 @@
   <li>First name: <%= @user.first_name %></li>
   <li>Last name: <%= @user.last_name %></li>
   <li>Email: <%= @user.email %></li>
-  <li>Job Status: <%= @user.job_status %></li>
+  <li>Job Status: <%= @user.job_status.humanize %></li>
   <li>LinkedIn URL: <%= @user.linkedin_url %></li>
   <li>Github URL: <%= @user.github_url %></li>
   <li>Portfolio URL: <%= @user.portfolio_url %></li>
