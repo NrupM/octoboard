@@ -5,7 +5,10 @@ class GoalsController < ApplicationController
   def index
     @user = current_user
     @goals = current_user.goals.all
-    render :index
+    @pending_count = current_user.job_applications.where(stage: 'pending_response').count
+    @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
+    @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')
+    # @coding_challenges_count = @coding_challenges.where(coding_challenge_due_date: )
   end
 
   def new

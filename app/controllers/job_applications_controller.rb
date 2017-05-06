@@ -33,7 +33,7 @@ class JobApplicationsController < ApplicationController
   def search_job_apps
     @applications = JobApplication.where(user_id: current_user.id)
     if params[:search]
-      @search_results = @applications.search_job_apps(params[:search]).order("created_at DESC")
+      @search_results = @applications.search_job_apps(params[:search]).order('created_at DESC')
       if @search_results.blank?
         flash[:error] = 'There were no results found for your search.'
       end
@@ -54,7 +54,7 @@ class JobApplicationsController < ApplicationController
         redirect_to job_application_path
       end
     else
-      flash[:error] = @application.errors.full_messages.join(". ")
+      flash[:error] = 'There was an error updating your job application. Please try again.'
       redirect_to :back
     end
   end
@@ -62,7 +62,7 @@ class JobApplicationsController < ApplicationController
   def destroy
     @application = JobApplication.find_by_id(params[:id])
     @application.destroy
-    flash[:success] = "Your application has been successfully deleted."
+    flash[:success] = 'Your application has been successfully deleted.'
     redirect_to job_applications_path
   end
 

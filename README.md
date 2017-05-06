@@ -49,4 +49,4 @@ Explanation of trickiness.
 ## Links
 
 - [Trello](https://trello.com/b/0vrCtVFi/octoboard)
-- [Heroku](coming soon)
+- [Heroku](https://octoboard.herokuapp.com/)
