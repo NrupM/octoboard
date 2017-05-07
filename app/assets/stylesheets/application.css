@@ -35,14 +35,24 @@ a {
 .grey-box {
   background-color: #2B2B2B;
   color: white;
-  margin: 20px;
   border-radius: 5px;
+}
+
+.top-row-margin {
+  margin: 20px 20px 0 20px;
+}
+
+.middle-row-margin {
+  margin: 0 20px 20px 20px;
+}
+
+.bottom-row-margin {
+  margin: 20px
 }
 
 .grey-box2 {
   background-color: #2B2B2B;
   color: white;
-  margin: 10px;
   border-radius: 8px;
 }
 

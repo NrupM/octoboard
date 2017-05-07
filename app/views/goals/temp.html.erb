@@ -1,9 +1,6 @@
 <h3> Today is <%= readable_today_date %></h3>
 
 
-<h3> Job status: <%= @user.job_status.humanize %></h3>
-<h3> Profile completion: 50% </h3>
-<h3> Octopower: <%= @user.octopower %>% </h3>
 Number of applications pending: <%= @pending_count %>
 Number of companies I'm interviewing with: <%= @interviewing_count %>
 True or false? : <%= compare_dates(@user.interviews.last.interview_date) %>
