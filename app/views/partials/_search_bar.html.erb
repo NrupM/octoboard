@@ -1,6 +1,13 @@
-<% if user_signed_in? %>
-  <%= form_tag(search_job_apps_path(:search), :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search Job Applications" %>
-      <%= submit_tag "Search", :name => nil %>
-  <% end %>
-<% end %>
+<nav>
+   <div class="nav-wrapper center-align">
+     <% if user_signed_in? %>
+       <%= form_tag(search_job_apps_path(:search), :method => "get", id: "search-form") do %>
+         <div class="input-field">
+           <%= text_field_tag :search, params[:search], :required => true, placeholder: "Search Job Applications" %>
+           <%= submit_tag "Search", :name => nil, :class => 'hide', id: "search-button" %>
+           <label class="label-icon" for="search"><i class="fa fa-search" style="color: #D3CED5;" aria-hidden="true"></i></label>
+         </div>
+       <% end %>
+     <% end %>
+   </div>
+ </nav>

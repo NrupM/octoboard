@@ -69,8 +69,12 @@ input:-webkit-autofill:active {
   border-radius: 8px;
 }
 
-.goals-height {
+.goals-height-top {
   height: 285px;
+}
+
+.goals-height-mid {
+  height: 354px;
 }
 
 .goals-height2 {
@@ -92,3 +96,12 @@ input:-webkit-autofill:active {
 /*.side-nav {
   width: 260px !important;
 }*/
+
+#search-form {
+  margin-left: 20px;
+}
+
+nav {
+  background-color: #FFFFFF;
+  color: #D3CED5;
+}

@@ -4,8 +4,11 @@
     width: 80px;
   }
 
-  .goals-height {
-    height: 255px;
+  .goals-height-top {
+    height: 265px;
+  }
+  .goals-height-mid {
+    height: 320px;
   }
 
   .goals-box {
