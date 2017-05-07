@@ -23,24 +23,35 @@ a {
   color: #50E3C2 !important;
 }
 
+#profile-img {
+  margin: 15px;
+  width: 100px
+}
+
+.teal-theme {
+  color: #50E3C2;
+}
+
 .grey-box {
   background-color: #2B2B2B;
   color: white;
   margin: 20px;
+  border-radius: 5px;
 }
 
 .grey-box2 {
   background-color: #2B2B2B;
   color: white;
   margin: 10px;
+  border-radius: 8px;
 }
 
 .goals-height {
-  height: 260px;
+  height: 285px;
 }
 
 .goals-height2 {
-  height: 120px;
+  height: 132px;
 }
 
 /*html {

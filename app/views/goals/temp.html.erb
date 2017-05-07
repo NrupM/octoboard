@@ -1,9 +1,6 @@
-<h1>Welcome to your dashboard, <%= @user.first_name.capitalize %>!</h1>
 <h3> Today is <%= readable_today_date %></h3>
 
-<% if @user.image %>
-  <%= image_tag @user.image, :style => 'width: 7vw; border-radius: 70px'%>
-<% end %>
+
 <h3> Job status: <%= @user.job_status.humanize %></h3>
 <h3> Profile completion: 50% </h3>
 <h3> Octopower: <%= @user.octopower %>% </h3>

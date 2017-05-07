@@ -2,44 +2,55 @@
   <h4>GOOD MORNING, <%= @user.first_name.upcase %>!</h4>
 </div>
 
-<div class="col l12">
+<div class="col s12 l12">
   <div class="row">
-    <div class="col l4 grey-box goals-height">
-      1
+    <div class="col s12 l4 grey-box goals-height">
+      <div class='col s12 center-align'>
+        <% if @user.image %>
+          <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
+        <% end %>
+        <br>
+        <%= @user.job_status.upcase %>
+      </div>
+      <div class="col s12">
+        <p>APPS PER DAY <span class="right teal-theme"><%= @user.goals.first.applications_per_day %></span></p>
+        <p>PROFILE COMPLETION <span class="right teal-theme">50%</span></p>
+        <p>OCTOPOWER <span class="right teal-theme"><%= @user.octopower %>%</span></p>
+      </div>
     </div>
-    <div class="col l4 grey-box goals-height">
+    <div class="col s12 l4 grey-box goals-height">
       APPLICATIONS
     </div>
-    <div class="col l3 grey-box goals-height">
+    <div class="col s12 l3 grey-box goals-height">
       REMINDERS
     </div>
   </div>
 </div>
 
-<div class="col l12">
+<div class="col s12 l12">
   <div class="row">
-    <div class="col l4 grey-box goals-height">
+    <div class="col s12 l4 grey-box goals-height">
       GOALS
     </div>
-    <div class="col l4 grey-box goals-height">
+    <div class="col s12 l4 grey-box goals-height">
       INTERVIEWS
     </div>
-    <div class="col l3 grey-box goals-height">
+    <div class="col s12 l3 grey-box goals-height">
       CODE CHALLENGES
     </div>
   </div>
 </div>
 
-<div class="col l12">
+<div class="col s12 l12">
   <div class="row">
-    <div class="col l4 goals-height grey-box2">
+    <div class="col s12 l4 goals-height grey-box2">
       RESOURCES
     </div>
-    <div class="col l7">
-      <div class="col l12 goals-height2 grey-box2">
+    <div class="col s12 l7">
+      <div class="col s12 l12 goals-height2 grey-box2">
         QUESTIONS
       </div>
-      <div class="col l12 goals-height2 grey-box2">
+      <div class="col s12 l12 goals-height2 grey-box2">
         BRAIN TEASER
       </div>
     </div>

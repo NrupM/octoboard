@@ -1,3 +1,27 @@
 @media screen and (max-width: 768px) {
+  #profile-img {
+    width: 80px;
+  }
 
+  .grey-box {
+    background-color: #2B2B2B;
+    color: white;
+    margin: 20px;
+    border-radius: 5px;
+  }
+
+  .grey-box2 {
+    background-color: #2B2B2B;
+    color: white;
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .goals-height {
+    height: 255px;
+  }
+
+  .goals-height2 {
+    height: 132px;
+  }
 }
