@@ -1,5 +1,5 @@
 <%= link_to 'Back', interview_path %>
-<h1>Edit this interview!</h1>
+<h2>Edit this interview!</h2>
 <ul>
   <li>THE COMPANY: <%= @interview.job_application.company_name %></li>
   <li>THE POSITION: <%= @interview.job_application.job_title %></li>
@@ -10,10 +10,11 @@
     <!-- BASIC INFO FOR INTERVIEW -->
     <h2>Basic Details</h2>
     <li><%= f.label :interview_date, 'Interview Date' %>
-        <%= f.date_field :interview_date, autofocus: true, required: true %></li>
+        <%= f.date_field :interview_date, :class => 'datepicker', required: true %></li>
     <li><%= f.label :interview_type, 'Interview Type' %>
         <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
     <li><%= f.label :interview_type, 'Is followup needed?' %>
+
       <table>
         <tr>
           <td><%= f.label 'is_followup_needed_true', 'Yes' %></td>
@@ -41,9 +42,9 @@
     <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
     <h2>Preparedness &amp; Professionalism</h2>
     <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
-      <%= f.text_area :questions_to_ask %></li>
+        <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
     <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
-        <%= f.text_area :thankyou_letter %></li>
+        <%= f.text_area :thankyou_letter, :class => "materialize-textarea" %></li>
 
     <!-- CODING CHALLENGE DETAILS  -->
     <h2>Coding Challenge Info</h2>
@@ -52,7 +53,7 @@
     <li><%= f.label :coding_challenge_due_date %>
         <%= f.datetime_local_field :coding_challenge_due_date %></li>
     <li><%= f.label :coding_challenge_prompt %>
-        <%= f.text_area :coding_challenge_prompt %></li>
+        <%= f.text_area :coding_challenge_prompt, :class => "materialize-textarea" %></li>
     <li><%= f.label :is_challenge_completed, 'Is this challenege completed?' %>
       <table>
         <tr>
@@ -70,7 +71,7 @@
     <!-- MORE DETAILS  -->
     <h2>Additional details</h2>
     <li><%= f.label :notes, 'Additional details/notes' %>
-        <%= f.text_area :notes %></li>
+        <%= f.text_area :notes, :class => "materialize-textarea" %></li>
     <%= f.submit 'Submit' %>
   </ul>
 <% end %>

@@ -17,11 +17,13 @@
 $( document ).on('turbolinks:load', function() {
   console.log("It works on each visit!")
   // // Initialize collapse button
-  // $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav();
   // // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   // $('.collapsible').collapsible();
 
   $('select').material_select();
+  $('#textarea1').val('New Text');
+  $('#textarea1').trigger('autoresize');
 
   $('.datepicker').pickadate({
    selectMonths: true, // Creates a dropdown to control month

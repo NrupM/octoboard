@@ -7,7 +7,7 @@
     <li><%= f.label :prompt, 'Prompt' %>
         <%= f.text_field :prompt, :required => true %></li>
     <li><%= f.label :answer, 'Response' %>
-        <%= f.text_area :answer, :required => true %></li>
+        <%= f.text_area :answer, :class => "materialize-textarea", :required => true %></li>
     <%= f.submit 'Save' %>
   </ul>
 <% end %>

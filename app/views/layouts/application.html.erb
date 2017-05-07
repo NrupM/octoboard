@@ -21,13 +21,13 @@
         <ul id="slide-out" class="side-nav fixed" style="background-color:#2B2B2B">
           <img src='http://img00.deviantart.net/15f5/i/2016/183/c/c/red_octopus_by_carocollins1993-da8ipcz.png' style="width:110px">
           <%= render 'partials/search_bar' %>
-          <li>
-            <li><%= link_to 'APPLICATIONS', job_applications_path %></li>
+          <li><%= link_to 'APPLICATIONS', job_applications_path %></li>
           <li><%= link_to 'INTERVIEWS', interviews_path %></li>
           <li><%= link_to 'Q+A', questions_path %></li>
           <li><%= link_to 'SETTINGS', user_path(current_user) %></li>
         </ul>
-        <!-- <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a> -->
+
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
 
       <div class="col s12 m8 l9">
