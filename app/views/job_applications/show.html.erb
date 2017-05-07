@@ -52,3 +52,11 @@
     Notes: <%= @application.notes %>
   <% end %>
 </ul>
+
+<% if @interviews.length > 0 %>
+  <% @interviews.each do |interview| %>
+      <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+      <li>Type: <%= interview.interview_type.humanize %></li>
+      <li><%= link_to 'View more interview details', interview_path(interview) %></li>
+  <% end %>
+<% end %>

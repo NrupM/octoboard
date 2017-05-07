@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'job_applications/[:params]', to: 'job_applications#search_job_apps', as: 'search_job-apps'
+  get 'job_applications/[:params]', to: 'job_applications#search_job_apps', as: 'search_job_apps'
   resources :users, :only => [:show]
   resources :goals, :except => [:destroy]
   resources :questions, :except => [:show]

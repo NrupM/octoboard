@@ -55,6 +55,13 @@
         Notes: <%= app.notes %>
       <% end %>
     </ul>
+    <% if app.interviews.count > 0 %>
+      <% app.interviews.each do |interview| %>
+        <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+        <li>Type: <%= interview.interview_type.humanize %></li>
+        <li><%= link_to 'View more interview details', interview_path(interview) %></li>
+      <% end %>
+    <% end %>
   <% end %>
 <% else %>
   <h2> There were no results matching your search. Please try again or head to your <%= link_to 'job applications', job_applications_path %>.</h2>

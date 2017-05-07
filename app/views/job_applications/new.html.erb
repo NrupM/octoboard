@@ -1,6 +1,6 @@
 <h1>Create a new job application</h1>
 
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', job_applications_path %>
 
 
 <%= form_for @application, method: :post do |f| %>
@@ -16,7 +16,7 @@
     <li><%= f.label :stage, 'Application Stage' %>
         <%= f.select :stage, JobApplication.stages.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
     <li><%= f.label :date_applied, 'Date Applied' %>
-        <%= f.date_field :date_applied, :required => true %></li>
+        <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
     <li><%= f.label :job_post_url, 'Job Post URL' %>
         <%= f.text_field :job_post_url %></li>
     <li><%= f.label :job_description, 'Description' %>

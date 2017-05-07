@@ -28,6 +28,7 @@ class JobApplicationsController < ApplicationController
 
   def show
     @application = JobApplication.find_by_id(params[:id])
+    @interviews = @application.interviews.all
   end
 
   def search_job_apps

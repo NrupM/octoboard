@@ -12,8 +12,22 @@
  *
  *= require_self
  *= require_tree .
+ *= require mobile
  */
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
 }
+
+a {
+  color: #50E3C2 !important;
+}
+
+/*html {
+  background-color: black;
+  color: white !important;
+}*/
+
+/*.side-nav {
+  width: 260px !important;
+}*/

@@ -5,7 +5,6 @@
 
 
 <%= link_to 'Add an interview', new_interview_path %>
-
 <%= link_to 'Edit this Interview', edit_interview_path(@interview) %>
 <%= link_to interview_path(@interview), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
