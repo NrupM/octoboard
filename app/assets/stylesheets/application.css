@@ -23,6 +23,26 @@ a {
   color: #50E3C2 !important;
 }
 
+.grey-box {
+  background-color: #2B2B2B;
+  color: white;
+  margin: 20px;
+}
+
+.grey-box2 {
+  background-color: #2B2B2B;
+  color: white;
+  margin: 10px;
+}
+
+.goals-height {
+  height: 260px;
+}
+
+.goals-height2 {
+  height: 120px;
+}
+
 /*html {
   background-color: black;
   color: white !important;

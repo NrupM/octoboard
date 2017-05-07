@@ -1,43 +1,47 @@
-<%= link_to 'Sign Out', logout_path %>
-<h1>Welcome to your dashboard, <%= @user.first_name.capitalize %>!</h1>
-<h3> Today is <%= readable_today_date %></h3>
+<div class="col l12 center-align">
+  <h4>GOOD MORNING, <%= @user.first_name.upcase %>!</h4>
+</div>
 
-<% if @user.image %>
-  <%= image_tag @user.image, :style => 'width: 7vw; border-radius: 70px'%>
-<% end %>
-<h3> Job status: <%= @user.job_status.humanize %></h3>
-<h3> Profile completion: 50% </h3>
-<h3> Octopower: <%= @user.octopower %>% </h3>
-Number of applications pending: <%= @pending_count %>
-Number of companies I'm interviewing with: <%= @interviewing_count %>
-True or false? : <%= compare_dates(@user.interviews.last.interview_date) %>
-<ul>
-  <% if @user.goals.count == 0 %>
-    <li><%= link_to 'Create a new goal', new_goal_path %></li>
-  <% end %>
-  <li><%= link_to 'Add a job application', new_job_application_path %></li>
-</ul>
+<div class="col l12">
+  <div class="row">
+    <div class="col l4 grey-box goals-height">
+      1
+    </div>
+    <div class="col l4 grey-box goals-height">
+      APPLICATIONS
+    </div>
+    <div class="col l3 grey-box goals-height">
+      REMINDERS
+    </div>
+  </div>
+</div>
 
-<% if @goals.length > 0 %>
-  <h2> Here are your goals </h2>
-  <% @goals.each do |goal| %>
-    <%= link_to 'Edit this goal', edit_goal_path(goal) %>
-    <ul>
-      <li><% if goal.daily_goal %>
-        Today I would like to: <%= goal.daily_goal %>.
-      <% end %></li>
-      <li><% if goal.weekly_goal %>
-        By this time next week I would have liked to: <%= goal.weekly_goal %>.
-      <% end %></li>
-      <li><% if goal.longterm_goal_date %>
-        By <%= goal.longterm_goal_date.strftime("%m/%d/%y") %>
-      <% end %>
-      <% if goal.longterm_goal %>
-        I would like to have <%= goal.longterm_goal %>.
-      <% end %></li>
-      <li><% if goal.applications_per_day %>
-        I want to send out <%= goal.applications_per_day %> applications per day.
-      <% end %></li>
-    </ul>
-  <% end %>
-<% end %>
+<div class="col l12">
+  <div class="row">
+    <div class="col l4 grey-box goals-height">
+      GOALS
+    </div>
+    <div class="col l4 grey-box goals-height">
+      INTERVIEWS
+    </div>
+    <div class="col l3 grey-box goals-height">
+      CODE CHALLENGES
+    </div>
+  </div>
+</div>
+
+<div class="col l12">
+  <div class="row">
+    <div class="col l4 goals-height grey-box2">
+      RESOURCES
+    </div>
+    <div class="col l7">
+      <div class="col l12 goals-height2 grey-box2">
+        QUESTIONS
+      </div>
+      <div class="col l12 goals-height2 grey-box2">
+        BRAIN TEASER
+      </div>
+    </div>
+  </div>
+</div>
