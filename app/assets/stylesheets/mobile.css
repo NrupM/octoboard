@@ -1,5 +1,5 @@
 @media screen and (max-width: 768px) {
-  
+
   #profile-img {
     width: 80px;
   }
@@ -7,4 +7,10 @@
   .goals-height {
     height: 255px;
   }
+
+  .goals-box {
+    height: 50px;
+    margin: 7px;
+  }
+
 }

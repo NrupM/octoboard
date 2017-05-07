@@ -9,6 +9,7 @@ module GoalsHelper
     current_time < date
   end
 
+
   def greet
     now = Time.now
     today = Date.today.to_time

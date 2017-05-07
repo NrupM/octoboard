@@ -19,7 +19,24 @@
 <div class="col s12 l12">
   <div class="row">
     <div class="col s12 l4 grey-box goals-height middle-row-margin">
-      GOALS
+      <p>GOALS <span class="right"><%= link_to 'Edit', edit_goal_path(@goal) %></span></p>
+        <% if @goal %>
+          <div class="col s12 goals-box">
+            <% if @goal.daily_goal %>
+              <p><i class="fa fa-sun-o teal-theme" aria-hidden="true"></i> <%= @goal.daily_goal %></p>
+            <% end %>
+          </div>
+          <div class="col s12 goals-box">
+            <% if @goal.weekly_goal %>
+              <p><i class="fa fa-clock-o teal-theme" aria-hidden="true"></i> <%= @goal.weekly_goal %></p>
+            <% end %>
+          </div>
+          <div class="col s12 goals-box">
+            <% if @goal.longterm_goal %>
+              <p><i class="fa fa-calendar-o teal-theme" aria-hidden="true"></i> By <%= @goal.longterm_goal_date.strftime("%m/%d/%y") %>: <%= @goal.longterm_goal %></p>
+            <% end %>
+          </div>
+        <% end %>
     </div>
     <div class="col s12 l4 grey-box goals-height middle-row-margin">
       INTERVIEWS

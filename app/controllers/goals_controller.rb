@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   # no destroy function, user only works off of one goal and keeps updating it through the dash similar to a "status"
   def index
     @user = current_user
-    @goals = current_user.goals.all
+    @goal = @user.goals.first
     @pending_count = current_user.job_applications.where(stage: 'pending_response').count
     @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
     @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')

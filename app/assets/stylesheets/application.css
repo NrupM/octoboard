@@ -23,6 +23,10 @@ a {
   color: #50E3C2 !important;
 }
 
+.nav-i {
+  font-size: 1.2em !important;
+  color: #50E3C2 !important;
+}
 
 /*removes yellow input background browser default*/
 input:-webkit-autofill,
@@ -42,7 +46,7 @@ input:-webkit-autofill:active {
 }
 
 .grey-box {
-  background-color: #2B2B2B;
+  background-color: #171717;
   color: white;
   border-radius: 5px;
 }
@@ -60,7 +64,7 @@ input:-webkit-autofill:active {
 }
 
 .grey-box2 {
-  background-color: #2B2B2B;
+  background-color: #171717;
   color: white;
   border-radius: 8px;
 }
@@ -71,6 +75,13 @@ input:-webkit-autofill:active {
 
 .goals-height2 {
   height: 132px;
+}
+
+.goals-box {
+  background-color: #2B2B2B;
+  height: 60px;
+  margin: 7px;
+  border-radius: 5px;
 }
 
 /*html {

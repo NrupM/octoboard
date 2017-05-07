@@ -3,12 +3,14 @@
     <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
   <% end %>
   <br>
-  <% if @user.job_status == 'seeking' %>
+  <span class="teal-theme">
+    <% if @user.job_status == 'seeking' %>
     <i class="fa fa-circle-o" aria-hidden="true"></i>
   <% else %>
     <i class="fa fa-circle" aria-hidden="true"></i>
   <% end %>
   <%= @user.job_status.upcase %>
+  </span>
 </div>
 <div class="col s12">
   <% if @user.goals.count > 0 %>

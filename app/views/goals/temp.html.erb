@@ -10,27 +10,3 @@ True or false? : <%= compare_dates(@user.interviews.last.interview_date) %>
   <% end %>
   <li><%= link_to 'Add a job application', new_job_application_path %></li>
 </ul>
-
-<% if @goals.length > 0 %>
-  <h2> Here are your goals </h2>
-  <% @goals.each do |goal| %>
-    <%= link_to 'Edit this goal', edit_goal_path(goal) %>
-    <ul>
-      <li><% if goal.daily_goal %>
-        Today I would like to: <%= goal.daily_goal %>.
-      <% end %></li>
-      <li><% if goal.weekly_goal %>
-        By this time next week I would have liked to: <%= goal.weekly_goal %>.
-      <% end %>< /li>
-      <li><% if goal.longterm_goal_date %>
-        By <%= goal.longterm_goal_date.strftime("%m/%d/%y") %>
-      <% end %>
-      <% if goal.longterm_goal %>
-        I would like to have <%= goal.longterm_goal %>.
-      <% end %></li>
-      <li><% if goal.applications_per_day %>
-        I want to send out <%= goal.applications_per_day %> applications per day.
-      <% end %></li>
-    </ul>
-  <% end %>
-<% end %>
