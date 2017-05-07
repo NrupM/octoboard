@@ -11,6 +11,7 @@ class User < ApplicationRecord
     self.image  ||= 'https://d28rk61hailme.cloudfront.net/assets/default_user-856f2487c07862f3089cfcb1528df354.png'
   end
 
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   enum job_status: [:seeking, :employed]

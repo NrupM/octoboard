@@ -21,7 +21,7 @@ True or false? : <%= compare_dates(@user.interviews.last.interview_date) %>
       <% end %></li>
       <li><% if goal.weekly_goal %>
         By this time next week I would have liked to: <%= goal.weekly_goal %>.
-      <% end %></li>
+      <% end %>< /li>
       <li><% if goal.longterm_goal_date %>
         By <%= goal.longterm_goal_date.strftime("%m/%d/%y") %>
       <% end %>

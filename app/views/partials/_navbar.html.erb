@@ -1,13 +1,11 @@
-<% if current_user %>
-  <ul id="slide-out" class="side-nav fixed" style="background-color:#2B2B2B">
-    <%= link_to goals_path do %><img src='https://s-media-cache-ak0.pinimg.com/originals/94/a0/b6/94a0b65dcdf1572558ac1329c193e108.png' style="width:110px"><% end %>
-    OCTOBOARD 
-    <li><%= render 'partials/search_bar' %></li>
-    <li><%= link_to 'APPLICATIONS', job_applications_path %></li>
-    <li><%= link_to 'INTERVIEWS', interviews_path %></li>
-    <li><%= link_to 'Q+A', questions_path %></li>
-    <li><%= link_to 'SETTINGS', user_path(current_user) %></li>
-    <li><%= link_to 'SIGN OUT', logout_path %></li>
-  </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-<% end %>
+<ul id="slide-out" class="side-nav fixed" style="background-color:#2B2B2B">
+  <div class='col s12 center-align'><%= link_to goals_path do %><img src='https://s-media-cache-ak0.pinimg.com/originals/94/a0/b6/94a0b65dcdf1572558ac1329c193e108.png' style="width:110px"><% end %></div>
+  <li class="center-align teal-theme"><p>OCTOBOARD</p></li>
+  <li><%= render 'partials/search_bar' %></li>
+  <li><%= link_to 'APPLICATIONS', job_applications_path %></li>
+  <li><%= link_to 'INTERVIEWS', interviews_path %></li>
+  <li><%= link_to 'Q+A', questions_path %></li>
+  <li><%= link_to 'SETTINGS', user_path(current_user) %></li>
+  <li><%= link_to 'SIGN OUT', logout_path %></li>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

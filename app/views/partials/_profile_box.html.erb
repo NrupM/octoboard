@@ -1,0 +1,25 @@
+<div class='col s12 center-align'>
+  <% if @user.image %>
+    <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
+  <% end %>
+  <br>
+  <% if @user.job_status == 'seeking' %>
+    <i class="fa fa-circle-o" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-circle" aria-hidden="true"></i>
+  <% end %>
+  <%= @user.job_status.upcase %>
+</div>
+<div class="col s12">
+  <% if @user.goals.count > 0 %>
+    <p>APPS PER DAY
+      <span class="right teal-theme"><%= @user.goals.first.applications_per_day %></span>
+    </p>
+  <% else %>
+    <p>WHAT ARE YOUR GOALS?
+      <span class="right teal-theme"><%= link_to '?', new_goal_path %></span>
+    </p>
+  <% end %>
+  <p>PROFILE COMPLETION <span class="right teal-theme">50%</span></p>
+  <p>OCTOPOWER <span class="right teal-theme"><%= @user.octopower %>%</span></p>
+</div>

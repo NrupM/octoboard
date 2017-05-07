@@ -15,12 +15,21 @@
  *= require mobile
  */
 
-* {
+body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
 a {
   color: #50E3C2 !important;
+}
+
+
+/*removes yellow input background browser default*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 #profile-img {
@@ -47,7 +56,7 @@ a {
 }
 
 .bottom-row-margin {
-  margin: 20px
+  margin: 20px;
 }
 
 .grey-box2 {

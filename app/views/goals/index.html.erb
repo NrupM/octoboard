@@ -5,26 +5,7 @@
 <div class="col s12 l12">
   <div class="row">
     <div class="col s12 l4 grey-box goals-height top-row-margin">
-      <div class='col s12 center-align'>
-        <% if @user.image %>
-          <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
-        <% end %>
-        <br>
-        <%= @user.job_status.upcase %>
-      </div>
-      <div class="col s12">
-        <% if @user.goals.count > 0 %>
-          <p>APPS PER DAY
-            <span class="right teal-theme"><%= @user.goals.first.applications_per_day %></span>
-          </p>
-        <% else %>
-          <p>WHAT ARE YOUR GOALS?
-            <span class="right teal-theme"><%= link_to '?', new_goal_path %></span>
-          </p>
-        <% end %>
-        <p>PROFILE COMPLETION <span class="right teal-theme">50%</span></p>
-        <p>OCTOPOWER <span class="right teal-theme"><%= @user.octopower %>%</span></p>
-      </div>
+      <%= render 'partials/profile_box' %>
     </div>
     <div class="col s12 l4 grey-box goals-height top-row-margin">
       APPLICATIONS
@@ -53,6 +34,7 @@
   <div class="row">
     <div class="col s12 l4 goals-height grey-box2">
       RESOURCES
+      <li><a href="https://docs.google.com/document/d/1dllfOWUd34cL3Q2Qxy2RCGdabWNivziF3eJA4CzoQCA">Job Resources</a></li>
     </div>
     <div class="col s12 l7">
       <div class="col s12 l12 goals-height2 grey-box2">
