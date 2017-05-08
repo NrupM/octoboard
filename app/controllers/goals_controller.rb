@@ -5,40 +5,44 @@ class GoalsController < ApplicationController
   def index
     @user = current_user
     @goal = @user.goals.first
+    @questions = @user.questions
+    @interviews = @user.interviews
+    @applications = @user.job_applications
     @octopower = @user.octopower
-    @pending_count = current_user.job_applications.where(stage: 'pending_response').count
-    @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
-    @applications = current_user.job_applications
+    @pending_count = @applications.where(stage: 'pending_response').count
+    @interviewing_count = @applications.where(stage: 'interviewing').count
 
     # ALGORITHM FOR OCTOPOWER
-    if (@user.goals.first)
-      apps_per_day = @user.goals.first.applications_per_day
-    else
-      apps_per_day = 0
+    if @goal
+      @apps_per_day_goal = @goal.applications_per_day
     end
-    if (@user.job_applications.count > 0)
-      @apps_applied_today = @user.job_applications.where({date_applied: Date.today}).count
-      num_apps = @user.job_applications.count
+    if @applications.count > 0
+      @apps_applied_today = @applications.where({date_applied: Date.today}).count
+      num_apps = @applications.count
     else
       @apps_applied_today = 0
       num_apps = 0
     end
-    num_interviews = @user.interviews.count
-    if @user.interviews.count > 0
-      completed_challenges = @user.interviews.where({is_challenge_completed: true}).count
-      nil_preparedness = @user.interviews.where({questions_to_ask: '' || ' '}).count
+    if @apps_per_day_goal > 0
+      @goal_hitting_rate = @apps_applied_today.to_f/@apps_per_day_goal*100
+    end
+
+    num_interviews = @interviews.count
+    if @interviews.count > 0
+      completed_challenges = @interviews.where({is_challenge_completed: true}).count
+      nil_preparedness = @interviews.where({questions_to_ask: '' || ' '}).count
       int_preparedness = num_interviews - nil_preparedness
-      nil_thankyou = @user.interviews.where({thankyou_letter: '' || ' '}).count
+      nil_thankyou = @interviews.where({thankyou_letter: '' || ' '}).count
       num_thankyous = num_interviews - nil_thankyou
-      inperson_ints = @user.interviews.where({interview_type: "in_person"}).count
+      inperson_ints = @interviews.where({interview_type: "in_person"}).count
     else
       num_thankyous = 0
       int_preparedness = 0
       inperson_ints = 0
     end
-    if @user.questions.count > 0
-      nilquestions = @user.questions.where({answer: nil || '' || ' ' }).count
-      questions = @user.questions.count
+    if @questions.count > 0
+      nilquestions = @questions.where({answer: nil || '' || ' ' }).count
+      questions = @questions.count
       answered = questions - nilquestions
     else
       answered = 0
@@ -48,7 +52,7 @@ class GoalsController < ApplicationController
     preparedness = int_preparedness * 2
     answered_questions = answered * 2
     interviews = num_interviews * 5
-    per_day_goal = meet_per_day_goal(apps_per_day, @apps_applied_today)
+    per_day_goal = meet_per_day_goal(@apps_per_day_goal, @apps_applied_today)
     inperson = inperson_ints * 10
 
     @octopower = (@octopower + thankyous + preparedness + answered_questions + interviews + per_day_goal + inperson)
@@ -60,9 +64,10 @@ class GoalsController < ApplicationController
     end
     # END OCTOPOWER ALGORITHM
 
+
     # interviews needing followup
-    @upcoming_interviews = @user.interviews.where(['interview_date > ?', DateTime.now])
-    @upcoming_challenges = @user.interviews.where(['coding_challenge_due_date > ?', DateTime.now])
+    @upcoming_interviews = @interviews.where(['interview_date > ?', DateTime.now])
+    @upcoming_challenges = @interviews.where(['coding_challenge_due_date > ?', DateTime.now])
 
 
   end

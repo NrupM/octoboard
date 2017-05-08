@@ -14,14 +14,8 @@
 </div>
 <div class="col s12">
   <% if @user.goals.count > 0 %>
-    <p>APPS PER DAY
-      <span class="right teal-theme"><%= @user.goals.first.applications_per_day %></span>
-    </p>
-  <% else %>
-    <p>WHAT ARE YOUR GOALS?
-      <span class="right teal-theme"><%= link_to '?', new_goal_path %></span>
-    </p>
+    <p>APPS PER DAY GOAL <span class="right teal-theme"><%= @goal.applications_per_day %></span></p>
+    <p>GOAL HITTING RATE <span class="right teal-theme"><%= @goal_hitting_rate %>%</span></p>
   <% end %>
-  <p>GOAL HITTING RATE <span class="right teal-theme">50%</span></p>
   <p>OCTOPOWER <span class="right teal-theme"><%= @octopower %>%</span></p>
 </div>
