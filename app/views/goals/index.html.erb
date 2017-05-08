@@ -7,10 +7,8 @@
     <div class="col s12 l4 grey-box goals-height-top top-row-margin">
       <%= render 'partials/profile_box' %>
     </div>
-    <div class="col s12 l4 grey-box goals-height-top top-row-margin">
-      APPLICATIONS
-      <p>Number of applications pending: <%= @pending_count %></p>
-      <%= pie_chart @applications.group(:application_method).count, library: {backgroundColor: "#171717"}, height: "130px", colors: ["#50E3C2", "#999", "#C66163", "#4caf50", "#26a69a", "#2b2b2b"] %>
+    <div class="col s12 l4 grey-box goals-height-top top-row-margin" id: "applications-box" >
+      <%= render 'partials/applications' %>
     </div>
     <div class="col s12 l3 grey-box goals-height-top top-row-margin">
       REMINDERS
@@ -24,8 +22,9 @@
       <%= render 'partials/goals' %>
     </div>
     <div class="col s12 l4 grey-box goals-height-mid middle-row-margin">
-      INTERVIEWS
+      <p>INTERVIEWS<span class="teal-theme right"><%= link_to 'View All', interviews_path %></span></p>
       Number of companies I'm interviewing with: <%= @interviewing_count %>
+
 
     </div>
     <div class="col s12 l3 grey-box goals-height-mid middle-row-margin">

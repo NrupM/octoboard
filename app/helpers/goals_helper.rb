@@ -28,6 +28,6 @@ module GoalsHelper
       'GOOD EVENING'
     end
   end
-
+  
 
 end

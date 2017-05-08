@@ -9,17 +9,17 @@ class GoalsController < ApplicationController
     @pending_count = current_user.job_applications.where(stage: 'pending_response').count
     @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
     @applications = current_user.job_applications
-    
+
     if (@user.goals.first)
       apps_per_day = @user.goals.first.applications_per_day
     else
       apps_per_day = 0
     end
     if (@user.job_applications.count > 0)
-      apps_applied_today = @user.job_applications.where({date_applied: Date.today}).count
+      @apps_applied_today = @user.job_applications.where({date_applied: Date.today}).count
       num_apps = @user.job_applications.count
     else
-      apps_applied_today = 0
+      @apps_applied_today = 0
       num_apps = 0
     end
     num_interviews = @user.interviews.count
@@ -47,7 +47,7 @@ class GoalsController < ApplicationController
     preparedness = int_preparedness * 2
     answered_questions = answered * 2
     interviews = num_interviews * 5
-    per_day_goal = meet_per_day_goal(apps_per_day, apps_applied_today)
+    per_day_goal = meet_per_day_goal(apps_per_day, @apps_applied_today)
     inperson = inperson_ints * 10
 
     @octopower = (@octopower + thankyous + preparedness + answered_questions + interviews + per_day_goal + inperson)
