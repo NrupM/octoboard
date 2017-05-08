@@ -14,9 +14,9 @@
       <ul>
       <%= f.hidden_field :job_application_id, :value => @application.id %>
     <% else %>
-    <h2>Basic Details</h2>
-    <ul>
-      <li><%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %></li>
+      <h2>Basic Details</h2>
+      <ul>
+        <li><%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %></li>
     <% end %>
       <li><%= f.label :interview_date, 'Interview Date' %>
           <%= f.datetime_local_field :interview_date, autofocus: true, required: true %></li>
@@ -37,18 +37,18 @@
       <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
       <h2>Preparedness &amp; Professionalism</h2>
       <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
-        <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
+          <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
       <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
           <%= f.text_area :thankyou_letter, :class => "materialize-textarea" %></li>
       <li><%= f.label :is_followup_needed, 'Is followup needed?' %>
-          <p>
-            <%= f.radio_button :is_followup_needed, true %>
-            <%= f.label 'is_followup_needed_true', 'Yes' %>
-          </p>
-          <p>
-            <%= f.radio_button :is_followup_needed, false %>
-            <%= f.label 'is_followup_needed_false', 'No' %>
-          </p>
+        <p>
+          <%= f.radio_button :is_followup_needed, true %>
+          <%= f.label 'is_followup_needed_true', 'Yes' %>
+        </p>
+        <p>
+          <%= f.radio_button :is_followup_needed, false %>
+          <%= f.label 'is_followup_needed_false', 'No' %>
+        </p>
       </li>
 
       <!-- CODING CHALLENGE DETAILS  -->
@@ -60,14 +60,14 @@
       <li><%= f.label :coding_challenge_prompt %>
           <%= f.text_area :coding_challenge_prompt, :class => "materialize-textarea" %></li>
       <li><%= f.label :is_challenge_completed, 'Is this challenge completed?' %>
-          <p>
-            <%= f.radio_button :is_challenge_completed, true %>
-            <%= f.label 'is_challenge_completed_true', 'Yes' %>
-          </p>
-          <p>
-            <%= f.radio_button :is_challenge_completed, false %>
-            <%= f.label 'is_challenge_completed_false', 'No' %>
-          </p>
+        <p>
+          <%= f.radio_button :is_challenge_completed, true %>
+          <%= f.label 'is_challenge_completed_true', 'Yes' %>
+        </p>
+        <p>
+          <%= f.radio_button :is_challenge_completed, false %>
+          <%= f.label 'is_challenge_completed_false', 'No' %>
+        </p>
       </li>
 
       <!-- MORE DETAILS  -->
