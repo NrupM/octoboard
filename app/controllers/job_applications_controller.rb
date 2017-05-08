@@ -47,17 +47,27 @@ class JobApplicationsController < ApplicationController
 
   def update
     @application = JobApplication.find_by_id(params[:id])
-    if @application.update_attributes(job_application_params)
-      flash[:success] = "Application updated successfully."
-      if @application.stage == 'interviewing'
-        redirect_to new_interview_path(job_application_id: @application.id)
-      else
+    if @application.stage == 'interviewing'
+      if @application.update_attributes(job_application_params)
+        flash[:success] = "Application updated successfully."
         redirect_to job_application_path
+      else
+        flash[:error] = 'There was an error updating your job application. Please try again.'
+        redirect_to :back
       end
     else
-      flash[:error] = 'There was an error updating your job application. Please try again.'
-      redirect_to :back
-    end
+      if @application.update_attributes(job_application_params)
+        flash[:success] = "Application updated successfully."
+        if @application.stage == 'interviewing'
+          redirect_to new_interview_path(job_application_id: @application.id)
+        else
+          redirect_to job_application_path
+        end
+      else
+        flash[:error] = 'There was an error updating your job application. Please try again.'
+        redirect_to :back
+      end
+    end 
   end
 
   def destroy
