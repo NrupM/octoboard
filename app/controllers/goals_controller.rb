@@ -61,10 +61,9 @@ class GoalsController < ApplicationController
     # END OCTOPOWER ALGORITHM
 
     # interviews needing followup
-    # coding challenges coming up
-    # interviews coming up
-    
-    @followup = @user.job_applications.where({is_followup_needed: true})
+    @upcoming_interviews = @user.interviews.where(['interview_date > ?', DateTime.now])
+    @upcoming_challenges = @user.interviews.where(['coding_challenge_due_date > ?', DateTime.now])
+
 
   end
 

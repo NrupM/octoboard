@@ -16,6 +16,8 @@ class InterviewsController < ApplicationController
   def create
     @interview = current_user.interviews.create(interview_params)
     if @interview.save
+      this_job_app = current_user.job_applications.find_by(id: @interview.job_application_id)
+      this_job_app.update_attributes({ stage: 'interviewing' })
       redirect_to interviews_path
     else
       flash[:error] = 'An error occurred saving your interview details. Please try again.'
