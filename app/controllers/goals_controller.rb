@@ -10,6 +10,7 @@ class GoalsController < ApplicationController
     # @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
     # @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')
     # @coding_challenges_count = @coding_challenges.where(coding_challenge_due_date: )
+
     if (@user.goals.first)
       apps_per_day = @user.goals.first.applications_per_day
     else
@@ -43,7 +44,6 @@ class GoalsController < ApplicationController
       answered = 0
     end
 
-
     thankyous = num_thankyous * 3
     preparedness = int_preparedness * 2
     answered_questions = answered * 2
@@ -58,7 +58,6 @@ class GoalsController < ApplicationController
     else
       @octopower == 100
     end
-
 
 
   end
