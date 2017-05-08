@@ -10,6 +10,7 @@ class GoalsController < ApplicationController
     @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
     @applications = current_user.job_applications
 
+    # ALGORITHM FOR OCTOPOWER
     if (@user.goals.first)
       apps_per_day = @user.goals.first.applications_per_day
     else
@@ -57,7 +58,13 @@ class GoalsController < ApplicationController
     else
       @octopower == 100
     end
+    # END OCTOPOWER ALGORITHM
 
+    # interviews needing followup
+    # coding challenges coming up
+    # interviews coming up
+    
+    @followup = @user.job_applications.where({is_followup_needed: true})
 
   end
 
