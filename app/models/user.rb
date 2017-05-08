@@ -9,6 +9,8 @@ class User < ApplicationRecord
   def set_defaults
     self.octopower  ||= 10
     self.image  ||= 'https://d28rk61hailme.cloudfront.net/assets/default_user-856f2487c07862f3089cfcb1528df354.png'
+    self.job_applications.count ||= 0
+    self.interviews.count ||= 0
   end
 
 

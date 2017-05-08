@@ -20,8 +20,8 @@
 <div class="col s12 l12">
   <div class="row">
     <div class="col s12 l4 grey-box goals-height-mid middle-row-margin">
+      <% if @goal %>
       <p>GOALS <span class="right"><%= link_to 'Edit', edit_goal_path(@goal) %></span></p>
-        <% if @goal %>
           <div class="col s12">
             <label>Today I will...</label>
             <div class="col s12 goals-box">
@@ -46,6 +46,8 @@
               <% end %>
             </div>
           </div>
+        <% else %>
+          NO GOALS
         <% end %>
     </div>
     <div class="col s12 l4 grey-box goals-height-mid middle-row-margin">
