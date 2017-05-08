@@ -1,35 +1,29 @@
 <% if @goal %>
   <p>GOALS <span class="right"><%= link_to 'Edit', edit_goal_path(@goal) %></span></p>
-    <% if @goal.daily_goal %>
-      <div class="col s12">
-        <label>Today I will...</label>
-        <div class="col s12 goals-box">
-          <% if @goal.daily_goal %>
-            <p><i class="fa fa-sun-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.daily_goal %></span></p>
-          <% end %>
-        </div>
+    <div class="col s12">
+      <label>Today I will...</label>
+      <div class="col s12 goals-box">
+        <% if @goal.daily_goal %>
+          <p><i class="fa fa-sun-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.daily_goal %></span></p>
+        <% end %>
       </div>
-    <% end %>
-    <% if @goal.weekly_goal %>
-      <div class="col s12">
-        <label>This week I will...</label>
-        <div class="col s12 goals-box">
-          <% if @goal.weekly_goal %>
-            <p><i class="fa fa-clock-o teal-theme" aria-hidden="true"></i><span style="padding-left: 19px"><%= @goal.weekly_goal %></span></p>
-          <% end %>
-        </div>
+    </div>
+    <div class="col s12">
+      <label>This week I will...</label>
+      <div class="col s12 goals-box">
+        <% if @goal.weekly_goal %>
+          <p><i class="fa fa-clock-o teal-theme" aria-hidden="true"></i><span style="padding-left: 19px"><%= @goal.weekly_goal %></span></p>
+        <% end %>
       </div>
-    <% end %>
-    <% if @goal.longterm_goal_date && @goal.longterm_goal %>
-      <div class="col s12">
-        <label>By <%= @goal.longterm_goal_date.strftime("%m/%d/%y") %> I will...</label>
-        <div class="col s12 goals-box">
-          <% if @goal.longterm_goal %>
-            <p><i class="fa fa-calendar-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.longterm_goal %></span></p>
-          <% end %>
-        </div>
+    </div>
+    <div class="col s12">
+      <label>By <%= @goal.longterm_goal_date.strftime("%m/%d/%y") %> I will...</label>
+      <div class="col s12 goals-box">
+        <% if @goal.longterm_goal %>
+          <p><i class="fa fa-calendar-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.longterm_goal %></span></p>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   <% else %>
     NO GOALS
   <% end %>

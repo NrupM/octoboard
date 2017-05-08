@@ -4,17 +4,16 @@
   <%= form_for @goal, method: :post do |f| %>
     <ul>
       <li><%= f.label :daily_goal, 'Today I will...' %>
-      <%= f.text_field :daily_goal, :maxlength => 34, :size => 34 %></li>
+          <%= f.text_field :daily_goal, :maxlength => 34, :size => 34, :placeholder => 'add more details to my resume.', :required => true %></li>
       <li><%= f.label :applications_per_day, 'I want to send out' %>
-        <%= f.number_field :applications_per_day %> per day.
-      </li>
+          <%= f.number_field :applications_per_day, :required => true %> per day.</li>
       <li><%= f.label :weekly_goal, 'By next week I will....' %>
-      <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34 %></li>
+          <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34, :placeholder => 'work through 15 algorithms.' :required => true  %></li>
       <li><%= f.label :longterm_goal_date, 'By' %>
-      <%= f.date_field :longterm_goal_date %>
-      <%= f.label :longterm_goal, 'I will...' %>
-      <%= f.text_field :longterm_goal, :maxlength => 34, :size => 34 %></li>
-      <li><%= f.submit 'Create' %></li>
+            <%= f.date_field :longterm_goal_date, :class => 'datepicker', :required => true  %>
+            <%= f.label :longterm_goal, 'I will...' %>
+            <%= f.text_field :longterm_goal, :maxlength => 34, :size => 34, :placeholder => 'land a Software Engineering job.' :required => true  %></li>
+      <li><%= f.submit 'Create', :class => 'waves-effect waves-light btn' %></li>
     </ul>
   <% end %>
 <% else %>

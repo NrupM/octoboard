@@ -1,19 +1,20 @@
-<%= current_user.email %>
-<h1>Edit your goal</h1>
 <%= link_to 'Back', edit_goal_path %>
-
-<%= form_for @goal do |f| %>
-<ul>
-  <li><%= f.label :daily_goal, 'Today I will...' %>
-      <%= f.text_field :daily_goal, :maxlength => 34, :size => 34 %></li>
-  <li><%= f.label :applications_per_day, 'I want to send out' %>
-      <%= f.number_field :applications_per_day %> per day.</li>
-  <li><%= f.label :weekly_goal, 'This week I will...' %>
-      <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34 %></li>
-  <li><%= f.label :longterm_goal_date, 'By' %>
-      <%= f.date_field :longterm_goal_date %>
-      <%= f.label :longterm_goal, 'I will...' %>
-      <%= f.text_field :longterm_goal, :maxlength => 34, :size => 34 %></li>
-  <li><%= f.submit 'Save Changes' %></li>
-</ul>
-<% end %>
+<div class="container">
+  <div class="col s12 m12 l12">
+    <h3>Edit Goals</h3>
+    <%= form_for @goal do |f| %>
+    <ul>
+      <li><%= f.label :daily_goal, 'Today I will...' %>
+          <%= f.text_field :daily_goal, :maxlength => 34, :size => 34 %></li>
+      <li><%= f.label :applications_per_day, 'I want to send out' %>
+          <%= f.number_field :applications_per_day, :style => 'width: 10%; text-align: center' %> <%= f.label :applications_per_day, 'applications per day.' %></li>
+      <li><%= f.label :weekly_goal, 'This week I will...' %>
+          <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34 %></li>
+      <li style="display:inline"><%= f.label :longterm_goal_date, 'By' %>
+          <%= f.date_field :longterm_goal_date, :class => 'datepicker', :style => 'width: 30%; text-align: center' %>
+          <%= f.label :longterm_goal, 'I will...' %> <%= f.text_field :longterm_goal, :maxlength => 34, :style => 'width: 60%', :size => 34 %></li>
+      <li><%= f.submit 'Save Changes', :class => 'waves-effect waves-light btn' %></li>
+    </ul>
+    <% end %>
+  </div>
+</div>

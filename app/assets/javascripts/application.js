@@ -19,6 +19,7 @@ $( document ).on('turbolinks:load', function() {
   $('select').material_select();
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
+  $('.modal').modal();
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 15

@@ -9,6 +9,7 @@ class Goal < ApplicationRecord
 
   def set_defaults
     self.applications_per_day ||= 1
+    self.longterm_goal_date ||= Date.new
   end
 
 end
