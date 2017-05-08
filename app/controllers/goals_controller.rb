@@ -5,10 +5,42 @@ class GoalsController < ApplicationController
   def index
     @user = current_user
     @goal = @user.goals.first
-    @pending_count = current_user.job_applications.where(stage: 'pending_response').count
-    @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
-    @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')
+    @octopower = @user.octopower
+    # @pending_count = current_user.job_applications.where(stage: 'pending_response').count
+    # @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
+    # @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')
     # @coding_challenges_count = @coding_challenges.where(coding_challenge_due_date: )
+    apps_per_day = @user.goals.first.applications_per_day
+    apps_applied_today = @user.job_applications.where({date_applied: Date.today}).count
+    num_apps = @user.job_applications.count
+    num_interviews = @user.interviews.count
+    completed_challenges = @user.interviews.where({is_challenge_completed: true}).count
+    nilquestions = @user.questions.where({answer: nil || '' || ' ' }).count
+    questions = @user.questions.count
+    answered = questions - nilquestions
+    nil_preparedness = @user.interviews.where({questions_to_ask: '' || ' '}).count
+    int_preparedness = num_interviews - nil_preparedness
+    nil_thankyou = @user.interviews.where({thankyou_letter: '' || ' '}).count
+    num_thankyous = num_interviews - nil_thankyou
+    inperson_ints = @user.interviews.where({interview_type: "in_person"}).count
+
+    thankyous = num_thankyous * 3
+    preparedness = int_preparedness * 2
+    answered_questions = answered * 2
+    interviews = num_interviews * 5
+    per_day_goal = meet_per_day_goal(apps_per_day, apps_applied_today)
+    inperson = inperson_ints * 10
+
+    @octopower = (@octopower + thankyous + preparedness + answered_questions + interviews + per_day_goal + inperson)
+    
+    if @octopower > 95 && @user.job_status == 'seeking'
+      @octopower == 95
+    else
+      @octopower == 100
+    end
+
+
+
   end
 
   def new
@@ -51,6 +83,17 @@ class GoalsController < ApplicationController
 
   def goal_params
     params.require(:goal).permit(:daily_goal, :weekly_goal,:longterm_goal,:longterm_goal_date, :applications_per_day)
+  end
+
+  def meet_per_day_goal (per_day_goal, actual_apps_per_day)
+    n = per_day_goal
+    if n > 0
+      if (actual_apps_per_day == n || actual_apps_per_day > n)
+        return n
+      else
+        return actual_apps_per_day
+      end
+    end
   end
 
 end
