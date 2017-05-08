@@ -6,11 +6,10 @@ class GoalsController < ApplicationController
     @user = current_user
     @goal = @user.goals.first
     @octopower = @user.octopower
-    # @pending_count = current_user.job_applications.where(stage: 'pending_response').count
-    # @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
-    # @coding_challenges = current_user.interviews.where(coding_challenge_due_date: 'interviewing')
-    # @coding_challenges_count = @coding_challenges.where(coding_challenge_due_date: )
-
+    @pending_count = current_user.job_applications.where(stage: 'pending_response').count
+    @interviewing_count = current_user.job_applications.where(stage: 'interviewing').count
+    @applications = current_user.job_applications
+    
     if (@user.goals.first)
       apps_per_day = @user.goals.first.applications_per_day
     else
