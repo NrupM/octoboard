@@ -33,7 +33,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 #profile-img {
@@ -48,7 +48,7 @@ input:-webkit-autofill:active {
 .grey-box {
   background-color: #171717;
   color: white;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .top-row-margin {
@@ -66,7 +66,7 @@ input:-webkit-autofill:active {
 .grey-box2 {
   background-color: #171717;
   color: white;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .goals-height-top {
@@ -85,17 +85,20 @@ input:-webkit-autofill:active {
   background-color: #2B2B2B;
   height: 60px;
   margin: 7px;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
-/*html {
-  background-color: black;
-  color: white !important;
-}*/
+.picker__date-display, .picker__weekday-display{
+  background-color: #50E3C2;
+}
 
-/*.side-nav {
-  width: 260px !important;
-}*/
+div.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted {
+  background-color: #50E3C2;
+}
+
+button.picker__today, button.picker__close {
+  color: #50E3C2;
+}
 
 #search-form {
   margin-left: 20px;

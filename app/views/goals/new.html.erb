@@ -1,20 +1,24 @@
-<%= current_user.email %>
-<h1> Hi do you want to create a new goal?</h1>
 <%= link_to 'Back', goals_path %>
 
-<%= form_for @goal, method: :post do |f| %>
-  <ul>
-    <li><%= f.label :daily_goal, 'Today I would like to...' %>
-    <%= f.text_field :daily_goal %></li>
-    <li><%= f.label :applications_per_day, 'I want to send out' %>
-      <%= f.number_field :applications_per_day %> per day.
-    </li>
-    <li><%= f.label :weekly_goal, 'By this time next week I would have liked to...' %>
-    <%= f.text_field :weekly_goal %></li>
-    <li><%= f.label :longterm_goal_date, 'By' %>
-    <%= f.date_field :longterm_goal_date %>
-    <%= f.label :longterm_goal, 'I would have liked to...' %>
-    <%= f.text_field :longterm_goal %></li>
-    <li><%= f.submit 'Create' %></li>
-  </ul>
+<% if current_user.goals.count == 0 %>
+  <%= form_for @goal, method: :post do |f| %>
+    <ul>
+      <li><%= f.label :daily_goal, 'Today I will...' %>
+      <%= f.text_field :daily_goal, :maxlength => 34, :size => 34 %></li>
+      <li><%= f.label :applications_per_day, 'I want to send out' %>
+        <%= f.number_field :applications_per_day %> per day.
+      </li>
+      <li><%= f.label :weekly_goal, 'By next week I will....' %>
+      <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34 %></li>
+      <li><%= f.label :longterm_goal_date, 'By' %>
+      <%= f.date_field :longterm_goal_date %>
+      <%= f.label :longterm_goal, 'I will...' %>
+      <%= f.text_field :longterm_goal, :maxlength => 34, :size => 34 %></li>
+      <li><%= f.submit 'Create' %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <div class="container center-align">
+    <h3>Please <%= link_to 'modify', edit_goal_path(current_user.goals.first) %> your current goals instead.</h3>
+  </div>
 <% end %>

@@ -13,19 +13,15 @@
         <%= f.date_field :interview_date, :class => 'datepicker', required: true %></li>
     <li><%= f.label :interview_type, 'Interview Type' %>
         <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
-    <li><%= f.label :interview_type, 'Is followup needed?' %>
-
-      <table>
-        <tr>
-          <td><%= f.label 'is_followup_needed_true', 'Yes' %></td>
-          <td><%= f.radio_button :is_followup_needed, true %></td>
-        </tr>
-
-        <tr>
-          <td><%= f.label 'is_followup_needed_false', 'No' %></td>
-          <td><%= f.radio_button :is_followup_needed, false %></td>
-        </tr>
-      </table>
+    <li><%= f.label :is_followup_needed, 'Is followup needed?' %>
+        <p>
+          <%= f.radio_button :is_followup_needed, true %>
+          <%= f.label 'is_followup_needed_true', 'Yes' %>
+        </p>
+        <p>
+          <%= f.radio_button :is_followup_needed, false %>
+          <%= f.label 'is_followup_needed_false', 'No' %>
+        </p>
     </li>
 
     <!-- PRIMARY CONTACT INFORMATION -->
@@ -54,18 +50,15 @@
         <%= f.datetime_local_field :coding_challenge_due_date %></li>
     <li><%= f.label :coding_challenge_prompt %>
         <%= f.text_area :coding_challenge_prompt, :class => "materialize-textarea" %></li>
-    <li><%= f.label :is_challenge_completed, 'Is this challenege completed?' %>
-      <table>
-        <tr>
-          <td><%= f.label 'is_challenge_completed_true', 'Yes' %></td>
-          <td><%= f.radio_button :is_challenge_completed, true %></td>
-        </tr>
-
-        <tr>
-          <td><%= f.label 'is_challenge_completed_false', 'No' %></td>
-          <td><%= f.radio_button :is_challenge_completed, false %></td>
-        </tr>
-      </table>
+    <li><%= f.label :is_challenge_completed, 'Is this challenge completed?' %>
+        <p>
+          <%= f.radio_button :is_challenge_completed, true %>
+          <%= f.label 'is_challenge_completed_true', 'Yes' %>
+        </p>
+        <p>
+          <%= f.radio_button :is_challenge_completed, false %>
+          <%= f.label 'is_challenge_completed_false', 'No' %>
+        </p>
     </li>
 
     <!-- MORE DETAILS  -->
