@@ -3,7 +3,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @user = current_user
-    @applications = JobApplication.where(user_id: current_user.id)
+    @applications = JobApplication.where(user_id: current_user.id).order('updated_at DESC').paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
