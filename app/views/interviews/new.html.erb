@@ -1,20 +1,20 @@
 <% if @application %>
-  <h1>Create a new interview for <%= @application.company_name %></h1>
-  <%= link_to 'Back', job_application_path(@application) %>
+  <%= link_to job_applications_path(@application) do %><i class="fa fa-arrow-left" aria-hidden="true"></i> Back<% end %>
+  <h2 class="center-align">Create a new interview for <%= @application.company_name.capitalize %></h2>
 <% else %>
-  <h1>Create a new interview</h1>
-  <%= link_to 'Back', interviews_path %>
+  <%= link_to interviews_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> Back<% end %>
+  <h2 class="center-align">Add an Interview</h2>
 <% end %>
 
 <%= form_for @interview, method: :post do |f| %>
   <!-- BASIC INFO FOR INTERVIEW -->
   <% if @applicationscount > 0 %>
     <% if @application %>
-      <h2>Basic Details</h2>
+      <h5>Basic Details</h5>
       <ul>
       <%= f.hidden_field :job_application_id, :value => @application.id %>
     <% else %>
-      <h2>Basic Details</h2>
+      <h5>Basic Details</h5>
       <ul>
         <li><%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---", :include_blank => true) %></li>
     <% end %>
@@ -24,7 +24,8 @@
           <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
 
       <!-- PRIMARY CONTACT INFORMATION -->
-      <h2>Primary Contact Details</h2>
+      <h5>Primary Contact Details</h5>
+
       <li><%= f.label :primary_contact_name, 'Primary contact name' %>
           <%= f.text_field :primary_contact_name %></li>
       <li><%= f.label :primary_contact_title, 'Primary contact title' %>
@@ -35,7 +36,8 @@
           <%= f.telephone_field :primary_contact_phone %></li>
 
       <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
-      <h2>Preparedness &amp; Professionalism</h2>
+      <h5>Preparedness &amp; Professionalism</h5>
+
       <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
           <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
       <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
@@ -52,7 +54,8 @@
       </li>
 
       <!-- CODING CHALLENGE DETAILS  -->
-      <h2>Coding Challenge Info</h2>
+      <h5>Coding Challenge Info</h5>
+
       <li><%= f.label :coding_challenge_url %>
           <%= f.text_field :coding_challenge_url %></li>
       <li><%= f.label :coding_challenge_due_date %>
@@ -71,10 +74,11 @@
       </li>
 
       <!-- MORE DETAILS  -->
-      <h2>Additional details</h2>
+      <h5>Additional details</h5>
+
       <li><%= f.label :notes, 'Additional details/notes' %>
           <%= f.text_area :notes, :class => "materialize-textarea" %></li>
-      <%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %>
+      <div class="field center-align"><%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %></div>
     </ul>
 
   <% else %>

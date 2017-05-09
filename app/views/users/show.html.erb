@@ -1,4 +1,4 @@
-<h1>User Profile for <%= @user.first_name.capitalize %></h1>
+<h3>User Profile for <%= @user.first_name.capitalize %></h3>
 
 <%= link_to 'Edit Profile', edit_user_registration_path %>
 <%= link_to 'Back', goals_path %>
@@ -11,6 +11,5 @@
   <li>LinkedIn URL: <%= @user.linkedin_url %></li>
   <li>Github URL: <%= @user.github_url %></li>
   <li>Portfolio URL: <%= @user.portfolio_url %></li>
-  <li><%= @user.other_url_name %>: <%= @user.other_url %></li>
   <li>Image URL: <%= @user.image %></li>
 </ul>

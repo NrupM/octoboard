@@ -1,6 +1,7 @@
-<h1>Create a new job application</h1>
+<%= link_to job_applications_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> Back<% end %>
 
-<%= link_to 'Back', job_applications_path %>
+<h2 class="center-align">Add Application Details</h2>
+
 
 
 <%= form_for @application, method: :post do |f| %>
@@ -35,6 +36,6 @@
         <%= f.text_field :requested_salary %></li>
     <li><%= f.label :notes, 'Other notes' %>
         <%= f.text_area :notes, :class => "materialize-textarea" %></li>
-    <%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %>
+    <div class="field center-align"><%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %></div>
   </ul>
 <% end %>

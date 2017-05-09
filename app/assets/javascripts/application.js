@@ -17,6 +17,7 @@
 $( document ).on('turbolinks:load', function() {
   $(".button-collapse").sideNav();
   $('select').material_select();
+  $('.collapsible').collapsible();
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
   $('.modal').modal();
