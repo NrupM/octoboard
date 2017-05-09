@@ -1,7 +1,10 @@
-<h3>User Profile for <%= @user.first_name.capitalize %></h3>
+<p>
+  <%= link_to goals_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <span class="right"><%= link_to edit_user_registration_path do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i> EDIT USER INFORMATION<% end %></span>
+</p>
 
-<%= link_to 'Edit Profile', edit_user_registration_path %>
-<%= link_to 'Back', goals_path %>
+<h3 class="center-align">User Details</h3>
+
 
 <ul>
   <li>First name: <%= @user.first_name %></li>
