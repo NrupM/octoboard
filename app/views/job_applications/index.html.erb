@@ -24,8 +24,7 @@
     </li>
   <% end %>
 </ul>
+<%= will_paginate @applications %>
 <% else %>
   <div class="field center-align" style="margin-top:50px"><p>Once you have added a job application, it will appear here.</p></div>
 <% end %>
-
-<%= will_paginate @applications %>
