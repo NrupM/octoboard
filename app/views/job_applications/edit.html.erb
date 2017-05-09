@@ -1,3 +1,5 @@
+<%= render '/partials/flash_messages' %>
+
 <p>
   <%= link_to job_application_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
   <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>

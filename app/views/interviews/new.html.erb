@@ -1,3 +1,5 @@
+<%= render '/partials/flash_messages' %>
+
 <% if @application %>
   <%= link_to job_applications_path(@application) do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
   <h3 class="center-align">Add an interview with <%= @application.company_name.capitalize %></h3>
