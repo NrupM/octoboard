@@ -57,7 +57,7 @@
 
 <div class="col s12 m12 l12">
   <div class="row">
-    <div class="col s12 l4 resources-height3 grey-box2 bottom-margin" id="resources">
+    <div class="col s12 l3 resources-height3 grey-box2 bottom-margin" id="resources">
       <p>RESOURCES<span class="teal-theme right"><%= link_to 'Edit', edit_user_registration_path(@user) %></span></p>
       <div class="col s12"><a href="https://docs.google.com/document/d/1dllfOWUd34cL3Q2Qxy2RCGdabWNivziF3eJA4CzoQCA">Essential Job Resources</a></div>
         <% if @user.linkedin_url || @user.github_url || @user.portfolio_url || @user.other_url %>
@@ -73,10 +73,12 @@
           <% end %>
         <% end %>
       </div>
-    <div class="col s12 l7">
+    <div class="col s12 l4">
       <div class="col s12 l12 goals-height2 grey-box2 bottom-margin" style="margin-left: 10px">
-        QUESTIONS
+        <p>QUESTIONS<span class="teal-theme right"><%= link_to 'View More', questions_path %></span></p>
       </div>
+    </div>
+    <div class="col s12 l4">
       <div class="col s12 l12 goals-height2 grey-box2" style="margin-left: 10px">
         BRAIN TEASER
       </div>

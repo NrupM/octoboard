@@ -3,63 +3,27 @@
   <span class="right"><%= link_to new_job_application_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW JOB APP<% end %></span>
 </p>
 
-<h3 class="center-align">All Job Applications</h3>
+<h3 class="center-align" style="padding-bottom: 30px">All Job Applications</h3>
+
 
 
 <% if @applications.length > 0 %>
+<ul class="collection">
   <% @applications.each do |app| %>
-    <ul>
-      <%= link_to 'View more details', job_application_path(app) %>
-      <% if app.company_name %>
-      <li>Company name: <%= app.company_name %></li>
-      <% end %>
-      <% if app.job_title %>
-      <li>Position: <%= app.job_title %></li>
-      <% end %>
-      <% if app.date_applied %>
-        <li>Date applied: <%= app.date_applied.strftime("%m/%d/%y") %></li>
-      <% end %>
-      <% if app.stage %>
-        <li>Stage: <%= app.stage.humanize %></li>
-          <% if app.stage == 'interviewing' || app.interviews.count > 0 %>
-            <li> Number of total interviews: <%= app.interviews.count %></li>
-          <% end %>
+    <li class="collection-item avatar">
+      <div class='circle' id="side-date"><%= app.date_applied.strftime("%m/%d") %></div>
+      <span class="title"><%= app.job_title %></span>
+      <p><%= app.company_name %><br>
+      <%= link_to 'View more details', job_application_path(app) %></p>
+      <p>
+        <% if is_value_nil?(app.notes) %>
+          Notes: <%= app.notes %>
         <% end %>
-      <% if is_value_nil?(app.location) %>
-        <li>Located in: <%= app.location %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_post_url) %>
-        <li>URL: <%= app.job_post_url %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_description) %>
-        <li>Description: <%= app.job_description %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_requirements) %>
-        <li>Requirements: <%= app.job_requirements %></li>
-      <% end %>
-      <% if is_value_nil?(app.application_method) %>
-        <li>Application method: <%= app.application_method.humanize %></li>
-      <% end %>
-      <% if is_value_nil?(app.why_interested) %>
-        <li>Why are you interested?: <%= app.why_interested %></li>
-      <% end %>
-      <% if is_value_nil?(app.requested_salary) %>
-        <li>Requested salary: <%= app.requested_salary %></li>
-      <% end %>
-      <% if is_value_nil?(app.submitted_cover_letter) %>
-        <li>Cover letter: <%= app.submitted_cover_letter %></li>
-      <% end %>
-      <% if is_value_nil?(app.relevant_work_history) %>
-        <li>Relevant work history: <%= app.relevant_work_history %></li>
-      <% end %>
-      <% if is_value_nil?(app.tech_stack) %>
-        <li>Tech stack: <%= app.tech_stack %></li>
-      <% end %>
-      <% if is_value_nil?(app.notes) %>
-        Notes: <%= app.notes %>
-      <% end %>
-    </ul>
+      </p>
+      <%= link_to edit_job_application_path(app), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+    </li>
   <% end %>
+</ul>
 <% else %>
   <div class="field center-align" style="margin-top:50px"><p>Once you have added a job application, it will appear here.</p></div>
 <% end %>
