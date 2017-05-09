@@ -34,18 +34,18 @@
       <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
       <div class="collapsible-body">
         <ul>
-          <% if @interview.primary_contact_name %>
-            <li><i class="fa fa-user" aria-hidden="true"><span style="margin-left: 15px"></i>Contact: <%= @interview.primary_contact_name %></span>
+          <% if @interview.primary_contact_name.size > 0 %>
+            <li><i class="fa fa-user" aria-hidden="true"><span style="margin-left: 15px"></i> Contact: <%= @interview.primary_contact_name %></span>
           <% end %>
           <% if @interview.primary_contact_title.size > 0 %>
             - <%= @interview.primary_contact_title %></li>
           <% else %>
             </li>
           <% end %>
-          <% if @interview.primary_contact_email %>
+          <% if @interview.primary_contact_email.size > 0 %>
             <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span style="margin-left: 15px">Email: <%= @interview.primary_contact_email %></span></li>
           <% end %>
-          <% if @interview.primary_contact_phone %>
+          <% if @interview.primary_contact_phone.size > 0 %>
             <li><i class="fa fa-phone" aria-hidden="true"></i><span style="margin-left: 15px"> Phone: <%= @interview.primary_contact_phone %></span></li>
           <% end %>
         </ul>
@@ -55,7 +55,7 @@
       <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
       <div class="collapsible-body">
         <ul>
-          <% if @interview.coding_challenge_prompt %>
+          <% if @interview.coding_challenge_prompt.size > 0 %>
             <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 25px; margin-top: -25px">
               <h5 class="header-font">Challenge Prompt
                 <% if @interview.coding_challenge_url %>
