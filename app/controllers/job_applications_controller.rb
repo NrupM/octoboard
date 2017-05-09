@@ -35,9 +35,6 @@ class JobApplicationsController < ApplicationController
     @applications = JobApplication.where(user_id: current_user.id)
     if params[:search]
       @search_results = @applications.search_job_apps(params[:search]).order('created_at DESC')
-      if @search_results.blank?
-        flash[:error] = 'There were no results found for your search.'
-      end
     end
   end
 

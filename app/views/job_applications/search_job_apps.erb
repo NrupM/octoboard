@@ -1,8 +1,12 @@
-<h1>Search results</h1>
+<p>
+  <%= link_to goals_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <span class="right"><%= link_to job_applications_path do %><i class="fa fa-file-text nav-i" aria-hidden="true"></i> VIEW MY JOB APPS <% end %></span>
+</p>
 
-<%= link_to 'Back', goals_path %>
+
 
 <% if @search_results.length > 0 %>
+<h4 class="center-align">We found <%= grammarize_result_num(@search_results.count) %> matching your search.</h4>
   <% @search_results.each do |app| %>
     <ul>
       <%= link_to 'View more details', job_application_path(app) %>
@@ -64,5 +68,6 @@
     <% end %>
   <% end %>
 <% else %>
-  <h2> There were no results matching your search. Please try again or head to your <%= link_to 'job applications', job_applications_path %>.</h2>
+  <h4 class="center-align">There were no results matching your search.</h4>
+  <p class="center-align" style="margin-top: 50px">Please search by company name, position title, or tech stack.</p>
 <% end %>

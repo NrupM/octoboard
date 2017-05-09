@@ -1,10 +1,13 @@
-<h1>This job is : <%= @application.job_title %></h1>
-<%= link_to 'Back', job_applications_path %>
+<p>
+  <%= link_to job_applications_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
+</p>
+
+<h3 class="center-align"><%= @application.job_title %> Position at <%= @application.company_name %></h3>
 
 
 <ul>
   <%= link_to 'Edit', edit_job_application_path %>
-  <%= link_to 'Add an Interview for this job', new_interview_path(job_application_id: @application.id) %>
   <%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
 

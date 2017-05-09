@@ -1,5 +1,8 @@
-<h4>Prepare yourself by asking good questions!</h4>
-<%= link_to 'Back', questions_path %>
+<p>
+  <%= link_to questions_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+</p>
+
+<h4 class="center-align">Prepare yourself by asking good questions!</h4>
 
 
 <%= form_for @question, method: :post do |f| %>

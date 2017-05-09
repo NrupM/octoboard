@@ -1,7 +1,8 @@
-<ul>
-  <li><%= link_to goals_path, class: "btn" do %><i class="fa fa-arrow-left" aria-hidden="true"></i> Back<% end %></li>
-  <li><%= link_to new_job_application_path do %><i class="fa fa-plus" aria-hidden="true"></i> Add an Application<% end %></li>
-</ul>
+<p>
+  <%= link_to goals_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <span class="right"><%= link_to new_job_application_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW JOB APP<% end %></span>
+</p>
+
 <h3 class="center-align">All Job Applications</h3>
 
 
