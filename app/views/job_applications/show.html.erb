@@ -3,35 +3,93 @@
   <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
 </p>
 
-<h3 class="center-align"><%= @application.job_title %> Position at <%= @application.company_name %></h3>
-
-
-<ul>
-  <%= link_to 'Edit', edit_job_application_path %>
-  <%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
 
 
-  <% if @application.company_name %>
-  <li>Company name: <%= @application.company_name %></li>
-  <% end %>
-  <% if @application.job_title %>
-  <li>Position: <%= @application.job_title %></li>
-  <% end %>
-  <% if @application.location %>
-  <li>Located in: <%= @application.location %></li>
-  <% end %>
+<div class='col s12' id="interview-info">
+  <div class="s12" id="interview-header">
+    <div class="col s12">
+      <ul>
+        <li style="font-size: 1.7em"><%= @application.company_name %><span class="right"><%= link_to edit_job_application_path do %><i class="fa fa-pencil-square-o" style="font-size: 1em" aria-hidden="true"></i><% end %></span></li>
+        <li style="font-size: 1.25em"><%= @application.job_title %></li>
+        <% if @application.location.size > 0 %>
+          <li style="font-size: 1.1em"><%= @application.location.upcase %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class='col s12' id="divider">
+  </div>
+  <div class='col s12' style="height: 40px; border-bottom: 1px solid #ddd; line-height: 40px">
+    <% if @application.stage %>
+      <% if @application.stage == 'interviewing' %>
+        <i class="fa fa-handshake-o" aria-hidden="true"></i><span style="margin-left: 10px">Interviewing |</span>
+      <% elsif @application.stage == 'pending_response' %>
+        <i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 10px">Pending Response |</span>
+      <% elsif @application.stage == 'declined' %>
+        <i class="fa fa-user-times" aria-hidden="true"></i><span style="margin-left: 10px">Declined |</span>
+      <% end %>
+    <% end %>
+    <% if @application.job_post_url.size > 0 %>
+      <span class="right" style="font-size: 0.8em"><%= link_to 'View Original Job Post', check_for_http(@application.job_post_url), :target => '_blank' %></span>
+    <% end %>
+  </div>
+  <ul class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
+      <div class="collapsible-body">
+        <ul>
+
+
+
+
+
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
+      <div class="collapsible-body">
+        <ul>
+
+
+
+
+
+
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
+      <div class="collapsible-body">
+        <ul>
+
+
+
+
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div class="col s12">
+    <% if @application.notes.size > 0 %>
+      <h5 class="header-font">Quick Notes</h5>
+      <p><%= simple_format(@application.notes) %></p>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
   <% if @application.application_method %>
   <li>Application method: <%= @application.application_method.humanize %></li>
   <% end %>
-  <% if @application.stage %>
-  <li>Stage: <%= @application.stage.humanize %></li>
-  <% end %>
   <% if @application.date_applied %>
     <li>Date applied: <%= @application.date_applied.strftime("%m/%d/%y") %></li>
-  <% end %>
-  <% if @application.job_post_url %>
-    <li>URL: <%= @application.job_post_url %></li>
   <% end %>
   <% if @application.job_description %>
     <li>Description: <%= @application.job_description %></li>
@@ -54,10 +112,7 @@
   <% if @application.tech_stack %>
     <li>Tech stack: <%= @application.tech_stack %></li>
   <% end %>
-  <% if @application.notes %>
-    Notes: <%= @application.notes %>
-  <% end %>
-</ul>
+
 
 <% if @interviews.length > 0 %>
   <% @interviews.each do |interview| %>
