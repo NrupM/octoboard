@@ -1,7 +1,7 @@
 # <img src="#"> OctoBoard
 
 
-OctoBoard is a management system for job seekers which hosts information on applications, interviews, follow-up dates, and job preparedness aspects such as interview questions/responses and application materials. I decided to build this app because it solved an issue that many of my peers faced when trying to organize all job application process details and encouraged better preparation and job search practices.
+OctoBoard is a personal organizational tool for job seekers which stores information on job applications, upcoming interviews, follow-up dates, and job preparedness aspects such as interview questions/responses. I decided to build this app because it solves an issue that many of my peers face when trying to organize job search process details and it encourages better preparation and practices.
 
 <img src="#">[homepage view coming soon]
 
@@ -20,8 +20,10 @@ OctoBoard is a management system for job seekers which hosts information on appl
 3. JavaScript
 4. HTML5
 5. CSS3
-6. Chart.js?
-7. Gems?
+6. Gems:
+  a. Will Paginate
+  b. Chartkick
+7. Materialize
 
 ## User Stories
 

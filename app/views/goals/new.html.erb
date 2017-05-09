@@ -1,6 +1,10 @@
 <%= link_to 'Back', goals_path %>
 
 <% if current_user.goals.count == 0 %>
+
+<p>You should only set <a href="https://medium.com/@ReigningIt/how-to-set-smart-goals-a-goal-setting-process-to-achieve-your-dreams-74015310c3dd" target="_blank">SMART</a> goals during your job search.
+SMART goals help cure Impostor Syndrome as they are designed to help you build progress and apply growth mindset to your current challenges. </p>
+
   <%= form_for @goal, method: :post do |f| %>
     <ul>
       <li><%= f.label :daily_goal, 'Today I will...' %>

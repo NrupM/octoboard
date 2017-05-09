@@ -23,7 +23,7 @@ $( document ).on('turbolinks:load', function() {
   $('.modal').modal();
   $('.datepicker').pickadate({
     selectMonths: true,
-    selectYears: 15,
-    min: true
+    selectYears: 15
   });
+
 });

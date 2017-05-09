@@ -1,59 +1,101 @@
-<h1>Interview info for: <%= @interview.job_application.company_name %></h1>
-
-<%= link_to 'Back', interviews_path %>
-
-
+<p>
+  <%= link_to interviews_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <span class="right"><%= link_to edit_interview_path(@interview) do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT INTERVIEW<% end %></span>
+</p>
 
 <%= link_to 'Add an interview', new_interview_path %>
-<%= link_to 'Edit this Interview', edit_interview_path(@interview) %>
 <%= link_to interview_path(@interview), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
-<ul>
-  <% if @interview.interview_date %>
-    <li>Interview date: <%= @interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
-  <% end %>
-  <% if @interview.interview_type %>
-    <li>Type: <%= @interview.interview_type.humanize %></li>
-  <% end %>
-  <% if @interview.is_followup_needed != nil %>
-    <li>Is followup needed?: <%= @interview.is_followup_needed %></li>
-  <% end %>
-  <!-- PRIMARY CONTACT INFO  -->
-  <h2>Primary Contact Info</h2>
-  <% if @interview.primary_contact_name %>
-    <li>Primary Contact Name: <%= @interview.primary_contact_name %></li>
-  <% end %>
-  <% if @interview.primary_contact_title %>
-    <li>Primary Contact Title: <%= @interview.primary_contact_title %></li>
-  <% end %>
-  <% if @interview.primary_contact_email %>
-    <li>Primary Contact Email: <%= @interview.primary_contact_email %></li>
-  <% end %>
-  <% if @interview.primary_contact_phone %>
-    <li>Primary Contact Phone: <%= @interview.primary_contact_phone %></li>
-  <% end %>
-  <!--CODING CHALLENGE INFO  -->
-  <h2>Coding Challenge Details</h2>
-  <% if @interview.coding_challenge_url %>
-    <li>Link to coding challenge: <%= @interview.coding_challenge_url %></li>
-  <% end %>
-  <% if @interview.coding_challenge_prompt %>
-    <li>Coding challenge prompt: <%= @interview.coding_challenge_prompt %></li>
-  <% end %>
-  <% if @interview.coding_challenge_due_date %>
-    <li>Coding challenge due date: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></li>
-  <% end %>
-  <% if @interview.is_challenge_completed != nil %>
-    <li>Challenge done?: <%= @interview.is_challenge_completed %></li>
-  <% end %>
-  <h2>Preparedness &amp; Professionalism </h2>
-  <% if @interview.thankyou_letter %>
-    <li>Thank You letter: <%= @interview.thankyou_letter %></li>
-  <% end %>
-  <% if @interview.questions_to_ask %>
-    <li>Questions to ask: <%= @interview.questions_to_ask %></li>
-  <% end %>
-  <% if @interview.notes %>
-    <li>Notes: <%= @interview.notes %></li>
-  <% end %>
-</ul>
+
+<div class='col l9 m9 offset-l1 offset-m1 s12'>
+  <div class="s12" id="interview-header">
+
+    <ul>
+      <% if @interview.interview_date %>
+        <li style="font-family: 'PT Sans Narrow', sans-serif; font-size: 1.5em"><%= @interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+      <% end %>
+      <% if @interview.interview_type %>
+        <li>Type: <%= @interview.interview_type.humanize %></li>
+      <% end %>
+      <% if @interview.is_followup_needed != nil %>
+        <li>Is followup needed?: <%= @interview.is_followup_needed %></li>
+      <% end %>
+    </ul>
+
+  </div>
+  <div class='col s12' id="divider">
+  </div>
+  <ul class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
+      <div class="collapsible-body">
+        <ul>
+          <% if @interview.primary_contact_name %>
+            <li>Name: <%= @interview.primary_contact_name %></li>
+          <% end %>
+          <% if @interview.primary_contact_title %>
+            <li>Title: <%= @interview.primary_contact_title %></li>
+          <% end %>
+          <% if @interview.primary_contact_email %>
+            <li>Email: <%= @interview.primary_contact_email %></li>
+          <% end %>
+          <% if @interview.primary_contact_phone %>
+            <li>Phone: <%= @interview.primary_contact_phone %></li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
+      <div class="collapsible-body">
+        <ul>
+          <% if @interview.coding_challenge_url %>
+            <li>Link for more details: <%= @interview.coding_challenge_url %></li>
+          <% end %>
+          <% if @interview.coding_challenge_prompt %>
+            <li>Prompt: <%= @interview.coding_challenge_prompt %></li>
+          <% end %>
+          <% if @interview.coding_challenge_due_date %>
+            <li>Due date: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+          <% end %>
+          <% if @interview.is_challenge_completed != nil %>
+            <li>Is it done?
+              <% if @interview.is_challenge_completed == true %>
+                Yes <i class="fa fa-check-square-o" aria-hidden="true"></i></li>
+              <% else %>
+                Still working</li>
+              <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
+      <div class="collapsible-body">
+        <ul>
+          <% if @interview.questions_to_ask.size > 0  %>
+            <div class="col s12" style="border: 1px solid black">
+              <h6>Questions I Can Ask in the Interview</h6>
+            </div>
+            <br>
+            <p><%= simple_format(@interview.questions_to_ask) %></p>
+          <% end %>
+          <% if @interview.thankyou_letter.size > 0 %>
+            <div class="col s12" style="border: 1px solid black">
+              <h6>Post-Interview Thank You Letter</h6>
+            </div>
+            <br>
+            <p><%= simple_format(@interview.thankyou_letter) %></p>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+  </ul>
+  <div class="col s12">
+    <% if @interview.notes.size > 0 %>
+      <h5 style="font-weight: bold; font-size: 1.24rem">Notes</h5>
+      <p><%= @interview.notes %></p>
+    <% end %>
+  </div>
+
+</div>
