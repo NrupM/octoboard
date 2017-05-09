@@ -22,7 +22,7 @@ class JobApplicationsController < ApplicationController
       end
     else
       flash[:error] = 'An error occurred saving your application details. Please try again.'
-      redirect_to :back
+      redirect_to new_job_application_path
     end
   end
 
@@ -67,7 +67,7 @@ class JobApplicationsController < ApplicationController
         flash[:error] = 'There was an error updating your job application. Please try again.'
         redirect_to :back
       end
-    end 
+    end
   end
 
   def destroy

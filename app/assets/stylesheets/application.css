@@ -36,6 +36,13 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+#progress {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
 #profile-img {
   margin: 15px;
   width: 100px
@@ -51,22 +58,22 @@ input:-webkit-autofill:active {
   border-radius: 4px;
 }
 
+.grey-box2 {
+  background-color: #171717;
+  color: white;
+  border-radius: 4px;
+}
+
 .top-row-margin {
   margin: 20px 20px 0 20px;
 }
 
 .middle-row-margin {
-  margin: 0 20px 20px 20px;
+  margin: 0 20px 0 20px;
 }
 
 .bottom-row-margin {
   margin: 20px;
-}
-
-.grey-box2 {
-  background-color: #171717;
-  color: white;
-  border-radius: 4px;
 }
 
 .goals-height-top {
@@ -78,7 +85,12 @@ input:-webkit-autofill:active {
 }
 
 .goals-height2 {
-  height: 132px;
+  height: 127px;
+  margin-bottom: 10px;
+}
+
+.resources-height3 {
+  height: 264px;
 }
 
 .goals-box {
@@ -86,6 +98,15 @@ input:-webkit-autofill:active {
   height: 60px;
   margin: 7px;
   border-radius: 4px;
+}
+
+#resources div {
+  border-radius: 4px;
+  height: 40px;
+  line-height: 40px;
+}
+#resources div:hover {
+  background-color: #2B2B2B;
 }
 
 .picker__date-display, .picker__weekday-display{

@@ -15,5 +15,8 @@
     height: 50px;
     margin: 7px;
   }
-  
+
+  .bottom-margin {
+    margin-bottom: 20px;
+  }
 }

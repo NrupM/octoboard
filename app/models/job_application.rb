@@ -1,6 +1,8 @@
 class JobApplication < ApplicationRecord
   belongs_to :user
   has_many :interviews, dependent: :destroy
+  validates_presence_of :stage, :date_applied 
+
 
   def self.search_job_apps(search)
     where("company_name ILIKE ? OR job_title ILIKE ? OR tech_stack ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")

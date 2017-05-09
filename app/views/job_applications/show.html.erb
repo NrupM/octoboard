@@ -6,6 +6,9 @@
   <%= link_to 'Edit', edit_job_application_path %>
   <%= link_to 'Add an Interview for this job', new_interview_path(job_application_id: @application.id) %>
   <%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
+
+
+
   <% if @application.company_name %>
   <li>Company name: <%= @application.company_name %></li>
   <% end %>

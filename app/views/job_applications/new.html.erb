@@ -5,18 +5,18 @@
 
 <%= form_for @application, method: :post do |f| %>
   <ul>
-    <li><%= f.label :company_name, 'Company Name' %>
+    <li><span style="color:red">* </span><%= f.label :company_name, 'Company Name' %>
         <%= f.text_field :company_name, required: true %></li>
-    <li><%= f.label :job_title, 'Position Title' %>
+    <li><span style="color:red">* </span><%= f.label :job_title, 'Position Title' %>
         <%= f.text_field :job_title, autofocus: true, required: true %></li>
+    <li><span style="color:red">* </span><%= f.label :date_applied, 'Date Applied' %>
+        <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
+    <li><span style="color:red">* </span><%= f.label :application_method, 'Application Method' %>
+        <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :prompt => "---" %></li>
+    <li><span style="color:red">* </span><%= f.label :stage, 'Application Stage' %>
+        <%= f.select :stage, JobApplication.stages.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
     <li><%= f.label :location, 'Location' %>
         <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
-    <li><%= f.label :application_method, 'Application Method' %>
-        <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :prompt => "---" %></li>
-    <li><%= f.label :stage, 'Application Stage' %>
-        <%= f.select :stage, JobApplication.stages.map { |key, value| [key.humanize, key] }, :prompt => "---",  required: true %></li>
-    <li><%= f.label :date_applied, 'Date Applied' %>
-        <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
     <li><%= f.label :job_post_url, 'Job Post URL' %>
         <%= f.text_field :job_post_url %></li>
     <li><%= f.label :job_description, 'Description' %>

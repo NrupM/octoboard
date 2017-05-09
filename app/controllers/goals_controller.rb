@@ -14,7 +14,9 @@ class GoalsController < ApplicationController
 
     # ALGORITHM FOR OCTOPOWER
     if @goal
-      @apps_per_day_goal = @goal.applications_per_day
+      apps_per_day_goal = @goal.applications_per_day
+    else
+      apps_per_day_goal = 1
     end
     if @applications.count > 0
       @apps_applied_today = @applications.where({date_applied: Date.today}).count
@@ -23,8 +25,8 @@ class GoalsController < ApplicationController
       @apps_applied_today = 0
       num_apps = 0
     end
-    if @apps_per_day_goal > 0
-      @goal_hitting_rate = @apps_applied_today.to_f/@apps_per_day_goal*100
+    if apps_per_day_goal
+      @goal_hitting_rate = @apps_applied_today.to_f/apps_per_day_goal*100
     end
 
     num_interviews = @interviews.count
@@ -52,7 +54,7 @@ class GoalsController < ApplicationController
     preparedness = int_preparedness * 2
     answered_questions = answered * 2
     interviews = num_interviews * 5
-    per_day_goal = meet_per_day_goal(@apps_per_day_goal, @apps_applied_today)
+    per_day_goal = meet_per_day_goal(apps_per_day_goal, @apps_applied_today)
     inperson = inperson_ints * 10
 
     @octopower = (@octopower + thankyous + preparedness + answered_questions + interviews + per_day_goal + inperson)
