@@ -34,7 +34,7 @@ OctoBoard is a personal organizational tool for job seekers which stores informa
 5. TDB
 
 ## Wireframes
-
+<%= link_to edit_interview_path(i), :class => "secondary-content" do %></i><% end %>
 
 ## ERD
 

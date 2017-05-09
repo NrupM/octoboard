@@ -14,9 +14,6 @@
         <span class="title"><%= i.job_application.job_title %></span>
         <p><%= i.job_application.company_name %><br>
           <%= link_to 'View More Details', interview_path(i) %></p>
-          <% if is_value_nil?(i.notes) %>
-            <p>Notes: <%= i.notes %></p>
-          <% end %>
         <%= link_to edit_interview_path(i), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
       </li>
     <% end %>

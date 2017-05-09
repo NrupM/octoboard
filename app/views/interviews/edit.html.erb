@@ -1,5 +1,7 @@
 <%= link_to 'Back', interview_path %>
 <h2>Edit this interview!</h2>
+<%= link_to interview_path(@interview), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
+
 <ul>
   <li>THE COMPANY: <%= @interview.job_application.company_name %></li>
   <li>THE POSITION: <%= @interview.job_application.job_title %></li>
