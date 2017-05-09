@@ -3,61 +3,25 @@
   <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
 </p>
 
-<h3 class="center-align">All Interviews</h3>
-<% if @interviews.length > 0 %>
-  <% @interviews.each do |i| %>
-    <%= link_to 'See More Details', interview_path(i) %>
-    <ul>
-      <li>Company: <%= i.job_application.company_name %></li>
-      <% if i.interview_date %>
-        <li>Interview date: <%= i.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
-      <% end %>
-      <% if i.interview_type %>
-        <li>Type: <%= i.interview_type.humanize %></li>
-      <% end %>
-      <% if i.is_followup_needed %>
-        <li>Is followup needed?: <%= i.is_followup_needed %></li>
-      <% end %>
-      <!-- PRIMARY CONTACT INFO  -->
-      <% if is_value_nil?(i.primary_contact_name) %>
-        <h3>Primary Contact Info</h3>
-        <li>Primary Contact Name: <%= i.primary_contact_name %></li>
-      <% end %>
-      <% if is_value_nil?(i.primary_contact_title) %>
-        <li>Primary Contact Title: <%= i.primary_contact_title %></li>
-      <% end %>
-      <% if is_value_nil?(i.primary_contact_email) %>
-        <li>Primary Contact Email: <%= i.primary_contact_email %></li>
-      <% end %>
-      <% if is_value_nil?(i.primary_contact_phone) %>
-        <li>Primary Contact Phone: <%= i.primary_contact_phone %></li>
-      <% end %>
-      <!--CODING CHALLENGE INFO  -->
-      <% if is_value_nil?(i.coding_challenge_due_date) %>
-        <h3>Coding Challenge Details</h3>
-        <li>Coding challenge due date: <%= i.coding_challenge_due_date.strftime("%m/%d/%y %I:%M at %I:%M %p") %></li>
-      <% end %>
-      <% if is_value_nil?(i.coding_challenge_url) %>
-        <li>Link to coding challenge: <%= i.coding_challenge_url %></li>
-      <% end %>
-      <% if is_value_nil?(i.coding_challenge_prompt) %>
-        <li>Coding challenge prompt: <%= i.coding_challenge_prompt %></li>
-      <% end %>
-      <% if is_value_nil?(i.is_challenge_completed) %>
-        <li>Challenge done?: <%= i.is_challenge_completed %></li>
-      <% end %>
-      <!-- OTHER  -->
-      <% if is_value_nil?(i.thankyou_letter) %>
-        <li>Thank You letter: <%= i.thankyou_letter %></li>
-      <% end %>
-      <% if is_value_nil?(i.questions_to_ask) %>
-        <li>Questions to ask: <%= i.questions_to_ask %></li>
-      <% end %>
-      <% if is_value_nil?(i.notes) %>
-        <li>Notes: <%= i.notes %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <h3 class="center-align" style="padding-bottom: 30px">All Interviews</h3>
+
+  <% if @interviews.length > 0 %>
+    <ul class="collection">
+      <% @interviews.each do |i| %>
+      <li class="collection-item avatar">
+        <div class='circle' id="side-date"><%= i.interview_date.strftime("%m/%d") %></div>
+        <div class='circle' id="side-date2"><%= i.interview_date.strftime("%I:%M%p") %></div>
+        <span class="title"><%= i.job_application.job_title %></span>
+        <p><%= i.job_application.company_name %><br>
+          <%= link_to 'View More Details', interview_path(i) %></p>
+          <% if is_value_nil?(i.notes) %>
+            <p>Notes: <%= i.notes %></p>
+          <% end %>
+        <%= link_to edit_interview_path(i), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate @interviews %>
 <% else %>
   <div class="field center-align" style="margin-top:50px"><p>Once you have added an upcoming interview, it will appear here.</p></div>
 <% end %>

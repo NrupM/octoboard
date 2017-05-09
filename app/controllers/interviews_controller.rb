@@ -3,7 +3,7 @@ class InterviewsController < ApplicationController
 
   def index
     @user = current_user
-    @interviews = @user.interviews.all
+    @interviews = @user.interviews.order('updated_at DESC').paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
