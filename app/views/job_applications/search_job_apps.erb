@@ -1,73 +1,75 @@
-<p>
-  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to job_applications_path do %><i class="fa fa-file-text nav-i" aria-hidden="true"></i> VIEW MY JOB APPS <% end %></span>
-</p>
+<div class="col s12 page">
+  <p>
+    <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to job_applications_path do %><i class="fa fa-file-text nav-i" aria-hidden="true"></i> VIEW MY JOB APPS <% end %></span>
+  </p>
 
 
 
-<% if @search_results.length > 0 %>
-<h4 class="center-align">We found <%= grammarize_result_num(@search_results.count) %> matching your search.</h4>
-  <% @search_results.each do |app| %>
-    <ul>
-      <%= link_to 'View more details', job_application_path(app) %>
-      <% if app.company_name %>
-      <li>Company name: <%= app.company_name %></li>
-      <% end %>
-      <% if app.job_title %>
-      <li>Position: <%= app.job_title %></li>
-      <% end %>
-      <% if app.date_applied %>
-        <li>Date applied: <%= app.date_applied.strftime("%m/%d/%y") %></li>
-      <% end %>
-      <% if app.stage %>
-        <li>Stage: <%= app.stage.humanize %></li>
-          <% if app.stage == 'interviewing' || app.interviews.count > 0 %>
-            <li> Number of total interviews: <%= app.interviews.count %></li>
-          <% end %>
+  <% if @search_results.length > 0 %>
+  <h4 class="center-align">We found <%= grammarize_result_num(@search_results.count) %> matching your search.</h4>
+    <% @search_results.each do |app| %>
+      <ul>
+        <%= link_to 'View more details', job_application_path(app) %>
+        <% if app.company_name %>
+        <li>Company name: <%= app.company_name %></li>
         <% end %>
-      <% if is_value_nil?(app.location) %>
-        <li>Located in: <%= app.location %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_post_url) %>
-        <li>URL: <%= app.job_post_url %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_description) %>
-        <li>Description: <%= app.job_description %></li>
-      <% end %>
-      <% if is_value_nil?(app.job_requirements) %>
-        <li>Requirements: <%= app.job_requirements %></li>
-      <% end %>
-      <% if is_value_nil?(app.application_method) %>
-        <li>Application method: <%= app.application_method.humanize %></li>
-      <% end %>
-      <% if is_value_nil?(app.why_interested) %>
-        <li>Why are you interested?: <%= app.why_interested %></li>
-      <% end %>
-      <% if is_value_nil?(app.requested_salary) %>
-        <li>Requested salary: <%= app.requested_salary %></li>
-      <% end %>
-      <% if is_value_nil?(app.submitted_cover_letter) %>
-        <li>Cover letter: <%= app.submitted_cover_letter %></li>
-      <% end %>
-      <% if is_value_nil?(app.relevant_work_history) %>
-        <li>Relevant work history: <%= app.relevant_work_history %></li>
-      <% end %>
-      <% if is_value_nil?(app.tech_stack) %>
-        <li>Tech stack: <%= app.tech_stack %></li>
-      <% end %>
-      <% if is_value_nil?(app.notes) %>
-        Notes: <%= app.notes %>
-      <% end %>
-    </ul>
-    <% if app.interviews.count > 0 %>
-      <% app.interviews.each do |interview| %>
-        <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
-        <li>Type: <%= interview.interview_type.humanize %></li>
-        <li><%= link_to 'View more interview details', interview_path(interview) %></li>
+        <% if app.job_title %>
+        <li>Position: <%= app.job_title %></li>
+        <% end %>
+        <% if app.date_applied %>
+          <li>Date applied: <%= app.date_applied.strftime("%m/%d/%y") %></li>
+        <% end %>
+        <% if app.stage %>
+          <li>Stage: <%= app.stage.humanize %></li>
+            <% if app.stage == 'interviewing' || app.interviews.count > 0 %>
+              <li> Number of total interviews: <%= app.interviews.count %></li>
+            <% end %>
+          <% end %>
+        <% if is_value_nil?(app.location) %>
+          <li>Located in: <%= app.location %></li>
+        <% end %>
+        <% if is_value_nil?(app.job_post_url) %>
+          <li>URL: <%= app.job_post_url %></li>
+        <% end %>
+        <% if is_value_nil?(app.job_description) %>
+          <li>Description: <%= app.job_description %></li>
+        <% end %>
+        <% if is_value_nil?(app.job_requirements) %>
+          <li>Requirements: <%= app.job_requirements %></li>
+        <% end %>
+        <% if is_value_nil?(app.application_method) %>
+          <li>Application method: <%= app.application_method.humanize %></li>
+        <% end %>
+        <% if is_value_nil?(app.why_interested) %>
+          <li>Why are you interested?: <%= app.why_interested %></li>
+        <% end %>
+        <% if is_value_nil?(app.requested_salary) %>
+          <li>Requested salary: <%= app.requested_salary %></li>
+        <% end %>
+        <% if is_value_nil?(app.submitted_cover_letter) %>
+          <li>Cover letter: <%= app.submitted_cover_letter %></li>
+        <% end %>
+        <% if is_value_nil?(app.relevant_work_history) %>
+          <li>Relevant work history: <%= app.relevant_work_history %></li>
+        <% end %>
+        <% if is_value_nil?(app.tech_stack) %>
+          <li>Tech stack: <%= app.tech_stack %></li>
+        <% end %>
+        <% if is_value_nil?(app.notes) %>
+          Notes: <%= app.notes %>
+        <% end %>
+      </ul>
+      <% if app.interviews.count > 0 %>
+        <% app.interviews.each do |interview| %>
+          <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+          <li>Type: <%= interview.interview_type.humanize %></li>
+          <li><%= link_to 'View more interview details', interview_path(interview) %></li>
+        <% end %>
       <% end %>
     <% end %>
+  <% else %>
+    <h4 class="center-align">There were no results matching your search.</h4>
+    <p class="center-align" style="margin-top: 50px">Please search by company name, position title, or tech stack.</p>
   <% end %>
-<% else %>
-  <h4 class="center-align">There were no results matching your search.</h4>
-  <p class="center-align" style="margin-top: 50px">Please search by company name, position title, or tech stack.</p>
-<% end %>
+</div>

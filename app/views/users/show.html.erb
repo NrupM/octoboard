@@ -1,20 +1,23 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
 
-<p>
-  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to edit_user_registration_path do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i> EDIT USER INFORMATION<% end %></span>
-</p>
+  <%= render '/partials/flash_messages' %>
 
-<h3 class="center-align">User Details</h3>
+  <p>
+    <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to edit_user_registration_path do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i> EDIT USER INFORMATION<% end %></span>
+  </p>
+
+  <h3 class="center-align">User Details</h3>
 
 
-<ul>
-  <li>First name: <%= @user.first_name %></li>
-  <li>Last name: <%= @user.last_name %></li>
-  <li>Email: <%= @user.email %></li>
-  <li>Job Status: <%= @user.job_status.humanize %></li>
-  <li>LinkedIn URL: <%= @user.linkedin_url %></li>
-  <li>Github URL: <%= @user.github_url %></li>
-  <li>Portfolio URL: <%= @user.portfolio_url %></li>
-  <li>Image URL: <%= @user.image %></li>
-</ul>
+  <ul>
+    <li>First name: <%= @user.first_name %></li>
+    <li>Last name: <%= @user.last_name %></li>
+    <li>Email: <%= @user.email %></li>
+    <li>Job Status: <%= @user.job_status.humanize %></li>
+    <li>LinkedIn URL: <%= @user.linkedin_url %></li>
+    <li>Github URL: <%= @user.github_url %></li>
+    <li>Portfolio URL: <%= @user.portfolio_url %></li>
+    <li>Image URL: <%= @user.image %></li>
+  </ul>
+</div>

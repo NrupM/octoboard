@@ -3,6 +3,13 @@
   #profile-img {
     width: 80px;
   }
+  .page {
+    margin-top: 10px !important;
+  }
+
+  #nav-div {
+    visibility:visible !important;
+  }
 
   #mobile-nav {
     height: 60px !important;
@@ -13,6 +20,7 @@
     visibility: visible !important;
     margin-right: 81px !important;
   }
+
 
   .no-mobile-display {
     display: none !important;

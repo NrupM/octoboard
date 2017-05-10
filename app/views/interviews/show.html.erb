@@ -1,112 +1,114 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
+  <%= render '/partials/flash_messages' %>
 
-<p>
-  <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-</p>
+  <p>
+    <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  </p>
 
-<div class='col s12' id="interview-info">
-  <div class="s12" id="interview-header">
-    <div class="col s12">
-      <ul>
-        <li style="font-size: 1.7em"><%= @interview.job_application.company_name %><span class="right"><%= link_to edit_interview_path(@interview) do %><i class="fa fa-pencil-square-o" style="font-size: 1em" aria-hidden="true"></i><% end %></span></li>
-        <li style="font-size: 1.25em"><%= @interview.job_application.job_title %></li>
-        <% if @interview.interview_date %>
-          <li style="font-size: 1.1em"><%= @interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %>
-            <% if @interview.job_application.location.size > 0 %>
-              - <%= @interview.job_application.location.upcase %></li>
-            <% end %>
-          </li>
-        <% end %>
-        <% if @interview.interview_type %>
-          <% if @interview.interview_type == 'phone' %>
-            Phone Interview
-          <% elsif @interview.interview_type == 'online' %>
-            Online Interview
-          <% elsif @interview.interview_type == 'in_person' %>
-            In-person Interview
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class='col s12' id="divider">
-  </div>
-  <ul class="collapsible" data-collapsible="expandable">
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
-      <div class="collapsible-body">
+  <div class='col s12' id="interview-info">
+    <div class="s12" id="interview-header">
+      <div class="col s12">
         <ul>
-          <% if @interview.primary_contact_name.size > 0 %>
-            <li><i class="fa fa-user" aria-hidden="true"><span style="margin-left: 15px"></i> Contact: <%= @interview.primary_contact_name %></span>
-          <% end %>
-          <% if @interview.primary_contact_title.size > 0 %>
-            - <%= @interview.primary_contact_title %></li>
-          <% else %>
+          <li style="font-size: 1.7em"><%= @interview.job_application.company_name %><span class="right"><%= link_to edit_interview_path(@interview) do %><i class="fa fa-pencil-square-o" style="font-size: 1em" aria-hidden="true"></i><% end %></span></li>
+          <li style="font-size: 1.25em"><%= @interview.job_application.job_title %></li>
+          <% if @interview.interview_date %>
+            <li style="font-size: 1.1em"><%= @interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %>
+              <% if @interview.job_application.location.size > 0 %>
+                - <%= @interview.job_application.location.upcase %></li>
+              <% end %>
             </li>
           <% end %>
-          <% if @interview.primary_contact_email.size > 0 %>
-            <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span style="margin-left: 15px">Email: <%= @interview.primary_contact_email %></span></li>
-          <% end %>
-          <% if @interview.primary_contact_phone.size > 0 %>
-            <li><i class="fa fa-phone" aria-hidden="true"></i><span style="margin-left: 15px"> Phone: <%= @interview.primary_contact_phone %></span></li>
+          <% if @interview.interview_type %>
+            <% if @interview.interview_type == 'phone' %>
+              Phone Interview
+            <% elsif @interview.interview_type == 'online' %>
+              Online Interview
+            <% elsif @interview.interview_type == 'in_person' %>
+              In-person Interview
+            <% end %>
           <% end %>
         </ul>
       </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
-      <div class="collapsible-body">
-        <ul>
-          <% if @interview.coding_challenge_prompt.size > 0 %>
-            <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 25px; margin-top: -25px">
-              <h5 class="header-font">Challenge Prompt
-                <% if @interview.coding_challenge_url %>
-                  <span class="right" style="font-size: 0.9em">
-                    <li><%= link_to 'Details', check_for_http(@interview.coding_challenge_url), :target => '_blank' %></li>
-                  </span>
+    </div>
+    <div class='col s12' id="divider">
+    </div>
+    <ul class="collapsible" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
+        <div class="collapsible-body">
+          <ul>
+            <% if @interview.primary_contact_name.size > 0 %>
+              <li><i class="fa fa-user" aria-hidden="true"><span style="margin-left: 15px"></i> Contact: <%= @interview.primary_contact_name %></span>
+            <% end %>
+            <% if @interview.primary_contact_title.size > 0 %>
+              - <%= @interview.primary_contact_title %></li>
+            <% else %>
+              </li>
+            <% end %>
+            <% if @interview.primary_contact_email.size > 0 %>
+              <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span style="margin-left: 15px">Email: <%= @interview.primary_contact_email %></span></li>
+            <% end %>
+            <% if @interview.primary_contact_phone.size > 0 %>
+              <li><i class="fa fa-phone" aria-hidden="true"></i><span style="margin-left: 15px"> Phone: <%= @interview.primary_contact_phone %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
+        <div class="collapsible-body">
+          <ul>
+            <% if @interview.coding_challenge_prompt.size > 0 %>
+              <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 25px; margin-top: -25px">
+                <h5 class="header-font">Challenge Prompt
+                  <% if @interview.coding_challenge_url %>
+                    <span class="right" style="font-size: 0.9em">
+                      <li><%= link_to 'Details', check_for_http(@interview.coding_challenge_url), :target => '_blank' %></li>
+                    </span>
+                  <% end %>
+                </h5>
+              </div>
+              <p><%= simple_format(@interview.coding_challenge_prompt) %></p>
+            <% end %>
+            <% if @interview.coding_challenge_due_date %>
+              <li><i class="fa fa-calendar" aria-hidden="true"></i> <span style="margin-left: 15px">Due: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></span></li>
+            <% end %>
+            <% if @interview.is_challenge_completed != nil %>
+                <% if @interview.is_challenge_completed == true %>
+                  <li><i class="fa fa-check-square-o" aria-hidden="true"></i><span style="margin-left: 15px">Status: Complete</span></li>
+                <% else %>
+                  <li><i class="fa fa-square-o" aria-hidden="true"></i><span style="margin-left: 15px">Status: In Progress</span></li>
                 <% end %>
-              </h5>
-            </div>
-            <p><%= simple_format(@interview.coding_challenge_prompt) %></p>
-          <% end %>
-          <% if @interview.coding_challenge_due_date %>
-            <li><i class="fa fa-calendar" aria-hidden="true"></i> <span style="margin-left: 15px">Due: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></span></li>
-          <% end %>
-          <% if @interview.is_challenge_completed != nil %>
-              <% if @interview.is_challenge_completed == true %>
-                <li><i class="fa fa-check-square-o" aria-hidden="true"></i><span style="margin-left: 15px">Status: Complete</span></li>
-              <% else %>
-                <li><i class="fa fa-square-o" aria-hidden="true"></i><span style="margin-left: 15px">Status: In Progress</span></li>
-              <% end %>
-          <% end %>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
-      <div class="collapsible-body">
-        <ul>
-          <% if @interview.questions_to_ask.size > 0  %>
-            <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 35px; margin-top: -5px">
-              <h5 class="header-font">Questions to Ask in the Interview</h5>
-            </div>
-            <br>
-            <p><%= simple_format(@interview.questions_to_ask) %></p>
-          <% end %>
-          <% if @interview.thankyou_letter.size > 0 %>
-            <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 35px; margin-top:15px">
-              <h5 class="header-font">Post-Interview Thank You Letter</h5>
-            </div>
-            <br>
-            <p><%= simple_format(@interview.thankyou_letter) %></p>
-          <% end %>
-        </ul>
-      </div>
-    </li>
-  </ul>
-  <div class="col s12">
-    <% if @interview.notes.size > 0 %>
-      <h5 class="header-font">Quick Notes</h5>
-      <p><%= simple_format(@interview.notes) %></p>
-    <% end %>
-  </div>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
+        <div class="collapsible-body">
+          <ul>
+            <% if @interview.questions_to_ask.size > 0  %>
+              <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 35px; margin-top: -5px">
+                <h5 class="header-font">Questions to Ask in the Interview</h5>
+              </div>
+              <br>
+              <p><%= simple_format(@interview.questions_to_ask) %></p>
+            <% end %>
+            <% if @interview.thankyou_letter.size > 0 %>
+              <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 35px; margin-top:15px">
+                <h5 class="header-font">Post-Interview Thank You Letter</h5>
+              </div>
+              <br>
+              <p><%= simple_format(@interview.thankyou_letter) %></p>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="col s12">
+      <% if @interview.notes.size > 0 %>
+        <h5 class="header-font">Quick Notes</h5>
+        <p><%= simple_format(@interview.notes) %></p>
+      <% end %>
+    </div>
+</div>

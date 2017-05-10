@@ -1,18 +1,21 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
 
-<p>
-  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to new_question_path do %><i class="fa fa-plus" aria-hidden="true"></i> ADD A Q&amp;A <% end %></span>
-</p>
+  <%= render '/partials/flash_messages' %>
 
-<h3 class="center-align">All Questions</h3>
+  <p>
+    <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to new_question_path do %><i class="fa fa-plus" aria-hidden="true"></i> ADD A Q&amp;A <% end %></span>
+  </p>
 
-<% if @questions.length > 0 %>
-  <% @questions.each do |question| %>
-    <%= link_to 'Edit this question', edit_question_path(question) %>
-    <h5><%= question.prompt %></h5>
-    <p><%= question.answer %></p>
+  <h3 class="center-align">All Questions</h3>
+
+  <% if @questions.length > 0 %>
+    <% @questions.each do |question| %>
+      <%= link_to 'Edit this question', edit_question_path(question) %>
+      <h5><%= question.prompt %></h5>
+      <p><%= question.answer %></p>
+    <% end %>
+  <% else %>
+    <p class="center-align" style="margin-top: 50px">This section is meant to assist with job preparedness.</p>
   <% end %>
-<% else %>
-  <p class="center-align" style="margin-top: 50px">This section is meant to assist with job preparedness.</p>
-<% end %>
+</div>

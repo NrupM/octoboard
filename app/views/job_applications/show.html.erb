@@ -1,125 +1,127 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
+  <%= render '/partials/flash_messages' %>
 
-<p>
-  <%= link_to job_applications_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
-</p>
+  <p>
+    <%= link_to job_applications_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
+  </p>
 
 
 
 
-<div class='col s12' id="interview-info">
-  <div class="s12" id="interview-header">
-    <div class="col s12">
-      <ul>
-        <li style="font-size: 1.7em"><%= @application.company_name %><span class="right"><%= link_to edit_job_application_path do %><i class="fa fa-pencil-square-o" style="font-size: 1em" aria-hidden="true"></i><% end %></span></li>
-        <li style="font-size: 1.25em"><%= @application.job_title %></li>
-        <% if @application.location.size > 0 %>
-          <li style="font-size: 1.1em"><%= @application.location.upcase %></li>
-        <% end %>
-      </ul>
+  <div class='col s12' id="interview-info">
+    <div class="s12" id="interview-header">
+      <div class="col s12">
+        <ul>
+          <li style="font-size: 1.7em"><%= @application.company_name %><span class="right"><%= link_to edit_job_application_path do %><i class="fa fa-pencil-square-o" style="font-size: 1em" aria-hidden="true"></i><% end %></span></li>
+          <li style="font-size: 1.25em"><%= @application.job_title %></li>
+          <% if @application.location.size > 0 %>
+            <li style="font-size: 1.1em"><%= @application.location.upcase %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class='col s12' id="divider">
-  </div>
-  <div class='col s12' style="height: 40px; border-bottom: 1px solid #ddd; line-height: 40px">
-    <% if @application.stage %>
-      <% if @application.stage == 'interviewing' %>
-        <i class="fa fa-handshake-o" aria-hidden="true"></i><span style="margin-left: 10px">Interviewing |</span>
-      <% elsif @application.stage == 'pending_response' %>
-        <i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 10px">Pending Response |</span>
-      <% elsif @application.stage == 'declined' %>
-        <i class="fa fa-user-times" aria-hidden="true"></i><span style="margin-left: 10px">Declined |</span>
+    <div class='col s12' id="divider">
+    </div>
+    <div class='col s12' style="height: 40px; border-bottom: 1px solid #ddd; line-height: 40px">
+      <% if @application.stage %>
+        <% if @application.stage == 'interviewing' %>
+          <i class="fa fa-handshake-o" aria-hidden="true"></i><span style="margin-left: 10px">Interviewing |</span>
+        <% elsif @application.stage == 'pending_response' %>
+          <i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 10px">Pending Response |</span>
+        <% elsif @application.stage == 'declined' %>
+          <i class="fa fa-user-times" aria-hidden="true"></i><span style="margin-left: 10px">Declined |</span>
+        <% end %>
       <% end %>
+      <% if @application.job_post_url.size > 0 %>
+        <span class="right" style="font-size: 0.8em"><%= link_to 'View Original Job Post', check_for_http(@application.job_post_url), :target => '_blank' %></span>
+      <% end %>
+    </div>
+    <ul class="collapsible" data-collapsible="expandable">
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
+        <div class="collapsible-body">
+          <ul>
+
+
+
+
+
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
+        <div class="collapsible-body">
+          <ul>
+
+
+
+
+
+
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
+        <div class="collapsible-body">
+          <ul>
+
+
+
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <div class="col s12">
+      <% if @application.notes.size > 0 %>
+        <h5 class="header-font">Quick Notes</h5>
+        <p><%= simple_format(@application.notes) %></p>
+      <% end %>
+    </div>
+
+
+
+
+
+
+
+    <% if @application.application_method %>
+    <li>Application method: <%= @application.application_method.humanize %></li>
     <% end %>
-    <% if @application.job_post_url.size > 0 %>
-      <span class="right" style="font-size: 0.8em"><%= link_to 'View Original Job Post', check_for_http(@application.job_post_url), :target => '_blank' %></span>
+    <% if @application.date_applied %>
+      <li>Date applied: <%= @application.date_applied.strftime("%m/%d/%y") %></li>
     <% end %>
-  </div>
-  <ul class="collapsible" data-collapsible="expandable">
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Primary Contact Information</div>
-      <div class="collapsible-body">
-        <ul>
-
-
-
-
-
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Coding Challenge Details</div>
-      <div class="collapsible-body">
-        <ul>
-
-
-
-
-
-
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
-      <div class="collapsible-body">
-        <ul>
-
-
-
-
-        </ul>
-      </div>
-    </li>
-  </ul>
-  <div class="col s12">
-    <% if @application.notes.size > 0 %>
-      <h5 class="header-font">Quick Notes</h5>
-      <p><%= simple_format(@application.notes) %></p>
+    <% if @application.job_description %>
+      <li>Description: <%= @application.job_description %></li>
     <% end %>
-  </div>
+    <% if @application.job_requirements %>
+      <li>Requirements: <%= @application.job_requirements %></li>
+    <% end %>
+    <% if @application.why_interested %>
+      <li>Why are you interested?: <%= @application.why_interested %></li>
+    <% end %>
+    <% if @application.requested_salary %>
+      <li>Requested salary: <%= @application.requested_salary %></li>
+    <% end %>
+    <% if @application.submitted_cover_letter %>
+      <li>Cover letter: <%= @application.submitted_cover_letter %></li>
+    <% end %>
+    <% if @application.relevant_work_history %>
+      <li>Relevant work history: <%= @application.relevant_work_history %></li>
+    <% end %>
+    <% if @application.tech_stack %>
+      <li>Tech stack: <%= @application.tech_stack %></li>
+    <% end %>
 
 
-
-
-
-
-
-  <% if @application.application_method %>
-  <li>Application method: <%= @application.application_method.humanize %></li>
+  <% if @interviews.length > 0 %>
+    <% @interviews.each do |interview| %>
+        <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
+        <li>Type: <%= interview.interview_type.humanize %></li>
+        <li><%= link_to 'View more interview details', interview_path(interview) %></li>
+    <% end %>
   <% end %>
-  <% if @application.date_applied %>
-    <li>Date applied: <%= @application.date_applied.strftime("%m/%d/%y") %></li>
-  <% end %>
-  <% if @application.job_description %>
-    <li>Description: <%= @application.job_description %></li>
-  <% end %>
-  <% if @application.job_requirements %>
-    <li>Requirements: <%= @application.job_requirements %></li>
-  <% end %>
-  <% if @application.why_interested %>
-    <li>Why are you interested?: <%= @application.why_interested %></li>
-  <% end %>
-  <% if @application.requested_salary %>
-    <li>Requested salary: <%= @application.requested_salary %></li>
-  <% end %>
-  <% if @application.submitted_cover_letter %>
-    <li>Cover letter: <%= @application.submitted_cover_letter %></li>
-  <% end %>
-  <% if @application.relevant_work_history %>
-    <li>Relevant work history: <%= @application.relevant_work_history %></li>
-  <% end %>
-  <% if @application.tech_stack %>
-    <li>Tech stack: <%= @application.tech_stack %></li>
-  <% end %>
-
-
-<% if @interviews.length > 0 %>
-  <% @interviews.each do |interview| %>
-      <li>Interview date: <%= interview.interview_date.strftime("%m/%d/%y at %I:%M %p") %></li>
-      <li>Type: <%= interview.interview_type.humanize %></li>
-      <li><%= link_to 'View more interview details', interview_path(interview) %></li>
-  <% end %>
-<% end %>
+</div>

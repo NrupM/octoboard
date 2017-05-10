@@ -1,18 +1,21 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
 
-<p>
-  <%= link_to questions_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-</p>
+  <%= render '/partials/flash_messages' %>
 
-<h4 class="center-align">Prepare yourself by asking good questions!</h4>
+  <p>
+    <%= link_to questions_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  </p>
+
+  <h4 class="center-align">Prepare yourself by asking good questions!</h4>
 
 
-<%= form_for @question, method: :post do |f| %>
-  <ul>
-    <li><%= f.label :prompt, 'Prompt' %>
-        <%= f.text_field :prompt, :required => true %></li>
-    <li><%= f.label :answer, 'Response' %>
-        <%= f.text_area :answer, :class => "materialize-textarea", :required => true %></li>
-    <%= f.submit 'Save', :class => 'waves-effect waves-light btn' %>
-  </ul>
-<% end %>
+  <%= form_for @question, method: :post do |f| %>
+    <ul>
+      <li><%= f.label :prompt, 'Prompt' %>
+          <%= f.text_field :prompt, :required => true %></li>
+      <li><%= f.label :answer, 'Response' %>
+          <%= f.text_area :answer, :class => "materialize-textarea", :required => true %></li>
+      <%= f.submit 'Save', :class => 'waves-effect waves-light btn' %>
+    </ul>
+  <% end %>
+</div>

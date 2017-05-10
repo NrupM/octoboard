@@ -1,68 +1,70 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
+  <%= render '/partials/flash_messages' %>
 
-<%= link_to 'Back', interview_path, :class => 'no-mobile-display' %>
-<%= link_to interview_path(@interview), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
+  <%= link_to 'Back', interview_path, :class => 'no-mobile-display' %>
+  <%= link_to interview_path(@interview), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
-<%= form_for @interview do |f| %>
-  <ul>
-    <!-- BASIC INFO FOR INTERVIEW -->
-    <h2>Basic Details</h2>
-    <li><%= f.label :interview_date, 'Interview Date' %>
-        <%= f.date_field :interview_date, :class => 'datepicker', required: true %></li>
-    <li><%= f.label :interview_type, 'Interview Type' %>
-        <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
-    <li><%= f.label :is_followup_needed, 'Is followup needed?' %>
-        <p>
-          <%= f.radio_button :is_followup_needed, true %>
-          <%= f.label 'is_followup_needed_true', 'Yes' %>
-        </p>
-        <p>
-          <%= f.radio_button :is_followup_needed, false %>
-          <%= f.label 'is_followup_needed_false', 'No' %>
-        </p>
-    </li>
+  <%= form_for @interview do |f| %>
+    <ul>
+      <!-- BASIC INFO FOR INTERVIEW -->
+      <h2>Basic Details</h2>
+      <li><%= f.label :interview_date, 'Interview Date' %>
+          <%= f.date_field :interview_date, :class => 'datepicker', required: true %></li>
+      <li><%= f.label :interview_type, 'Interview Type' %>
+          <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
+      <li><%= f.label :is_followup_needed, 'Is followup needed?' %>
+          <p>
+            <%= f.radio_button :is_followup_needed, true %>
+            <%= f.label 'is_followup_needed_true', 'Yes' %>
+          </p>
+          <p>
+            <%= f.radio_button :is_followup_needed, false %>
+            <%= f.label 'is_followup_needed_false', 'No' %>
+          </p>
+      </li>
 
-    <!-- PRIMARY CONTACT INFORMATION -->
-    <h2>Primary Contact Details</h2>
-    <li><%= f.label :primary_contact_name, 'Primary contact name' %>
-        <%= f.text_field :primary_contact_name %></li>
-    <li><%= f.label :primary_contact_title, 'Primary contact title' %>
-        <%= f.text_field :primary_contact_title %></li>
-    <li><%= f.label :primary_contact_email, 'Primary contact email' %>
-        <%= f.text_field :primary_contact_email %></li>
-    <li><%= f.label :primary_contact_phone, 'Primary contact phone' %>
-        <%= f.telephone_field :primary_contact_phone %></li>
+      <!-- PRIMARY CONTACT INFORMATION -->
+      <h2>Primary Contact Details</h2>
+      <li><%= f.label :primary_contact_name, 'Primary contact name' %>
+          <%= f.text_field :primary_contact_name %></li>
+      <li><%= f.label :primary_contact_title, 'Primary contact title' %>
+          <%= f.text_field :primary_contact_title %></li>
+      <li><%= f.label :primary_contact_email, 'Primary contact email' %>
+          <%= f.text_field :primary_contact_email %></li>
+      <li><%= f.label :primary_contact_phone, 'Primary contact phone' %>
+          <%= f.telephone_field :primary_contact_phone %></li>
 
-    <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
-    <h2>Preparedness &amp; Professionalism</h2>
-    <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
-        <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
-    <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
-        <%= f.text_area :thankyou_letter, :class => "materialize-textarea" %></li>
+      <!-- INTERVIEW PREPAREDNESS & PROFESSIONALISM -->
+      <h2>Preparedness &amp; Professionalism</h2>
+      <li><%= f.label :questions_to_ask, 'What questions do you want to ask during your interview?' %>
+          <%= f.text_area :questions_to_ask, :class => "materialize-textarea" %></li>
+      <li><%= f.label :thankyou_letter, 'Submitted Thank You Letter' %>
+          <%= f.text_area :thankyou_letter, :class => "materialize-textarea" %></li>
 
-    <!-- CODING CHALLENGE DETAILS  -->
-    <h2>Coding Challenge Info</h2>
-    <li><%= f.label :coding_challenge_url %>
-        <%= f.text_field :coding_challenge_url %></li>
-    <li><%= f.label :coding_challenge_due_date %>
-        <%= f.datetime_local_field :coding_challenge_due_date %></li>
-    <li><%= f.label :coding_challenge_prompt %>
-        <%= f.text_area :coding_challenge_prompt, :class => "materialize-textarea" %></li>
-    <li><%= f.label :is_challenge_completed, 'Is this challenge completed?' %>
-        <p>
-          <%= f.radio_button :is_challenge_completed, true %>
-          <%= f.label 'is_challenge_completed_true', 'Yes' %>
-        </p>
-        <p>
-          <%= f.radio_button :is_challenge_completed, false %>
-          <%= f.label 'is_challenge_completed_false', 'No' %>
-        </p>
-    </li>
+      <!-- CODING CHALLENGE DETAILS  -->
+      <h2>Coding Challenge Info</h2>
+      <li><%= f.label :coding_challenge_url %>
+          <%= f.text_field :coding_challenge_url %></li>
+      <li><%= f.label :coding_challenge_due_date %>
+          <%= f.datetime_local_field :coding_challenge_due_date %></li>
+      <li><%= f.label :coding_challenge_prompt %>
+          <%= f.text_area :coding_challenge_prompt, :class => "materialize-textarea" %></li>
+      <li><%= f.label :is_challenge_completed, 'Is this challenge completed?' %>
+          <p>
+            <%= f.radio_button :is_challenge_completed, true %>
+            <%= f.label 'is_challenge_completed_true', 'Yes' %>
+          </p>
+          <p>
+            <%= f.radio_button :is_challenge_completed, false %>
+            <%= f.label 'is_challenge_completed_false', 'No' %>
+          </p>
+      </li>
 
-    <!-- MORE DETAILS  -->
-    <h2>Additional details</h2>
-    <li><%= f.label :notes, 'Additional details/notes' %>
-        <%= f.text_area :notes, :class => "materialize-textarea" %></li>
-    <%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %>
-  </ul>
-<% end %>
+      <!-- MORE DETAILS  -->
+      <h2>Additional details</h2>
+      <li><%= f.label :notes, 'Additional details/notes' %>
+          <%= f.text_area :notes, :class => "materialize-textarea" %></li>
+      <%= f.submit 'Submit', :class => 'waves-effect waves-light btn' %>
+    </ul>
+  <% end %>
+</div>

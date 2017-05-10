@@ -1,32 +1,33 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
+  <%= render '/partials/flash_messages' %>
+  <p>
+    <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to new_job_application_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW JOB APP<% end %></span>
+  </p>
 
-<p>
-  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to new_job_application_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW JOB APP<% end %></span>
-</p>
-
-<h3 class="center-align" style="padding-bottom: 30px">All Job Applications</h3>
+  <div class="col s12"><h4 class="center-align" style="padding-bottom: 30px">All Job Applications</h4></div>
 
 
 
-<% if @applications.length > 0 %>
-<ul class="collection">
-  <% @applications.each do |app| %>
-    <li class="collection-item avatar">
-      <div class='circle' id="side-date"><%= app.date_applied.strftime("%m/%d") %></div>
-      <span class="title"><%= app.job_title %></span>
-      <p><%= app.company_name %><br>
-      <%= link_to 'View more details', job_application_path(app) %></p>
-      <p>
-        <% if is_value_nil?(app.notes) %>
-          Notes: <%= app.notes %>
-        <% end %>
-      </p>
-      <%= link_to edit_job_application_path(app), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
-    </li>
+  <% if @applications.length > 0 %>
+  <ul class="collection">
+    <% @applications.each do |app| %>
+      <li class="collection-item avatar">
+        <div class='circle' id="side-date"><%= app.date_applied.strftime("%m/%d") %></div>
+        <span class="title"><%= app.job_title %></span>
+        <p><%= app.company_name %><br>
+        <%= link_to 'View more details', job_application_path(app) %></p>
+        <p>
+          <% if is_value_nil?(app.notes) %>
+            Notes: <%= app.notes %>
+          <% end %>
+        </p>
+        <%= link_to edit_job_application_path(app), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate @applications %>
+  <% else %>
+    <div class="field center-align" style="margin-top:50px"><p>Once you have added a job application, it will appear here.</p></div>
   <% end %>
-</ul>
-<%= will_paginate @applications %>
-<% else %>
-  <div class="field center-align" style="margin-top:50px"><p>Once you have added a job application, it will appear here.</p></div>
-<% end %>
+</div>

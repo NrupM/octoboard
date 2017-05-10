@@ -1,26 +1,27 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
+  <%= render '/partials/flash_messages' %>
+  <p>
+    <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
+  </p>
 
-<p>
-  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
-</p>
+    <h3 class="center-align" style="padding-bottom: 30px">All Interviews</h3>
 
-  <h3 class="center-align" style="padding-bottom: 30px">All Interviews</h3>
-
-  <% if @interviews.length > 0 %>
-    <ul class="collection">
-      <% @interviews.each do |i| %>
-      <li class="collection-item avatar">
-        <div class='circle' id="side-date"><%= i.interview_date.strftime("%m/%d") %></div>
-        <div class='circle' id="side-date2"><%= i.interview_date.strftime("%I:%M%p") %></div>
-        <span class="title"><%= i.job_application.job_title %></span>
-        <p><%= i.job_application.company_name %><br>
-          <%= link_to 'View More Details', interview_path(i) %></p>
-        <%= link_to edit_interview_path(i), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
-      </li>
-    <% end %>
-  </ul>
-  <%= will_paginate @interviews %>
-<% else %>
-  <div class="field center-align" style="margin-top:50px"><p>Once you have added an upcoming interview, it will appear here.</p></div>
-<% end %>
+    <% if @interviews.length > 0 %>
+      <ul class="collection">
+        <% @interviews.each do |i| %>
+        <li class="collection-item avatar">
+          <div class='circle' id="side-date"><%= i.interview_date.strftime("%m/%d") %></div>
+          <div class='circle' id="side-date2"><%= i.interview_date.strftime("%I:%M%p") %></div>
+          <span class="title"><%= i.job_application.job_title %></span>
+          <p><%= i.job_application.company_name %><br>
+            <%= link_to 'View More Details', interview_path(i) %></p>
+          <%= link_to edit_interview_path(i), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= will_paginate @interviews %>
+  <% else %>
+    <div class="field center-align" style="margin-top:50px"><p>Once you have added an upcoming interview, it will appear here.</p></div>
+  <% end %>
+</div>

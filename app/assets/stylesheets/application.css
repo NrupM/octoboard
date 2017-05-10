@@ -41,11 +41,8 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
-#progress {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
-  position: relative;
+.page {
+  margin-top: -55px;
 }
 
 #profile-img {
@@ -62,6 +59,7 @@ input:-webkit-autofill:active {
   width: 55px;
   visibility: hidden;
 }
+
 
 #goals-header {
   padding-bottom: 20px;

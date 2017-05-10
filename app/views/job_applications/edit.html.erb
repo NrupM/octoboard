@@ -1,45 +1,48 @@
-<%= render '/partials/flash_messages' %>
+<div class="col s12 page">
 
-<p>
-  <%= link_to job_application_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
-  <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
-</p>
-<h3 class="center-align">Edit <%= @application.job_title %> Position</h3>
-<%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
+  <%= render '/partials/flash_messages' %>
+
+  <p>
+    <%= link_to job_application_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
+  </p>
+  <h3 class="center-align">Edit <%= @application.job_title %> Position</h3>
+  <%= link_to job_application_path(@application), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, method: :delete  do %>Delete<% end %>
 
 
-<%= form_for @application do |f| %>
-  <ul>
-    <li><%= f.label :job_title, 'Position Title' %>
-        <%= f.text_field :job_title, required: true %></li>
-    <li><%= f.label :company_name, 'Company Name' %>
-        <%= f.text_field :company_name, required: true %></li>
-    <li><%= f.label :location, 'Location' %>
-        <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
-    <li><%= f.label :application_method, 'Application Method' %>
-        <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :required => true, :prompt => "---" %></li>
-    <li><%= f.label :stage, 'Application Stage' %>
-        <%= f.select :stage, JobApplication.stages.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
-    <li><%= f.label :date_applied, 'Date Applied' %>
-        <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
-    <li><%= f.label :job_post_url, 'Job Post URL' %>
-        <%= f.text_field :job_post_url %></li>
-    <li><%= f.label :job_description, 'Description' %>
-        <%= f.text_area :job_description, :class => "materialize-textarea" %></li>
-    <li><%= f.label :tech_stack, 'Tech stack' %>
-        <%= f.text_field :tech_stack %></li>
-    <li><%= f.label :job_requirements, 'Requirements' %>
-        <%= f.text_area :job_requirements, :class => "materialize-textarea" %></li>
-    <li><%= f.label :why_interested, 'If a recruiter asked you why you are interested in this job, how would you respond?' %>
-        <%= f.text_area :why_interested, :class => "materialize-textarea" %></li>
-    <li><%= f.label :relevant_work_history, 'Relevant work history talking points' %>
-        <%= f.text_area :relevant_work_history, :class => "materialize-textarea" %></li>
-    <li><%= f.label :submitted_cover_letter, 'Cover Letter submitted' %>
-        <%= f.text_area :submitted_cover_letter, :class => "materialize-textarea" %></li>
-    <li><%= f.label :requested_salary, 'Requested Salary' %>
-        <%= f.text_field :requested_salary %></li>
-    <li><%= f.label :notes, 'Other notes' %>
-        <%= f.text_area :notes, :class => "materialize-textarea" %></li>
-    <%= f.submit 'Save Changes', :class => 'waves-effect waves-light btn' %>
-  </ul>
-<% end %>
+  <%= form_for @application do |f| %>
+    <ul>
+      <li><%= f.label :job_title, 'Position Title' %>
+          <%= f.text_field :job_title, required: true %></li>
+      <li><%= f.label :company_name, 'Company Name' %>
+          <%= f.text_field :company_name, required: true %></li>
+      <li><%= f.label :location, 'Location' %>
+          <%= f.text_field :location, placeholder: 'San Francisco, CA' %></li>
+      <li><%= f.label :application_method, 'Application Method' %>
+          <%= f.select :application_method, JobApplication.application_methods.map { |key, value| [key.humanize, key] }, :required => true, :prompt => "---" %></li>
+      <li><%= f.label :stage, 'Application Stage' %>
+          <%= f.select :stage, JobApplication.stages.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %></li>
+      <li><%= f.label :date_applied, 'Date Applied' %>
+          <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
+      <li><%= f.label :job_post_url, 'Job Post URL' %>
+          <%= f.text_field :job_post_url %></li>
+      <li><%= f.label :job_description, 'Description' %>
+          <%= f.text_area :job_description, :class => "materialize-textarea" %></li>
+      <li><%= f.label :tech_stack, 'Tech stack' %>
+          <%= f.text_field :tech_stack %></li>
+      <li><%= f.label :job_requirements, 'Requirements' %>
+          <%= f.text_area :job_requirements, :class => "materialize-textarea" %></li>
+      <li><%= f.label :why_interested, 'If a recruiter asked you why you are interested in this job, how would you respond?' %>
+          <%= f.text_area :why_interested, :class => "materialize-textarea" %></li>
+      <li><%= f.label :relevant_work_history, 'Relevant work history talking points' %>
+          <%= f.text_area :relevant_work_history, :class => "materialize-textarea" %></li>
+      <li><%= f.label :submitted_cover_letter, 'Cover Letter submitted' %>
+          <%= f.text_area :submitted_cover_letter, :class => "materialize-textarea" %></li>
+      <li><%= f.label :requested_salary, 'Requested Salary' %>
+          <%= f.text_field :requested_salary %></li>
+      <li><%= f.label :notes, 'Other notes' %>
+          <%= f.text_area :notes, :class => "materialize-textarea" %></li>
+      <%= f.submit 'Save Changes', :class => 'waves-effect waves-light btn' %>
+    </ul>
+  <% end %>
+</div>
