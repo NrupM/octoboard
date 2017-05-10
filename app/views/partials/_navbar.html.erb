@@ -5,6 +5,6 @@
   <li><%= link_to job_applications_path do %><i class="fa fa-file-text nav-i" aria-hidden="true"></i> APPLICATIONS<% end %></li>
   <li><%= link_to interviews_path do %><i class="fa fa-users nav-i" aria-hidden="true"></i> INTERVIEWS<% end %></li>
   <li><%= link_to questions_path do %><i class="fa fa-comments nav-i" aria-hidden="true"></i> Q+A<% end %></li>
-  <li><%= link_to user_path(current_user) do %><i class="fa fa-cog nav-i" aria-hidden="true"></i> SETTINGS<% end %></li>
+  <li><%= link_to edit_user_registration_path(current_user) do %><i class="fa fa-cog nav-i" aria-hidden="true"></i> EDIT ACCOUNT<% end %></li>
   <li><%= link_to 'SIGN OUT', logout_path %></li>
 </ul>

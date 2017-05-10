@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   }
 
   get 'job_applications/[:params]', to: 'job_applications#search_job_apps', as: 'search_job_apps'
-  resources :users, :only => [:show]
   resources :goals, :except => [:destroy]
   resources :questions, :except => [:show]
   resources :job_applications, :interviews
