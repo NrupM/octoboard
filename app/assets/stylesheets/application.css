@@ -41,6 +41,41 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+#login {
+  background-color: #171717;
+  border-radius: 4px;
+  color: white;
+  margin-top: 60px;
+}
+
+#login-header {
+  height: 150px;
+  border-radius: 4px;
+  background-color: #50E3C2;
+  padding: 15px 0 20px 0;
+}
+
+#octoboard-login {
+  margin-top:0;
+  color: black;
+  font-weight: bold;
+}
+
+#login-body {
+  padding: 30px;
+}
+
+.login-form {
+  width: 70% !important;
+  border-radius: 4px !important;
+  color: white;
+  padding-left: 12px !important;
+}
+
+.login-form input[type=password] {
+  margin: 5px 0 20px 0 !important;
+}
+
 .page {
   margin-top: -55px;
 }
