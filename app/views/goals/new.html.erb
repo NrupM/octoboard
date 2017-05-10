@@ -1,6 +1,6 @@
 <%= render '/partials/flash_messages' %>
 
-<%= link_to 'Back', goals_path %>
+<%= link_to 'Back', goals_path, :class => 'no-mobile-display' %>
 
 <% if current_user.goals.count == 0 %>
 

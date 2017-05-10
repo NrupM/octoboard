@@ -1,7 +1,7 @@
 <%= render '/partials/flash_messages' %>
 
 <p>
-  <%= link_to interviews_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
 </p>
 
 <div class='col s12' id="interview-info">
@@ -88,7 +88,7 @@
         <ul>
           <% if @interview.questions_to_ask.size > 0  %>
             <div class="col s12" style="border-bottom: 1px solid black; margin-bottom: 35px; margin-top: -5px">
-              <h5 class="header-font">Questions I Can Ask in the Interview</h5>
+              <h5 class="header-font">Questions to Ask in the Interview</h5>
             </div>
             <br>
             <p><%= simple_format(@interview.questions_to_ask) %></p>

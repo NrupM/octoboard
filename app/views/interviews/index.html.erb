@@ -1,7 +1,7 @@
 <%= render '/partials/flash_messages' %>
 
 <p>
-  <%= link_to goals_path do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+  <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
   <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
 </p>
 

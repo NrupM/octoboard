@@ -1,7 +1,7 @@
 <%= render '/partials/flash_messages' %>
 
 <h1>Edit this question</h1>
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Back', questions_path, :class => 'no-mobile-display' %>
 
 
 <%= form_for @question do |f| %>
