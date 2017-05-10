@@ -1,5 +1,4 @@
 <div class="col s12 page">
-  <%= render '/partials/flash_messages' %>
   <p>
     <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <%= link_to registration_path(resource_name), data: { confirm: "Are you sure? This action cannot be undone." }, method: :delete, :class=>'right cancel' do %><i class="fa fa-times" aria-hidden="true"></i> CANCEL ACCOUNT<% end %>

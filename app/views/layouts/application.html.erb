@@ -15,22 +15,24 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <div class="row">
-        <div class="col s12 s12 l3">
-          <%= render 'partials/navbar' %>
+    <div class="col s12 m12 l12">
+      <% if current_user %>
+        <div class="row">
+          <div class="col s12 s12 l3">
+            <%= render 'partials/navbar' %>
+          </div>
+          <div class="col s12 m12 l9">
+            <%= render 'partials/topnav' %>
+            <%= yield %>
+          </div>
         </div>
-        <div class="col s12 m12 l9">
-          <%= render 'partials/topnav' %>
+      <% else %>
+        <div class="container">
+          <%= render '/partials/flash_messages' %>
           <%= yield %>
         </div>
-      </div>
-    <% else %>
-      <div class="container">
-        <%= render '/partials/flash_messages' %>
-        <%= yield %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </body>
 
 </html>

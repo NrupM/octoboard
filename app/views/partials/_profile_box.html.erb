@@ -3,7 +3,7 @@
     <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
   <% end %>
   <br>
-  <span class="teal-theme">
+  <span class="teal-theme" style="margin-right: 10px">
     <% if @user.job_status == 'seeking' %>
     <i class="fa fa-circle-o" aria-hidden="true"></i>
   <% else %>

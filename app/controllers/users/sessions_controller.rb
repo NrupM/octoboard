@@ -5,11 +5,13 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   # def new
   #   super
+  #   flash.delete(:notice)
   # end
 
   # POST /resource/sign_in
   # def create
   #   super
+  #   flash.delete(:notice)
   # end
 
   # DELETE /resource/sign_out

@@ -68,13 +68,10 @@ input:-webkit-autofill:active {
 .login-form {
   width: 70% !important;
   border-radius: 4px !important;
-  color: white;
   padding-left: 12px !important;
+  background-color: white !important;
 }
 
-.login-form input[type=password] {
-  margin: 5px 0 20px 0 !important;
-}
 
 .page {
   margin-top: -55px;
@@ -98,7 +95,7 @@ input:-webkit-autofill:active {
 
 #goals-header {
   padding-bottom: 20px;
-  margin-top: -5px;
+  margin-top: -15px;
 }
 
 .teal-theme {
