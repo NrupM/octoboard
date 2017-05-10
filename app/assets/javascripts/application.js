@@ -20,10 +20,8 @@ $( document ).on('turbolinks:load', function() {
   $('.collapsible').collapsible();
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
-  $('.modal').modal();
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 15
   });
-
 });

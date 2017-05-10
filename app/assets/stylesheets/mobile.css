@@ -4,6 +4,20 @@
     width: 80px;
   }
 
+  #mobile-nav {
+    height: 60px !important;
+    background-color: black;
+  }
+
+  #mobile-logo {
+    visibility: visible !important;
+    margin-right: 81px !important;
+  }
+
+  #goals-header {
+    margin-top: 20px !important;
+  }
+
   .goals-height-top {
     height: 265px;
   }

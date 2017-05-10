@@ -53,6 +53,21 @@ input:-webkit-autofill:active {
   width: 100px
 }
 
+#mobile-nav {
+  box-shadow: none;
+  height: 35px;
+}
+
+#mobile-logo {
+  width: 55px;
+  visibility: hidden;
+}
+
+#goals-header {
+  padding-bottom: 20px;
+  margin-top: -5px;
+}
+
 .teal-theme {
   color: #50E3C2;
 }
