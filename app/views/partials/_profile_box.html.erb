@@ -15,7 +15,12 @@
 <div class="col s12">
   <% if @user.goals.count > 0 %>
     <p>APPS PER DAY GOAL <span class="right teal-theme"><%= @goal.applications_per_day %></span></p>
-    <p>GOAL HITTING RATE <span class="right teal-theme"><%= @goal_hitting_rate %>%</span></p>
+    <p>GOAL HITTING RATE TODAY <span class="right teal-theme"><%= @goal_hitting_rate %>%</span></p>
+    <p>OCTOPOWER <span class="right teal-theme"><%= @octopower %>%</span></p>
   <% end %>
-  <p>OCTOPOWER <span class="right teal-theme"><%= @octopower %>%</span></p>
+  <% if @user.goals.count == 0 %>
+    <div class="col s12 center-align" style="margin-top: 28px">
+      <%= link_to 'LOG GOALS', new_goal_path, :class => 'waves-effect waves-light btn', :style => "color: white !important" %>
+    </div>
+  <% end %>
 </div>

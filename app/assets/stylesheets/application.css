@@ -164,6 +164,11 @@ input:-webkit-autofill:active {
   height: 40px;
   line-height: 40px;
 }
+
+#resources-button:hover {
+  background-color: #171717 !important;
+}
+
 #resources div:hover {
   background-color: #2B2B2B;
 }
