@@ -19,7 +19,7 @@
             <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34 %></li>
         <li><%= f.label :longterm_goal_date, 'By' %>
             <%= f.date_field :longterm_goal_date, :class => 'datepickerGoals', :style => 'width: 30%; text-align: center' %>
-            <%= f.label :longterm_goal, 'I will...' %> <%= f.text_field :longterm_goal, :maxlength => 34, :style => 'width: 60%', :size => 34 %></li>
+            <%= f.label :longterm_goal, 'I will...' %><%= f.text_field :longterm_goal, :maxlength => 34, :style => 'width: 60%', :size => 34 %></li>
         <li class="center-align" style="padding-top: 28px"><%= f.submit 'Save Changes', :class => 'waves-effect waves-light btn' %></li>
       </ul>
       <% end %>

@@ -1,69 +1,74 @@
 <div class="col s12 page">
 
   <%= render '/partials/flash_messages' %>
+  <p>
+    <%= link_to user_path(@user), :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <%= link_to registration_path(resource_name), data: { confirm: "Are you sure? This action cannot be undone." }, method: :delete, :class=>'right cancel' do %><i class="fa fa-times" aria-hidden="true"></i> CANCEL ACCOUNT<% end %>
 
-  <%= link_to "Back", user_path(@user) %>
+  </p>
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+  <div class="col s12 center-align"><h3>Edit <%= resource_name.to_s.humanize %></h3></div>
 
+  <div class='container'>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <span style="color:red">* </span><%= f.label :current_password, 'Current password to save any changes'%><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <span style="color:red">* </span><%= f.label :email %><br />
       <%= f.email_field :email, :required => true %>
     </div>
     <div class="field">
-      <%= f.label :first_name %><br />
+      <span style="color:red">* </span><%= f.label :first_name %><br />
       <%= f.text_field :first_name, :required => true %>
     </div>
     <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :job_status, 'Employment Status' %><br />
+      <span style="color:red">* </span><%= f.label :job_status, 'Employment Status' %><br />
       <%= f.select :job_status, User.job_statuses.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true %>
     </div>
     <div class="field">
       <%= f.label :linkedin_url %><br />
-      <%= f.text_field :linkedin_url, autofocus: true, placeholder: 'http://' %>
+      <%= f.text_field :linkedin_url, placeholder: 'http://' %>
     </div>
     <div class="field">
       <%= f.label :github_url %><br />
-      <%= f.text_field :github_url, autofocus: true, placeholder: 'http://' %>
+      <%= f.text_field :github_url, placeholder: 'http://' %>
     </div>
     <div class="field">
       <%= f.label :portfolio_url %><br />
-      <%= f.text_field :portfolio_url, autofocus: true, placeholder: 'http://' %>
+      <%= f.text_field :portfolio_url, placeholder: 'http://' %>
     </div>
     <div class="field">
-      <%= f.label :image, 'Image URL' %><br />
-      <%= f.text_field :image, autofocus: true, placeholder: 'http://' %>
+      <%= f.label :image, 'Profile Image URL' %><br />
+      <%= f.text_field :image, placeholder: 'http://' %>
     </div>
 
     <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header" id="change-password">Change Password <span class="right"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+          <div class="collapsible-body">
+            <%= f.label :password, 'New Password' %> <span class="right" style="color: red"><small><%= @minimum_password_length %> characters minimum</small></span><br />
+            <%= f.password_field :password, autocomplete: "off", :disabled => true %>
+            <% if @minimum_password_length %>
+            <br />
+
+            <% end %>
+            <div class="field">
+              <%= f.label :password_confirmation, 'Confirm New Password' %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", :disabled => true %>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Update" %>
+    <div class="actions center-align">
+      <%= f.submit 'Save Changes', :class => 'waves-effect waves-light btn' %>
     </div>
   <% end %>
+  </div>
 </div>

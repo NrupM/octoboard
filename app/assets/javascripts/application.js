@@ -29,4 +29,8 @@ $( document ).on('turbolinks:load', function() {
     selectYears: 15,
     min: true
   });
+  $('#change-password').click(function(e) {
+    e.preventDefault();
+    $("input[type='password']").attr('disabled', false);
+  });
 });
