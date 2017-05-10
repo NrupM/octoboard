@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
 
   #profile-img {
     width: 80px;
@@ -47,6 +47,10 @@
   }
 
   .bottom-margin {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
+  }
+
+  #mid-block {
+    margin-bottom: 0 !important;
   }
 }
