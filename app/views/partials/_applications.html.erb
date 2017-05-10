@@ -5,6 +5,10 @@
   <p>APPLIED TO TODAY  <span class="teal-theme" style="padding-left: 20px"><%= @apps_applied_today %></span></p>
 <% else %>
   <div class="col s12 center-align">
-    <%= link_to 'LOG AN APPLICATION', new_job_application_path, :class => 'waves-effect waves-light btn', :style => "color: white !important; margin-top: 120px" %>
+    <div class="col s12" style="margin-bottom: 35px; margin-top: 20px;">
+      <p id="did-you-know">DID YOU KNOW?</p>
+      <p> The average job seeker sends out 2 quality applications per day.</p>
+    </div>
+      <%= link_to 'LOG AN APP', new_job_application_path, :class => 'waves-effect waves-light btn', :style => "color: white !important; margin-top: -20px" %>
   </div>
 <% end %>

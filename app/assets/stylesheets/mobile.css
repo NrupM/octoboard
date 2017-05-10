@@ -30,6 +30,9 @@
     margin-right: 81px !important;
   }
 
+  #did-you-know {
+    margin-top: 45px;
+  }
 
   .no-mobile-display {
     display: none !important;

@@ -12,21 +12,7 @@
         <%= render 'partials/applications' %>
       </div>
       <div class="col s12 l4 grey-box goals-height-top top-row-margin">
-        <p style="border-bottom: 1px solid grey">REMINDER<span class="right">DATE</span></p>
-        <% @upcoming_interviews.each do |interview| %>
-          <p style="font-size: 0.9em">
-            <% if interview.interview_type %>
-              <% if interview.interview_type == 'phone' %>
-                <i class="fa fa-phone" aria-hidden="true"></i>
-              <% elsif interview.interview_type == 'online' %>
-                <i class="fa fa-laptop" aria-hidden="true"></i>
-              <% else %>
-                <i class="fa fa-handshake-o" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-            <%= link_to interview_path(interview) do %><span style="padding-left: 10px; color: white"><%= interview.job_application.company_name %> Interview</span><% end %><span class="right teal-theme"><%= interview.interview_date.strftime("%m/%d/%y") %></span></p>
-        <% end %>
-
+        <%= render 'partials/reminders_box' %>
       </div>
     </div>
   </div>
@@ -36,7 +22,7 @@
       <div class="col s12 l4 grey-box goals-height-mid middle-row-margin bottom-margin">
         <%= render 'partials/goals' %>
       </div>
-      <div class="col s12 l3 grey-box goals-height-mid middle-row-margin bottom-margin">
+      <div class="col s12 l3 grey-box goals-height-mid middle-row-margin bottom-margin" id="resources">
         <%= render 'partials/resources_box' %>
       </div>
       <div class="col s12 l4 grey-box goals-height-mid middle-row-margin bottom-margin">
@@ -44,21 +30,4 @@
       </div>
     </div>
   </div>
-  <!--
-  <div class="col s12 m12 l12">
-    <div class="row">
-      <div class="col s12 l4 resources-height3 grey-box2 bottom-row-margin" id="resources">
-      </div>
-      <div class="col s12 l4">
-        <div class="col s12 l12 goals-height2 grey-box2 bottom-row-margin">
-          <p>QUESTIONS<span class="teal-theme right"><%= link_to 'View More', questions_path %></span></p>
-        </div>
-      </div>
-      <div class="col s12 l3">
-        <div class="col s12 l12 goals-height2 grey-box2 bottom-row-margin">
-          BRAIN TEASER
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>

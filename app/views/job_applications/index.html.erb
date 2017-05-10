@@ -14,8 +14,8 @@
     <% @applications.each do |app| %>
       <li class="collection-item avatar">
         <div class='circle' id="side-date"><%= app.date_applied.strftime("%m/%d") %></div>
-        <span class="title"><%= app.job_title %></span>
-        <p><%= app.company_name %><br>
+        <span class="title"><%= app.company_name %></span>
+        <p><%= app.job_title %><br>
         <%= link_to 'View more details', job_application_path(app) %></p>
         <p>
           <% if is_value_nil?(app.notes) %>

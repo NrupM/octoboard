@@ -1,0 +1,42 @@
+<p style="border-bottom: 1px solid grey">UPCOMING INTERVIEWS<span class="right">DATE</span></p>
+<% if @upcoming_interviews.length > 0 %>
+  <% @upcoming_interviews.each do |interview| %>
+    <p style="font-size: 0.9em">
+      <% if interview.interview_type %>
+        <% if interview.interview_type == 'phone' %>
+          <i class="fa fa-phone" aria-hidden="true"></i>
+        <% elsif interview.interview_type == 'online' %>
+          <i class="fa fa-laptop" aria-hidden="true"></i>
+        <% else %>
+          <i class="fa fa-handshake-o" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+      <%= link_to interview_path(interview) do %>
+        <span style="padding-left: 10px; color: white"><%= interview.job_application.company_name %></span>
+      <% end %><span class="right teal-theme"><%= interview.interview_date.strftime("%m/%d/%y") %></span>
+    </p>
+  <% end %>
+  <% else %>
+    <p class="center-align" style="font-size: 0.9em">COMING SOON</p>
+  <% end %>
+
+<% if @upcoming_challenges.length > 0 %>
+<p style="border-bottom: 1px solid grey">CODING CHALLENGES<span class="right">DATE</span></p>
+  <% @upcoming_challenges.each do |challenge| %>
+    <% if challenge.is_challenge_completed == false %>
+      <p style="font-size: 0.9em">
+        <%= link_to job_application_path(challenge.job_application) do %>
+          <span style="padding-left: 10px; color: white">
+            <%= challenge.job_application.company_name %>
+          </span>
+        <% end %>
+        <span class="right teal-theme">
+          <%= challenge.coding_challenge_due_date.strftime("%m/%d/%y") %>
+        </span>
+      </p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p style="border-bottom: 1px solid grey; margin-top: 75px">CODING CHALLENGES<span class="right">DATE</span></p>
+  <p class="center-align" style="font-size: 0.9em">COMING SOON</p>
+<% end %>

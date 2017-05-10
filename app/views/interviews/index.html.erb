@@ -13,8 +13,8 @@
         <li class="collection-item avatar">
           <div class='circle' id="side-date"><%= i.interview_date.strftime("%m/%d") %></div>
           <div class='circle' id="side-date2"><%= i.interview_date.strftime("%I:%M%p") %></div>
-          <span class="title"><%= i.job_application.job_title %></span>
-          <p><%= i.job_application.company_name %><br>
+          <span class="title"><%= i.job_application.company_name %></span>
+          <p><%= i.job_application.job_title %><br>
             <%= link_to 'View More Details', interview_path(i) %></p>
           <%= link_to edit_interview_path(i), :class => "secondary-content" do %><i class="fa fa-pencil-square-o" aria-hidden="true"></i><% end %>
         </li>

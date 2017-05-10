@@ -72,9 +72,8 @@ class GoalsController < ApplicationController
 
 
     # interviews needing followup
-    @upcoming_interviews = @interviews.where(['interview_date > ?', DateTime.now]).order(interview_date: :asc).limit(4)
-
-    @upcoming_challenges = @interviews.where(['coding_challenge_due_date > ?', DateTime.now])
+    @upcoming_interviews = @interviews.where(['interview_date > ?', DateTime.now]).order(interview_date: :asc).limit(3)
+    @upcoming_challenges = @interviews.where(['coding_challenge_due_date > ?', DateTime.now]).order(coding_challenge_due_date: :asc).limit(3)
 
 
   end
