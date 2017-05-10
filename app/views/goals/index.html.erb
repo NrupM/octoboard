@@ -45,9 +45,29 @@
     </div>
     <div class="col s12 l4 grey-box goals-height-mid middle-row-margin bottom-margin">
       <p>INTERVIEWS<span class="teal-theme right"><%= link_to 'View All', interviews_path %></span></p>
-      Number of companies I'm interviewing with: <%= @interviewing_count %>
-      <div id='progress'></div>
-
+      <div class="col s12" id="interview-numbers-box">
+        <div id="myProgress">
+          <div id="myBar">
+            <% if @interviewing_count > 0 %>
+              <span style="font-size: 2em; color: #1b1212"><%= @interviewing_count %> </span>
+            <% else%>
+              hi
+            <% end %>
+          </div>
+        </div>
+        <div class = "col s12 center-align">
+          <span style="font-size: 0.8em">TOTAL INTERVIEWS</span>
+        </div>
+        <div class='col s12 center-align'>
+          <p id="motivational">You're making progress!</p>
+          <p style="font-size: 0.9em">Practice interview questions <%= link_to 'now', questions_path %>.</p>
+        </div>
+        <div class="col s12" style="margin-top: 8px">
+          <p>PHONE <span class="teal-theme right"><%= @phone_ints %></span></p>
+          <p>ONLINE <span class="teal-theme right"><%= @online_ints %></span></p>
+          <p>IN-PERSON <span class="teal-theme right"><%= @inperson_ints %></span></p>
+        </div>
+      </div>
     </div>
     <div class="col s12 l3 grey-box goals-height-mid middle-row-margin">
       CODE CHALLENGES
@@ -57,28 +77,30 @@
 
 <div class="col s12 m12 l12">
   <div class="row">
-    <div class="col s12 l3 resources-height3 grey-box2 bottom-margin" id="resources">
+    <div class="col s12 l4 resources-height3 grey-box2 bottom-row-margin" id="resources">
       <p>RESOURCES<span class="teal-theme right"><%= link_to 'Edit', edit_user_registration_path(@user) %></span></p>
-      <div class="col s12"><a href="https://docs.google.com/document/d/1dllfOWUd34cL3Q2Qxy2RCGdabWNivziF3eJA4CzoQCA" target="_blank">Essential Job Resources</a></div>
-        <% if @user.linkedin_url || @user.github_url || @user.portfolio_url || @user.other_url %>
-          <% if @user.linkedin_url.size > 0 %>
-            <div class="col s12"><%= link_to 'My LinkedIn', check_for_http(@user.linkedin_url), :target => "_blank" %></div>
-          <% end %>
-          <% if @user.github_url.size > 0 %>
-            <div class="col s12"><%= link_to 'My Github', check_for_http(@user.github_url), :target => "_blank" %></div>
-          <% end %>
-          <% if @user.portfolio_url.size > 0 %>
-            <div class="col s12"><%= link_to 'My Portfolio', check_for_http(@user.portfolio_url), :target => "_blank" %></div>
-          <% end %>
-        <% end %>
+      <div class="col s12">
+        <a href="https://docs.google.com/document/d/1dllfOWUd34cL3Q2Qxy2RCGdabWNivziF3eJA4CzoQCA" target="_blank">Essential Job Resources</a>
       </div>
+      <% if @user.linkedin_url || @user.github_url || @user.portfolio_url || @user.other_url %>
+        <% if @user.linkedin_url.size > 0 %>
+          <div class="col s12"><%= link_to 'My LinkedIn', check_for_http(@user.linkedin_url), :target => "_blank" %></div>
+        <% end %>
+        <% if @user.github_url.size > 0 %>
+          <div class="col s12"><%= link_to 'My Github', check_for_http(@user.github_url), :target => "_blank" %></div>
+        <% end %>
+        <% if @user.portfolio_url.size > 0 %>
+          <div class="col s12"><%= link_to 'My Portfolio', check_for_http(@user.portfolio_url), :target => "_blank" %></div>
+        <% end %>
+      <% end %>
+    </div>
     <div class="col s12 l4">
-      <div class="col s12 l12 goals-height2 grey-box2 bottom-margin" style="margin-left: 10px">
+      <div class="col s12 l12 goals-height2 grey-box2 bottom-row-margin">
         <p>QUESTIONS<span class="teal-theme right"><%= link_to 'View More', questions_path %></span></p>
       </div>
     </div>
-    <div class="col s12 l4">
-      <div class="col s12 l12 goals-height2 grey-box2" style="margin-left: 10px">
+    <div class="col s12 l3">
+      <div class="col s12 l12 goals-height2 grey-box2 bottom-row-margin">
         BRAIN TEASER
       </div>
     </div>

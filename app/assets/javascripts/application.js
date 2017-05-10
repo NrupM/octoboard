@@ -15,22 +15,44 @@
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
+
+  //progressBar script
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 8);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+
   $(".button-collapse").sideNav();
   $('select').material_select();
   $('.collapsible').collapsible();
   $('#textarea1').val('New Text');
   $('#textarea1').trigger('autoresize');
+
+  //datepicker for applications and interviews (allow past entries)
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 15
   });
+
+  //datepicker for future goals
   $('.datepickerGoals').pickadate({
     selectMonths: true,
     selectYears: 15,
     min: true
   });
+
+  //allow use to edit password
   $('#change-password').click(function(e) {
     e.preventDefault();
     $("input[type='password']").attr('disabled', false);
   });
+
+
 });

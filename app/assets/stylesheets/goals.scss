@@ -2,3 +2,26 @@
   padding: 35px 0 28px 0;
   text-align: center;
 }
+
+#myProgress {
+    width: 40%;
+    background-color: white;
+    margin: 0 auto;
+}
+#myBar {
+  height: 45px;
+  background-color: rgba(96, 220, 192, 0.71);
+  text-align: center;
+  line-height: 45px;
+  color: #1b1212;
+  border: 2px solid #ffffff;
+}
+
+#interview-numbers-box {
+  margin-top: 10px;
+}
+
+#motivational {
+  font-size: 1.15em;
+  margin-bottom: -8px;
+}

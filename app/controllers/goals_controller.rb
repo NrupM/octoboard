@@ -36,11 +36,15 @@ class GoalsController < ApplicationController
       int_preparedness = num_interviews - nil_preparedness
       nil_thankyou = @interviews.where({thankyou_letter: '' || ' '}).count
       num_thankyous = num_interviews - nil_thankyou
-      inperson_ints = @interviews.where({interview_type: "in_person"}).count
+      @inperson_ints = @interviews.where({interview_type: "in_person"}).count
+      @online_ints = @interviews.where({interview_type: "online"}).count
+      @phone_ints = @interviews.where({interview_type: "phone"}).count
     else
       num_thankyous = 0
       int_preparedness = 0
-      inperson_ints = 0
+      @inperson_ints = 0
+      @online_ints = 0
+      @phone_ints = 0 
     end
     if @questions.count > 0
       nilquestions = @questions.where({answer: nil || '' || ' ' }).count
@@ -55,7 +59,7 @@ class GoalsController < ApplicationController
     answered_questions = answered * 2
     interviews = num_interviews * 5
     per_day_goal = meet_per_day_goal(apps_per_day_goal, @apps_applied_today)
-    inperson = inperson_ints * 10
+    inperson = @inperson_ints * 10
 
     @octopower = (@octopower + thankyous + preparedness + answered_questions + interviews + per_day_goal + inperson)
 
