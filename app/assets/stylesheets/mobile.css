@@ -16,6 +16,15 @@
     background-color: black;
   }
 
+  #login {
+    margin-top: 35px !important;
+  }
+
+  #signup {
+    margin-top: 35px !important;
+    margin-bottom: 50px !important;
+  }
+
   #mobile-logo {
     visibility: visible !important;
     margin-right: 81px !important;
