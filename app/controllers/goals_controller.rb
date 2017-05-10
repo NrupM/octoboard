@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
       int_preparedness = 0
       @inperson_ints = 0
       @online_ints = 0
-      @phone_ints = 0 
+      @phone_ints = 0
     end
     if @questions.count > 0
       nilquestions = @questions.where({answer: nil || '' || ' ' }).count
@@ -72,7 +72,8 @@ class GoalsController < ApplicationController
 
 
     # interviews needing followup
-    @upcoming_interviews = @interviews.where(['interview_date > ?', DateTime.now])
+    @upcoming_interviews = @interviews.where(['interview_date > ?', DateTime.now]).order(interview_date: :asc).limit(4)
+
     @upcoming_challenges = @interviews.where(['coding_challenge_due_date > ?', DateTime.now])
 
 

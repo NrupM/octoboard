@@ -11,9 +11,9 @@
   <div class='col s12 center-align'>
     <% if @interviewing_count > 0 %>
       <% if @inperson_ints == 0 && @online_ints == 0 && @phone_ints > 0 %>
-        <p id="motivational1">You're making progress!</p>
+        <p class="motivational1">You're making progress!</p>
       <% elsif @inperson_ints == 0 && @online_ints > 0 %>
-        <p id="motivational1">Things are looking good!</p>
+        <p class="motivational1">Things are looking good!</p>
       <% elsif @inperson_ints > 0 %>
         <p class="motivational2">You're very close to scoring that job!</p>
       <% end %>

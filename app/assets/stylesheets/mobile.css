@@ -35,13 +35,10 @@
     display: none !important;
   }
 
-  #goals-header {
-    margin-top: 20px !important;
-  }
-
   .goals-height-top {
     height: 265px;
   }
+
   .goals-height-mid {
     height: 320px;
   }

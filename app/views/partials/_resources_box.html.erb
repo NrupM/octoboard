@@ -1,0 +1,15 @@
+<p>RESOURCES<span class="teal-theme right"><%= link_to 'Edit', edit_user_registration_path(@user) %></span></p>
+<div class="col s12">
+  <a href="https://docs.google.com/document/d/1dllfOWUd34cL3Q2Qxy2RCGdabWNivziF3eJA4CzoQCA" target="_blank">Essential Job Resources</a>
+</div>
+<% if @user.linkedin_url || @user.github_url || @user.portfolio_url || @user.other_url %>
+  <% if @user.linkedin_url.size > 0 %>
+    <div class="col s12"><%= link_to 'My LinkedIn', check_for_http(@user.linkedin_url), :target => "_blank" %></div>
+  <% end %>
+  <% if @user.github_url.size > 0 %>
+    <div class="col s12"><%= link_to 'My Github', check_for_http(@user.github_url), :target => "_blank" %></div>
+  <% end %>
+  <% if @user.portfolio_url.size > 0 %>
+    <div class="col s12"><%= link_to 'My Portfolio', check_for_http(@user.portfolio_url), :target => "_blank" %></div>
+  <% end %>
+<% end %>
