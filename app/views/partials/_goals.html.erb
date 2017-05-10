@@ -3,24 +3,24 @@
     <div class="col s12">
       <label>Today I will...</label>
       <div class="col s12 goals-box">
-        <% if @goal.daily_goal %>
-          <p><i class="fa fa-sun-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.daily_goal %></span></p>
+        <% if @goal.daily_goal.size > 0 %>
+          <p><i class="fa fa-sun-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= grammarize(@goal.daily_goal) %></span></p>
         <% end %>
       </div>
     </div>
     <div class="col s12">
       <label>This week I will...</label>
       <div class="col s12 goals-box">
-        <% if @goal.weekly_goal %>
-          <p><i class="fa fa-clock-o teal-theme" aria-hidden="true"></i><span style="padding-left: 19px"><%= @goal.weekly_goal %></span></p>
+        <% if @goal.weekly_goal.size > 0 %>
+          <p><i class="fa fa-clock-o teal-theme" aria-hidden="true"></i><span style="padding-left: 19px"><%= grammarize(@goal.weekly_goal) %></span></p>
         <% end %>
       </div>
     </div>
     <div class="col s12">
       <label>By <%= @goal.longterm_goal_date.strftime("%m/%d/%y") %> I will...</label>
       <div class="col s12 goals-box">
-        <% if @goal.longterm_goal %>
-          <p><i class="fa fa-calendar-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= @goal.longterm_goal %></span></p>
+        <% if @goal.longterm_goal.size > 0 %>
+          <p><i class="fa fa-calendar-o teal-theme" aria-hidden="true"><span style="padding-left: 19px"></i><%= grammarize(@goal.longterm_goal) %></span></p>
         <% end %>
       </div>
     </div>

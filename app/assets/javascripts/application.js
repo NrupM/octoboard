@@ -24,4 +24,9 @@ $( document ).on('turbolinks:load', function() {
     selectMonths: true,
     selectYears: 15
   });
+  $('.datepickerGoals').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    min: true
+  });
 });

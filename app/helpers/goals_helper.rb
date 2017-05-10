@@ -29,5 +29,10 @@ module GoalsHelper
     end
   end
 
+  def grammarize str
+    first_letter = str[0].downcase
+    second_half = str.split(//).last(str.length-1).join
+    return first_letter + second_half
+  end
 
 end

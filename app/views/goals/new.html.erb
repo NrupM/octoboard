@@ -17,7 +17,7 @@
         <li><%= f.label :weekly_goal, 'By next week I will....' %>
             <%= f.text_field :weekly_goal, :maxlength => 34, :size => 34, :placeholder => 'work through 15 algorithms.', :required => true  %></li>
         <li><%= f.label :longterm_goal_date, 'By' %>
-              <%= f.date_field :longterm_goal_date, :class => 'datepicker', :required => true  %>
+              <%= f.date_field :longterm_goal_date, :class => 'datepickerGoals', :required => true  %>
               <%= f.label :longterm_goal, 'I will...' %>
               <%= f.text_field :longterm_goal, :maxlength => 34, :size => 34, :placeholder => 'land a Software Engineering job.', :required => true  %></li>
         <li><%= f.submit 'Create', :class => 'waves-effect waves-light btn' %></li>
