@@ -70,6 +70,7 @@ input:-webkit-autofill:active {
   border-radius: 4px !important;
   padding-left: 12px !important;
   background-color: white !important;
+  color: black !important;
 }
 
 

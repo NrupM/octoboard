@@ -11,14 +11,14 @@
   <div class='col s12 center-align'>
     <% if @interviewing_count > 0 %>
       <% if @inperson_ints == 0 && @online_ints == 0 && @phone_ints > 0 %>
-        <p id="motivational">You're making progress!</p>
+        <p id="motivational1">You're making progress!</p>
       <% elsif @inperson_ints == 0 && @online_ints > 0 %>
-        <p id="motivational">Things are looking good!</p>
+        <p id="motivational1">Things are looking good!</p>
       <% elsif @inperson_ints > 0 %>
-        <p style="font-size: 1.06em;margin-bottom: -8px">You're very close to scoring that job!</p>
+        <p class="motivational2">You're very close to scoring that job!</p>
       <% end %>
     <% else %>
-        <p id="motivational">You'll be interviewing soon enough.</p>
+        <p class="motivational2">You'll be interviewing soon enough.</p>
     <% end %>
     <p style="font-size: 0.9em">Practice interview questions <%= link_to 'now', questions_path %>.</p>
   </div>
