@@ -3,7 +3,7 @@
 
   <%= link_to job_applications_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> Back<% end %>
 
-  <h2 class="center-align">Add Application Details</h2>
+  <h3 class="center-align">Add Application Details</h3>
 
 
 
@@ -12,7 +12,7 @@
       <li><span style="color:red">* </span><%= f.label :company_name, 'Company Name' %>
           <%= f.text_field :company_name, required: true %></li>
       <li><span style="color:red">* </span><%= f.label :job_title, 'Position Title' %>
-          <%= f.text_field :job_title, autofocus: true, required: true %></li>
+          <%= f.text_field :job_title, required: true %></li>
       <li><span style="color:red">* </span><%= f.label :date_applied, 'Date Applied' %>
           <%= f.date_field :date_applied, :class => 'datepicker', :required => true %></li>
       <li><span style="color:red">* </span><%= f.label :application_method, 'Application Method' %>
@@ -33,7 +33,7 @@
           <%= f.text_area :why_interested, :class => "materialize-textarea" %></li>
       <li><%= f.label :relevant_work_history, 'Relevant work history talking points' %>
           <%= f.text_area :relevant_work_history, :class => "materialize-textarea" %></li>
-      <li><%= f.label :submitted_cover_letter, 'Cover Letter submitted' %>
+      <li><%= f.label :submitted_cover_letter, 'Submitted Cover Letter' %>
           <%= f.text_area :submitted_cover_letter, :class => "materialize-textarea" %></li>
       <li><%= f.label :requested_salary, 'Requested Salary' %>
           <%= f.text_field :requested_salary %></li>
