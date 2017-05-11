@@ -6,8 +6,8 @@
     <%= link_to job_application_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <span class="right"><%= link_to new_interview_path(job_application_id: @application.id) do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW FOR THIS JOB <% end %></span>
   </p>
-  
-  <h3 class="center-align">Edit <%= @application.job_title %> Position</h3>
+
+  <h3 class="center-align">Edit <%= @application.job_title.capitalize %> Position</h3>
 
   <%= form_for @application do |f| %>
     <ul>

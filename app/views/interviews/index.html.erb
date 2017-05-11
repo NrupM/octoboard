@@ -1,15 +1,16 @@
-<div class="col s12 page">
+<div class="col s12 m12 l12 page">
 
   <p>
     <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
   </p>
+  <div class="col s12 center-align">
+    <h3 style="padding-bottom: 30px">All Interviews</h3>
+  </div>
 
-    <h3 class="center-align" style="padding-bottom: 30px">All Interviews</h3>
-
-    <% if @interviews.length > 0 %>
-      <ul class="collection">
-        <% @interviews.each do |i| %>
+  <% if @interviews.length > 0 %>
+    <ul class="collection">
+      <% @interviews.each do |i| %>
         <li class="collection-item avatar">
           <div class='circle' id="side-date"><%= i.interview_date.strftime("%m/%d") %></div>
           <div class='circle' id="side-date2"><%= i.interview_date.strftime("%I:%M%p") %></div>

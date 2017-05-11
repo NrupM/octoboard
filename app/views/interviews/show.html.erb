@@ -1,4 +1,4 @@
-<div class="col s12 page">
+<div class="col s12 m12 l12 page">
 
   <p>
     <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
@@ -74,7 +74,7 @@
                 </div>
                 <p><%= simple_format(@interview.coding_challenge_prompt) %></p>
               <% end %>
-              <% if @interview.coding_challenge_due_date > 0 %>
+              <% if @interview.coding_challenge_due_date %>
                 <li><i class="fa fa-calendar" aria-hidden="true"></i> <span style="margin-left: 15px">Due: <%= @interview.coding_challenge_due_date.strftime("%m/%d/%y at %I:%M %p") %></span></li>
               <% end %>
               <% if @interview.is_challenge_completed != nil %>

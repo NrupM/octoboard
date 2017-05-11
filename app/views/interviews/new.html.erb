@@ -20,13 +20,13 @@
       <% else %>
         <h5 class="form-header">Basic Details</h5>
         <ul>
-          <li><%= f.label :company_name, 'Company Name' %>
+          <li><span style="color:red">* </span><%= f.label :company_name, 'Company Name' %>
               <%= f.collection_select(:job_application_id, @applications.order(company_name: :asc), :id, :company_name, :prompt => "---") %></li>
         <% end %>
           <div class="field">
-            <li><%= f.label :interview_date, 'Interview Date' %>
+            <li><span style="color:red">* </span><%= f.label :interview_date, 'Interview Date' %>
                 <%= f.datetime_local_field :interview_date, autofocus: true, required: true %></li>
-            <li><%= f.label :interview_type, 'Interview Type' %>
+            <li><span style="color:red">* </span><%= f.label :interview_type, 'Interview Type' %>
                 <%= f.select :interview_type, Interview.interview_types.map { |key, value| [key.humanize, key] }, :prompt => "---", required: true %></li>
             <li><%= f.label :is_followup_needed, 'Is followup needed?' %>
               <p>
