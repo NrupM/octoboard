@@ -1,12 +1,12 @@
 <div class="col s12 page">
 
-  <%= render '/partials/flash_messages' %>
-
   <% if @application %>
     <%= link_to job_applications_path(@application), :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <h3 class="center-align">New Interview with <%= @application.company_name.capitalize %></h3>
   <% else %>
     <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <%= link_to new_job_application_path, :class => 'right' do %><i class="fa fa-plus" aria-hidden="true"></i> LOG A JOB APP<% end %>
+
     <h3 class="center-align">Add an Interview</h3>
   <% end %>
 
@@ -90,7 +90,7 @@
       </ul>
 
     <% else %>
-      <h2> You must first log an application before adding interviews to it. Do that <%= link_to 'here', new_job_application_path %>.</h2>
+      <p class="center-align" style="margin-top: 50px">You must first log an application before adding interviews to it. Do that <%= link_to 'here', new_job_application_path %>.</p>
     <% end %>
   <% end %>
 </div>
