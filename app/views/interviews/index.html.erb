@@ -1,5 +1,5 @@
 <div class="col s12 page">
-  <%= render '/partials/flash_messages' %>
+
   <p>
     <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <span class="right"><%= link_to new_interview_path do %><i class="fa fa-plus" aria-hidden="true"></i> NEW INTERVIEW<% end %></span>
@@ -22,6 +22,6 @@
     </ul>
     <%= will_paginate @interviews %>
   <% else %>
-    <div class="field center-align" style="margin-top:50px"><p>Once you have added an upcoming interview, it will appear here.</p></div>
+    <div class="field center-align" style="margin-top:50px"><p>Once you add an upcoming interview, it will appear here.</p></div>
   <% end %>
 </div>

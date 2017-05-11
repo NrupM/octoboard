@@ -53,25 +53,29 @@
         <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Description &amp; Requirements</div>
         <div class="collapsible-body" style="border-bottom: none">
           <ul>
-            <% if @application.tech_stack.size > 0 %>
-              <p><i class="fa fa-database" aria-hidden="true"></i><span style="margin-left: 15px">Tech Stack: <%= @application.tech_stack %></span></p>
-            <% end %>
-            <% if @application.requested_salary.size > 0 %>
-              <p><i class="fa fa-money" aria-hidden="true"></i><span style="margin-left: 15px">Requested Salary: <%= @application.requested_salary %></span></p>
-            <% end %>
-            <% if @application.job_description.size > 0 %>
-              <div class="col s12 show-header">
-                <h5 class="header-font">Job Description</h5>
-              </div>
-              <br>
-              <div class="col s12"><p><%= simple_format(@application.job_description) %></p></div>
-            <% end %>
-            <% if @application.job_requirements.size > 0 %>
-              <div class="col s12 show-header">
-                <h5 class="header-font">Requirements</h5>
-              </div>
-              <br>
-              <div class="col s12"><p><%= simple_format(@application.job_requirements) %></p></div>
+            <% if @application.tech_stack.size > 0 || @application.requested_salary.size > 0 || @application.job_description.size > 0 || @application.job_requirements.size > 0 %>
+              <% if @application.tech_stack.size > 0 %>
+                <p><i class="fa fa-database" aria-hidden="true"></i><span style="margin-left: 15px">Tech Stack: <%= @application.tech_stack %></span></p>
+              <% end %>
+              <% if @application.requested_salary.size > 0 %>
+                <p><i class="fa fa-money" aria-hidden="true"></i><span style="margin-left: 15px">Requested Salary: <%= @application.requested_salary %></span></p>
+              <% end %>
+              <% if @application.job_description.size > 0 %>
+                <div class="col s12 show-header">
+                  <h5 class="header-font">Job Description</h5>
+                </div>
+                <br>
+                <div class="col s12"><p><%= simple_format(@application.job_description) %></p></div>
+              <% end %>
+              <% if @application.job_requirements.size > 0 %>
+                <div class="col s12 show-header">
+                  <h5 class="header-font">Requirements</h5>
+                </div>
+                <br>
+                <div class="col s12"><p><%= simple_format(@application.job_requirements) %></p></div>
+              <% end %>
+            <% else %>
+              <li>No additional details. Add them <%= link_to 'here', edit_job_application_path %>.</li>
             <% end %>
           </ul>
         </div>
@@ -80,24 +84,28 @@
         <div class="collapsible-header"><span><i class="fa fa-caret-down" aria-hidden="true"></i></span>Preparedness &amp; Professionalism</div>
         <div class="collapsible-body">
           <ul>
-            <% if @application.why_interested.size > 0 %>
-              <div class="col s12 show-header">
-                <h5 class="header-font">Why am I interested?</h5>
-              </div>
-              <br>
-              <p><%= simple_format(@application.why_interested) %></p>
-            <% end %>
-            <% if @application.relevant_work_history.size > 0 %>
-              <div class="col s12 show-header">
-                <h5 class="header-font">Talking points on relevant work history</h5>
-              </div>
-              <p><%= simple_format(@application.relevant_work_history) %></p>
-            <% end %>
-            <% if @application.submitted_cover_letter.size > 0 %>
-              <div class="col s12 show-header">
-                <h5 class="header-font">Submitted Cover Letter</h5>
-              </div>
-              <p><%= simple_format(@application.submitted_cover_letter) %></p>
+            <% if @application.why_interested.size > 0 || @application.relevant_work_history.size > 0 || @application.submitted_cover_letter.size > 0 %>
+              <% if @application.why_interested.size > 0 %>
+                <div class="col s12 show-header">
+                  <h5 class="header-font">Why am I interested?</h5>
+                </div>
+                <br>
+                <p><%= simple_format(@application.why_interested) %></p>
+              <% end %>
+              <% if @application.relevant_work_history.size > 0 %>
+                <div class="col s12 show-header">
+                  <h5 class="header-font">Talking points on relevant work history</h5>
+                </div>
+                <p><%= simple_format(@application.relevant_work_history) %></p>
+              <% end %>
+              <% if @application.submitted_cover_letter.size > 0 %>
+                <div class="col s12 show-header">
+                  <h5 class="header-font">Submitted Cover Letter</h5>
+                </div>
+                <p><%= simple_format(@application.submitted_cover_letter) %></p>
+              <% end %>
+            <% else %>
+              <li>No additional details. Add them <%= link_to 'here', edit_job_application_path %>.</li>
             <% end %>
           </ul>
         </div>
