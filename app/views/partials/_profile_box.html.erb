@@ -1,5 +1,5 @@
 <div class='col s12 center-align'>
-  <% if @user.image %>
+  <%= link_to edit_user_registration_path(@user) do %>
     <%= image_tag @user.image, :class => 'circle z-depth-5', :id => 'profile-img' %>
   <% end %>
   <br>

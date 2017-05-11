@@ -12,13 +12,13 @@
         <% end %>
       <% end %>
       <%= link_to interview_path(interview) do %>
-        <span style="padding-left: 10px; color: white"><%= interview.job_application.company_name %></span>
+        <span style="padding-left: 10px; color: white" class="reminders-a"><%= interview.job_application.company_name %></span>
       <% end %><span class="right teal-theme"><%= interview.interview_date.strftime("%m/%d/%y") %></span>
     </p>
   <% end %>
-  <% else %>
-    <p class="center-align" style="font-size: 0.9em">COMING SOON</p>
-  <% end %>
+<% else %>
+  <p class="center-align" style="font-size: 0.9em">COMING SOON</p>
+<% end %>
 
 <% if @upcoming_challenges.length > 0 %>
 <p style="border-bottom: 1px solid grey">CODING CHALLENGES<span class="right">DATE</span></p>
@@ -26,7 +26,7 @@
     <% if challenge.is_challenge_completed == false %>
       <p style="font-size: 0.9em">
         <%= link_to job_application_path(challenge.job_application) do %>
-          <span style="padding-left: 10px; color: white">
+          <span style="padding-left: 10px; color: white" class="reminders-a">
             <%= challenge.job_application.company_name %>
           </span>
         <% end %>

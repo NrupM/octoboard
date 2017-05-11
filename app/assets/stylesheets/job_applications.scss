@@ -1,8 +1,3 @@
-// Place all the styles related to the job_applications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 #side-date {
   overflow: visible;
   font-family: 'PT Sans Narrow', sans-serif;
@@ -21,4 +16,24 @@
 
 #did-you-know {
   font-size: 1.2em;
+}
+
+
+.small-delete {
+  font-size: 0.8em;
+  margin-top: -10px;
+  border: 1px solid #ececec !important;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.small-delete-link:hover {
+  color: red !important;
+}
+
+
+.show-header {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+  margin-top:15px;
 }
