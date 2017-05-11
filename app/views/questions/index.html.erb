@@ -5,15 +5,38 @@
     <span class="right"><%= link_to new_question_path do %><i class="fa fa-plus" aria-hidden="true"></i> ADD A Q&amp;A <% end %></span>
   </p>
 
-  <h3 class="center-align">Prep Q&amp;A</h3>
+  <h3 class="center-align" style="margin: 50px 50px">Prep Q&amp;A</h3>
 
   <% if @questions.length > 0 %>
-    <% @questions.each do |question| %>
-      <%= link_to 'Edit this question', edit_question_path(question) %>
-      <h5><%= question.prompt %></h5>
-      <p><%= question.answer %></p>
-    <% end %>
+    <ul class="collapsible" data-collapsible="expandable">
+      <% @questions.each do |question| %>
+        <% if question.prompt.size > 0 %>
+          <li>
+            <div class="collapsible-header">
+              <p style="font-size: 1.2em">
+                <span><i class="fa fa-caret-down" aria-hidden="true"></i></span><%= question.prompt %>
+                <span class="right">
+                  <%= link_to edit_question_path(question) do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <% end %>
+                </span>
+              </p>
+            </div>
+            <div class="collapsible-body">
+              <p>
+                <% if question.answer.size > 0 %>
+                  <%= simple_format(question.answer) %>
+                <% else %>
+                  Please <%= link_to 'edit', edit_question_path(question) %> your question to include a response.
+                <% end %>
+              </p>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   <% else %>
     <p class="center-align" style="margin-top: 50px">This section is meant to assist with job preparedness. Get started <%= link_to 'here', new_question_path %>.</p>
   <% end %>
+
 </div>

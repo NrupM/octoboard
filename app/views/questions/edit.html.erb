@@ -1,6 +1,6 @@
 <div class="col s12 page">
   <p>
-    <%= link_to interviews_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
+    <%= link_to questions_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <span class="right">
       <%= link_to question_path(@question), data: {title: 'Permanently delete', confirm: "Are you sure? This action cannot be undone."}, :class => 'small-delete-link', method: :delete  do %>
         <i class="fa fa-times" aria-hidden="true"></i> DELETE
