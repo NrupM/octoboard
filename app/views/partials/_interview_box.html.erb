@@ -6,7 +6,11 @@
     </div>
   </div>
   <div class = "col s12 center-align">
-    <span style="font-size: 0.8em">TOTAL INTERVIEWS</span>
+    <% if @interviewing_count == 1 %>
+      <span style="font-size: 0.8em">INTERVIEW TOTAL</span>
+    <% else %>
+      <span style="font-size: 0.8em">TOTAL INTERVIEWS</span>
+    <% end %> 
   </div>
   <div class='col s12 center-align'>
     <% if @interviewing_count > 0 %>

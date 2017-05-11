@@ -30,7 +30,11 @@
     </div>
   <% end %>
 <% else %>
-  <div class="col s12 center-align" id="resources-button">
-    <%= link_to 'ADD QUICK LINKS', edit_user_registration_path(@user), :class => 'waves-effect waves-light btn', :style => "color: white !important" %>
-  </div>
+  <% if @user.goals.count != 1 %>
+    <div class="col s12 center-align" id="resources-button">
+  <% else %>
+    <div class="col s12 center-align" style="margin-top: 75px" id="resources-button">
+  <% end %>
+      <%= link_to 'ADD QUICK LINKS', edit_user_registration_path(@user), :class => 'waves-effect waves-light btn', :style => "color: white !important" %>
+    </div>
 <% end %>

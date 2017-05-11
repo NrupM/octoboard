@@ -1,13 +1,11 @@
 <div class="col s12 page">
 
-  <%= render '/partials/flash_messages' %>
-
   <p>
     <%= link_to goals_path, :class => 'no-mobile-display' do %><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK<% end %>
     <span class="right"><%= link_to new_question_path do %><i class="fa fa-plus" aria-hidden="true"></i> ADD A Q&amp;A <% end %></span>
   </p>
 
-  <h3 class="center-align">All Questions</h3>
+  <h3 class="center-align">Prep Q&amp;A</h3>
 
   <% if @questions.length > 0 %>
     <% @questions.each do |question| %>
@@ -16,6 +14,6 @@
       <p><%= question.answer %></p>
     <% end %>
   <% else %>
-    <p class="center-align" style="margin-top: 50px">This section is meant to assist with job preparedness.</p>
+    <p class="center-align" style="margin-top: 50px">This section is meant to assist with job preparedness. Get started <%= link_to 'here', new_question_path %>.</p>
   <% end %>
 </div>
