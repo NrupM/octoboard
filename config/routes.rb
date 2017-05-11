@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   resources :questions, :except => [:show]
   resources :job_applications, :interviews
 
+  #error handling for pages that do not exist
+  get "*path" => 'goals#index'
+
 end
