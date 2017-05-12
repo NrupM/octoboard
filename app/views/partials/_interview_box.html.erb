@@ -2,29 +2,29 @@
 <div class="col s12" id="interview-numbers-box">
   <div id="myProgress">
     <div id="myBar">
-      <span style="font-size: 2em; color: #1b1212"><%= @interviewing_count %></span>
+      <span style="font-size: 2em; color: #1b1212"><%= @interviews.count %></span>
     </div>
   </div>
   <div class = "col s12 center-align">
-    <% if @interviewing_count == 1 %>
+    <% if @interviews.count == 1 %>
       <span style="font-size: 0.8em">INTERVIEW TOTAL</span>
     <% else %>
       <span style="font-size: 0.8em">TOTAL INTERVIEWS</span>
     <% end %>
   </div>
   <div class='col s12 center-align'>
-    <% if @interviewing_count > 0 %>
+    <% if @interviews.count > 0 %>
       <% if @inperson_ints == 0 && @online_ints == 0 && @phone_ints > 0 %>
-        <p class="motivational1">You're making progress!</p>
+        <p class="motivational-big">You're making progress!</p>
       <% elsif @inperson_ints == 0 && @online_ints > 0 %>
-        <p class="motivational1">Things are looking good!</p>
+        <p class="motivational-big">Things are looking good!</p>
       <% elsif @inperson_ints > 0 %>
-        <p class="motivational2">You're very close to scoring that job!</p>
+        <p class="motivational2-small">You're very close to scoring that job!</p>
       <% end %>
     <% else %>
-        <p class="motivational2">You'll be interviewing soon enough.</p>
+        <p class="motivational2-small">You'll be interviewing soon enough.</p>
     <% end %>
-    <p style="font-size: 0.9em">Practice interview questions <%= link_to 'now', questions_path %>.</p>
+    <p style="font-size: 0.9em; margin-bottom: 0">Practice interview questions <%= link_to 'now', questions_path %>.</p>
   </div>
   <div class="col s12" style="margin-top: 8px">
     <p>PHONE <span class="teal-theme right"><%= @phone_ints %></span></p>

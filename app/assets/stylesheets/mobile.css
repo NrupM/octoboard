@@ -3,7 +3,7 @@
   #profile-img {
     width: 80px;
   }
-  
+
   .page {
     margin-top: 10px !important;
   }
@@ -64,4 +64,8 @@
     margin-bottom: 0 !important;
   }
 
+  #interview-box {
+    height: 315px;
+  }
+  
 }
