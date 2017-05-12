@@ -75,11 +75,13 @@ input:-webkit-autofill:active {
 
 
 .login-form {
-  width: 70% !important;
+  width: 80% !important;
   border-radius: 4px !important;
   padding-left: 12px !important;
   background-color: white !important;
   color: black !important;
+  height: 40px !important;
+  line-height: 40px !important;
 }
 
 .page {

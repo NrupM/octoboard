@@ -54,5 +54,4 @@ $( document ).on('turbolinks:load', function() {
     $("input[type='password']").attr('disabled', false);
   });
 
-
 });

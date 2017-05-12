@@ -1,5 +1,6 @@
 <div class='col l12 m12 s12'>
   <div class="container">
+    <%= devise_error_messages! %>
     <div class="col s8 offset-s2 z-depth-5 center-align" id="signup">
       <div class="col s12" id="login-header">
         <img src="https://s-media-cache-ak0.pinimg.com/originals/94/a0/b6/94a0b65dcdf1572558ac1329c193e108.png" width="100px">
@@ -7,18 +8,20 @@
       </div>
       <div class="col s12" id="login-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
-          <div class="field">
-            <%= f.label :job_status, 'Employment Status' %><br />
-            <%= f.select :job_status, User.job_statuses.map { |key, value| [key.humanize, key] }, :prompt => "---", :required => true, :class =>'login-form' %>
-          </div>
+          <span style="color:red">* </span><%= f.label :job_status, 'Employment Status' %>
+          <div class="field login-form" style="margin: 0 auto; margin-bottom: 20px; width: 82% !important">
+            <span class="left"><%= f.radio_button :job_status, 'seeking', :required => true %>
+              <%= f.label 'job_status_seeking', 'Seeking', :style=>'padding-left: 28px' %></span>
+              <span class="right"style="padding-right: 10px"><%= f.radio_button :job_status, 'employed', :required => true %>
+                <%= f.label 'job_status_employed', 'Employed', :style=>'padding-left: 28px' %></span>
+              </div>
           <div class="field">
             <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, autofocus: true, :required => true, :class =>'login-form' %>
+            <%= f.text_field :first_name, :required => true, :class =>'login-form' %>
           </div>
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, :required => true, :class =>'login-form' %>
+            <%= f.email_field :email, :required => true, :class =>'login-form' %>
           </div>
           <div class="field">
             <%= f.label :password %>
@@ -32,7 +35,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", :required => true, :class =>'login-form' %>
           </div>
           <div class="actions">
-            <%= f.submit "SIGN UP", :class => 'waves-effect waves-light btn z-depth-2', :style=>'width: 72%; background-color: grey; margin-top: 20px;' %>
+            <%= f.submit "SIGN UP", :class => 'waves-effect waves-light btn z-depth-2', :style=>'width: 82%; background-color: grey; margin-top: 10px;' %>
           </div><br />
         <% end %>
         <span>Already have an account? <%= render "devise/shared/links" %></span>
