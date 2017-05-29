@@ -17,15 +17,17 @@
 $( document ).on('turbolinks:load', function() {
 
   //progressBar script
-  var elem = document.getElementById("myBar");
-  var width = 1;
-  var id = setInterval(frame, 8);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
+  if (document.getElementById("myBar")) {
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 8);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+      }
     }
   }
 
