@@ -31,11 +31,13 @@ $( document ).on('turbolinks:load', function() {
     }
   }
 
-  $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav();
   $('select').material_select();
   $('.collapsible').collapsible();
-  $('#textarea1').val('New Text');
-  $('#textarea1').trigger('autoresize');
+  $('.materialize-textarea').val(' ');
+  $('.materialize-textarea').trigger('autoresize');
+  $('input#input_text, textarea#textarea1').characterCounter();
+
 
   //datepicker for applications and interviews (allow past entries)
   $('.datepicker').pickadate({
