@@ -34,8 +34,6 @@ $( document ).on('turbolinks:load', function() {
   $('.button-collapse').sideNav();
   $('select').material_select();
   $('.collapsible').collapsible();
-  $('.materialize-textarea').val(' ');
-  $('.materialize-textarea').trigger('autoresize');
 
 
   //datepicker for applications and interviews (allow past entries)
