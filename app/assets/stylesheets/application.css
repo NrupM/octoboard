@@ -41,6 +41,19 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px white inset !important;
 }
 
+
+input[type=text].searchInput {
+  width: 234px;
+  font-size: 1rem;
+  padding-left: 3rem;
+  margin: 0;
+}
+
+input[type=text].searchInput:focus {
+  border-bottom: 0;
+  box-shadow: none;
+}
+
 #login {
   background-color: #171717;
   border-radius: 4px;

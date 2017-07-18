@@ -1,6 +1,10 @@
-<div class="col-s12">
+<div class="col s12">
   <ul id="slide-out" style="background-color:#2B2B2B; overflow-y: visible !important;" class="side-nav fixed" >
-    <div class="col s12 center-align"><%= link_to goals_path do %><img src='https://s-media-cache-ak0.pinimg.com/originals/94/a0/b6/94a0b65dcdf1572558ac1329c193e108.png' style="width:110px; margin-top: 25px"><% end %></div>
+    <div class="col s12 center-align">
+      <%= link_to goals_path do %>
+        <img src='https://s-media-cache-ak0.pinimg.com/originals/94/a0/b6/94a0b65dcdf1572558ac1329c193e108.png' style="width:110px; margin-top: 25px">
+      <% end %>
+    </div>
     <li class="center-align teal-theme"><p>OCTOBOARD</p></li>
     <li><%= render 'partials/search_bar' %></li>
     <li><%= link_to job_applications_path do %><i class="fa fa-file-text nav-i" aria-hidden="true"></i> APPLICATIONS<% end %></li>
